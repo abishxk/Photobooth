@@ -7,13 +7,13 @@ import type {
 } from '../types';
 
 const DEFAULT_SETTINGS: BoothSettings = {
-  colorMode: 'color',
+  colorMode: 'monochrome',
   interval: 3,
   showCountdown: true,
   showTimestamp: false,
-  photoCount: 4,
+  photoCount: 3,
   stripStyle: 'white',
-  roundedEdges: true,
+  roundedEdges: false,
 };
 
 const DEFAULT_STATE: SessionState = {

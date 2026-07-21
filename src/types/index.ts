@@ -1,6 +1,6 @@
 // Session types for the Vintage Photo Booth app
 
-export type ColorMode = 'color' | 'monochrome' | 'retro';
+export type ColorMode = 'monochrome' | 'retro';
 export type IntervalSeconds = 2 | 3 | 5 | 8;
 export type SessionPhase = 'landing' | 'settings' | 'capture' | 'result';
 export type PhotoCount = 2 | 3 | 4 | 6;

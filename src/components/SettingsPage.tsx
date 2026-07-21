@@ -1,16 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Camera, ArrowLeft, Eye, Clock, Timer, Calendar, ImagePlus, Layers, Scan } from 'lucide-react';
+import { Camera, ArrowLeft, Eye, Clock, Timer, Calendar, Layers } from 'lucide-react';
 import { useSession } from '../context/SessionProvider';
 import PageDecorations from './PageDecorations';
-import type { ColorMode, IntervalSeconds, PhotoCount, StripStyle } from '../types';
+import type { ColorMode, IntervalSeconds, StripStyle } from '../types';
 
-const PHOTO_COUNTS: { count: PhotoCount; label: string; sub: string }[] = [
-  { count: 2, label: '2', sub: 'Mini' },
-  { count: 3, label: '3', sub: 'Classic' },
-  { count: 4, label: '4', sub: 'Strip' },
-  { count: 6, label: '6', sub: 'Party' },
-];
 const INTERVALS: IntervalSeconds[] = [2, 3, 5, 8];
 const STRIP_STYLES: { value: StripStyle; label: string; sub: string }[] = [
   { value: 'white', label: 'White', sub: 'Classic' },
@@ -54,7 +48,7 @@ export default function SettingsPage() {
           </motion.button>
 
           <div className="font-handwritten text-3xl font-bold text-ink-900 leading-none">
-            Photo<span className="text-amber-vintage">Booth</span>
+            RETRO<span className="text-amber-vintage">MATICA</span>
           </div>
 
           {/* Spacer to balance back button */}
@@ -71,11 +65,6 @@ export default function SettingsPage() {
           <CompactRow icon={<Eye size={12} />} label="Color">
             <div className="flex gap-1.5">
               <Chip
-                id="color-btn"
-                active={settings.colorMode === 'color'}
-                onClick={() => updateSettings({ colorMode: 'color' as ColorMode })}
-              >Color</Chip>
-              <Chip
                 id="mono-btn"
                 active={settings.colorMode === 'monochrome'}
                 onClick={() => updateSettings({ colorMode: 'monochrome' as ColorMode })}
@@ -91,24 +80,7 @@ export default function SettingsPage() {
 
           <Divider />
 
-          {/* Photo Count */}
-          <CompactRow icon={<ImagePlus size={12} />} label="Photos">
-            <div className="flex gap-1.5">
-              {PHOTO_COUNTS.map(({ count, label, sub }) => (
-                <Chip
-                  key={count}
-                  id={`count-${count}`}
-                  active={settings.photoCount === count}
-                  onClick={() => updateSettings({ photoCount: count as PhotoCount })}
-                  subtitle={sub}
-                >
-                  {label}
-                </Chip>
-              ))}
-            </div>
-          </CompactRow>
 
-          <Divider />
 
           {/* Interval */}
           <CompactRow icon={<Clock size={12} />} label="Interval">
@@ -172,18 +144,7 @@ export default function SettingsPage() {
               <DisabledToggle id="timestamp-toggle-disabled" icon={<Calendar size={11} />} label="Timestamp" />
             )}
 
-            {/* Rounded edges */}
-            {settings.stripStyle !== 'film' ? (
-              <ToggleChip
-                id="rounded-toggle"
-                icon={<Scan size={11} />}
-                label="Rounded"
-                checked={settings.roundedEdges}
-                onToggle={() => updateSettings({ roundedEdges: !settings.roundedEdges })}
-              />
-            ) : (
-              <DisabledToggle id="rounded-toggle-disabled" icon={<Scan size={11} />} label="Rounded" />
-            )}
+
           </div>
         </div>
 
@@ -194,8 +155,8 @@ export default function SettingsPage() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
-          {settings.photoCount} photos · {settings.interval}s apart ·{' '}
-          {settings.colorMode === 'monochrome' ? 'B&W' : 'Color'}
+          {settings.interval}s apart ·{' '}
+          {settings.colorMode === 'monochrome' ? 'B&W' : 'Retro'}
           {settings.showCountdown ? ' · Countdown on' : ''}
         </motion.p>
 
@@ -216,7 +177,7 @@ export default function SettingsPage() {
         </motion.button>
 
         <p className="text-center text-ink-600 font-sans text-[11px] flex-shrink-0">
-          {settings.photoCount} shots will be taken automatically
+          3 shots will be taken automatically
         </p>
 
       </div>

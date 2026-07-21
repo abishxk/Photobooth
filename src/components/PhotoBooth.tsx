@@ -104,7 +104,7 @@ const PhotoBooth = forwardRef<Webcam, PhotoBoothProps>(
             {/* ── BANNER — single line ── */}
             <path d="M 118,23 L 322,23 L 330,38 L 322,53 L 118,53 L 110,38 Z" fill="#FFF0F8" opacity="0.92" />
             <path d="M 118,23 L 322,23 L 330,38 L 322,53 L 118,53 L 110,38 Z" fill="none" stroke="#E890B8" strokeWidth="1.5" />
-            <text x="220" y="43" textAnchor="middle" fontFamily="Georgia, serif" fontSize="13" fill="#C0508A" fontStyle="italic" fontWeight="bold" letterSpacing="2">Photobooth</text>
+            <text x="220" y="43" textAnchor="middle" fontFamily="Georgia, serif" fontSize="13" fill="#C0508A" fontStyle="italic" fontWeight="bold" letterSpacing="2">RETROMATICA</text>
 
             {/* ── LEFT COLUMN DECORATIONS ── */}
             {/* Flower 1 */}

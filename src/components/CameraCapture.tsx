@@ -53,7 +53,6 @@ export default function CameraCapture() {
   const captureStarted = useRef(false);
 
   const applyColorFilter = useCallback(async (dataUrl: string): Promise<string> => {
-    if (settings.colorMode === 'color') return dataUrl;
 
     return new Promise(resolve => {
       const img = new Image();
@@ -265,7 +264,7 @@ export default function CameraCapture() {
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-3 border-b border-sepia-200 flex-shrink-0">
         <div className="font-handwritten text-xl font-bold text-ink-800">
-          Photo<span className="text-amber-vintage">Booth</span>
+          RETRO<span className="text-amber-vintage">MATICA</span>
         </div>
         <div className="flex gap-2 items-center">
           {Array.from({ length: settings.photoCount }).map((_, i) => (
