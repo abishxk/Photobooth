@@ -113,7 +113,13 @@ export default function CameraCapture() {
         }
 
         ctx.putImageData(imageData, 0, 0);
-        resolve(canvas.toDataURL('image/jpeg', 0.92));
+        const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
+        
+        // Force immediate graphics memory release on iOS Safari
+        canvas.width = 0;
+        canvas.height = 0;
+        
+        resolve(dataUrl);
       };
       img.src = dataUrl;
     });
@@ -123,8 +129,8 @@ export default function CameraCapture() {
     const video = webcamRef.current?.video;
     if (!video || video.readyState < 2) return null;
 
-    const outW = 1080;
-    const outH = 1440;
+    const outW = 720;
+    const outH = 960;
 
     const vw = video.videoWidth;
     const vh = video.videoHeight;
@@ -158,7 +164,15 @@ export default function CameraCapture() {
 
     // Now crop from the temporary canvas (which is safe) to the final canvas
     ctx.drawImage(tempCanvas, sx, sy, sw, sh, 0, 0, outW, outH);
-    return canvas.toDataURL('image/jpeg', 0.92);
+    const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
+    
+    // Force immediate graphics memory release on iOS Safari
+    tempCanvas.width = 0;
+    tempCanvas.height = 0;
+    canvas.width = 0;
+    canvas.height = 0;
+    
+    return dataUrl;
   }, []);
 
   const runCaptureLoop = useCallback(async () => {
