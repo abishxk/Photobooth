@@ -126,31 +126,38 @@ export default function CameraCapture() {
     const outW = 1080;
     const outH = 1440;
 
+    const vw = video.videoWidth;
+    const vh = video.videoHeight;
+    if (!vw || !vh) return null;
+
+    // Safari has a hardware-acceleration bug when using drawImage with 9 arguments directly on a <video>.
+    // Workaround: Draw the video to a temporary canvas at its native resolution using 5 arguments.
+    const tempCanvas = document.createElement('canvas');
+    tempCanvas.width = vw;
+    tempCanvas.height = vh;
+    const tempCtx = tempCanvas.getContext('2d')!;
+    tempCtx.drawImage(video, 0, 0, vw, vh);
+
     const canvas = document.createElement('canvas');
     canvas.width = outW;
     canvas.height = outH;
     const ctx = canvas.getContext('2d')!;
     
-    const vw = video.videoWidth;
-    const vh = video.videoHeight;
-    if (!vw || !vh) return null;
-
     const videoRatio = vw / vh;
     const targetRatio = outW / outH;
     
     let sx = 0, sy = 0, sw = vw, sh = vh;
     
     if (videoRatio > targetRatio) {
-      // Source video is wider, crop sides
       sw = vh * targetRatio;
       sx = (vw - sw) / 2;
     } else {
-      // Source video is taller, crop top/bottom
       sh = vw / targetRatio;
       sy = (vh - sh) / 2;
     }
 
-    ctx.drawImage(video, sx, sy, sw, sh, 0, 0, outW, outH);
+    // Now crop from the temporary canvas (which is safe) to the final canvas
+    ctx.drawImage(tempCanvas, sx, sy, sw, sh, 0, 0, outW, outH);
     return canvas.toDataURL('image/jpeg', 0.92);
   }, []);
 
