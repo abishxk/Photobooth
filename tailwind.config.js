@@ -8,7 +8,8 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
-        handwritten: ['Caveat', 'cursive'],
+        vintage: ['Playfair Display', 'serif'],
+        typewriter: ['Special Elite', 'monospace'],
       },
       colors: {
         paper: {
@@ -16,6 +17,12 @@ export default {
           100: '#faf7f0',
           200: '#f5efe0',
           300: '#ede3cc',
+        },
+        wood: {
+          900: '#140a05',
+          800: '#2A1608',
+          700: '#3D2210',
+          600: '#56331A',
         },
         ink: {
           900: '#1a1209',

@@ -146,8 +146,8 @@ const PhotoStrip = forwardRef<HTMLDivElement, PhotoStripProps>(
               zIndex: 2,
               marginTop: 12,
               textAlign: 'center',
-              fontFamily: "'Caveat', cursive",
-              fontSize: 13,
+              fontFamily: "'Special Elite', monospace",
+              fontSize: 16,
               color: stampColor,
               letterSpacing: 0.5,
             }}

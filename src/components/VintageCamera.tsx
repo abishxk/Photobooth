@@ -62,7 +62,7 @@ const VintageCamera = forwardRef<Webcam, VintageCameraProps>(
 
             {/* Brand label */}
             <rect x="144" y="124" width="120" height="22" rx="5" fill="#5a4433" />
-            <text x="204" y="139" textAnchor="middle" fontFamily="serif" fontSize="11" fill="#d4a853" fontWeight="bold" letterSpacing="2">PHOTO BOOTH</text>
+            <text x="204" y="139" textAnchor="middle" fontFamily="serif" fontSize="11" fill="#d4a853" fontWeight="bold" letterSpacing="2">RETROMATICA</text>
 
             {/* Shutter button */}
             <circle cx="392" cy="132" r="16" fill="#d4a853" />

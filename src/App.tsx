@@ -10,7 +10,7 @@ function AppInner() {
 
   return (
     // overflow-hidden prevents any flash of scrollbar during transitions
-    <div className="relative min-h-[100dvh] overflow-hidden bg-paper-100">
+    <div className="relative min-h-[100dvh] overflow-hidden">
       <AnimatePresence mode="wait">
         {phase === 'landing'  && <LandingPage   key="landing"  />}
         {phase === 'settings' && <SettingsPage  key="settings" />}

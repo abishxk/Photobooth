@@ -16,8 +16,8 @@
   }
 
   body {
-    background-color: #faf7f0;
-    color: #2c2018;
+    background-color: #1b0805;
+    color: #e8d5b5;
     font-family: 'Inter', system-ui, sans-serif;
     min-height: 100vh;
     min-height: -webkit-fill-available;
@@ -26,8 +26,16 @@
     /* Prevent iOS text size adjustment */
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    /* Subtle paper texture */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    /* Dark, Moody Vintage Wallpaper Background */
+    background-color: #1a0a05;
+    background-image: 
+      /* Deep vignette focusing on the booth */
+      radial-gradient(circle at 50% 40%, rgba(180, 120, 60, 0.15) 0%, rgba(10, 3, 2, 0.95) 90%),
+      /* Very subtle 1950s geometric wallpaper pattern */
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpath d='M30 5 L35 25 L55 30 L35 35 L30 55 L25 35 L5 30 L25 25 Z' fill='%23220d07'/%3E%3Ccircle cx='30' cy='30' r='2' fill='%23553311' opacity='0.3'/%3E%3C/svg%3E"),
+      /* Cinematic film grain/noise */
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.12'/%3E%3C/svg%3E");
+    background-attachment: fixed;
   }
 
   /* Prevent double-tap zoom on buttons */
@@ -43,34 +51,37 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-ink-800 text-paper-100 font-handwritten text-xl font-semibold px-8 py-4 rounded-2xl
-           shadow-vintage transition-all duration-200
+    @apply bg-wood-700 text-sepia-100 font-vintage text-xl font-bold px-8 py-4 rounded-2xl
+           border border-amber-vintage/30 shadow-vintage transition-all duration-200
            active:scale-95 active:shadow-none active:translate-x-0.5 active:translate-y-0.5
-           hover:bg-ink-700 hover:shadow-none hover:translate-x-1 hover:translate-y-1
+           hover:bg-wood-600 hover:shadow-none hover:translate-x-1 hover:translate-y-1
            focus:outline-none focus:ring-2 focus:ring-amber-vintage focus:ring-offset-2
-           focus:ring-offset-paper-100
+           focus:ring-offset-wood-800
            disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100;
     /* Ensure tap target is at least 48px tall on mobile */
     min-height: 48px;
   }
 
   .btn-secondary {
-    @apply bg-paper-100 text-ink-800 font-handwritten text-lg font-semibold px-6 py-3 rounded-xl
-           border-2 border-ink-800 shadow-vintage transition-all duration-200
+    @apply bg-wood-800 text-sepia-200 font-vintage text-lg font-bold px-6 py-3 rounded-xl
+           border-2 border-sepia-300 shadow-vintage transition-all duration-200
            active:scale-95 active:shadow-none active:translate-x-0.5 active:translate-y-0.5
-           hover:shadow-none hover:translate-x-1 hover:translate-y-1
+           hover:shadow-none hover:translate-x-1 hover:translate-y-1 hover:border-amber-vintage hover:text-amber-vintage
            focus:outline-none focus:ring-2 focus:ring-amber-vintage;
     min-height: 48px;
   }
 
   .card {
-    @apply bg-paper-100 rounded-3xl border border-sepia-200 shadow-strip;
+    @apply bg-wood-800/80 rounded-3xl border border-wood-600 shadow-strip;
   }
 }
 
 @layer utilities {
-  .font-handwritten {
-    font-family: 'Caveat', cursive;
+  .font-vintage {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-typewriter {
+    font-family: 'Special Elite', monospace;
   }
 }
 
@@ -106,68 +117,7 @@
   transform: rotate(-0.5deg);
 }
 
-/* ── TOGGLE OPTION ── */
-.toggle-option {
-  @apply cursor-pointer px-4 py-2 rounded-xl font-handwritten text-lg font-semibold
-         transition-all duration-200 border-2 border-transparent select-none
-         active:scale-95;
-  min-height: 44px;
-}
-.toggle-option.active {
-  @apply bg-ink-800 text-paper-100 border-ink-800;
-}
-.toggle-option:not(.active) {
-  @apply text-ink-600 border-sepia-200 hover:border-ink-800 hover:text-ink-800;
-}
 
-/* ── INTERVAL BUTTON ── */
-.interval-btn {
-  @apply cursor-pointer px-3 py-2 rounded-xl font-handwritten text-lg font-semibold
-         transition-all duration-200 border-2 border-sepia-200 text-ink-600
-         hover:border-ink-800 hover:text-ink-800 select-none active:scale-95;
-  min-height: 44px;
-}
-.interval-btn.active {
-  @apply bg-amber-vintage text-ink-800 border-amber-vintage shadow-vintage;
-}
-
-/* ── CUSTOM SCROLLBAR (desktop) ── */
-@media (pointer: fine) {
-  ::-webkit-scrollbar {
-    width: 6px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #faf7f0;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #d4b896;
-    border-radius: 3px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #b89060;
-  }
-}
-
-/* ── FLOATING HEARTS (cute decoration) ── */
-@keyframes floatHeart {
-  0%   { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.7; }
-  50%  { transform: translateY(-18px) rotate(8deg) scale(1.1); opacity: 1; }
-  100% { transform: translateY(0) rotate(-4deg) scale(1); opacity: 0.7; }
-}
-
-.floating-heart {
-  animation: floatHeart 3s ease-in-out infinite;
-  will-change: transform;
-}
-
-/* ── SPARKLE PULSE ── */
-@keyframes sparklePulse {
-  0%, 100% { transform: scale(1) rotate(0deg); opacity: 0.8; }
-  50%       { transform: scale(1.3) rotate(20deg); opacity: 1; }
-}
-.sparkle-pulse {
-  animation: sparklePulse 2s ease-in-out infinite;
-}
 
 /* ── STRIP SLIDE-UP ENTRANCE ── */
 @keyframes stripSlideUp {

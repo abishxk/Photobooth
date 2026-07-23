@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSession } from '../context/SessionProvider';
 import PhotoBooth from './PhotoBooth';
-import PageDecorations from './PageDecorations';
 
 /** ms to wait for the overlay to fully cover the screen before navigating */
 const TRANSITION_MS = 320;
@@ -32,7 +31,7 @@ export default function LandingPage() {
 
   return (
     <motion.div
-      className="min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden bg-paper-100"
+      className="min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden"
       style={{
         paddingTop: 'env(safe-area-inset-top)',
         paddingBottom: 'env(safe-area-inset-bottom)',
@@ -43,28 +42,7 @@ export default function LandingPage() {
       exit={{ opacity: 0, transition: { duration: 0.15 } }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* ── AMBIENT BACKGROUND GLOWS ── */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden>
-        {[
-          { x: '8%',  y: '12%', size: 140, delay: 0   },
-          { x: '80%', y: '7%',  size: 100, delay: 0.4 },
-          { x: '5%',  y: '76%', size: 110, delay: 0.8 },
-          { x: '84%', y: '80%', size: 95,  delay: 0.2 },
-        ].map((dot, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              left: dot.x, top: dot.y,
-              width: dot.size, height: dot.size,
-              background: 'radial-gradient(circle, #F4C0D8 0%, transparent 70%)',
-              opacity: 0.2,
-            }}
-            animate={{ scale: [1, 1.12, 1], opacity: [0.2, 0.28, 0.2] }}
-            transition={{ duration: 4 + i, repeat: Infinity, delay: dot.delay, ease: 'easeInOut' }}
-          />
-        ))}
-      </div>
+      {/* ── AMBIENT BACKGROUND GLOWS REMOVED FOR MOODY VIBE ── */}
 
       {/* ── PHOTOBOOTH (click / tap target) ── */}
       <motion.button
@@ -90,7 +68,7 @@ export default function LandingPage() {
         {/* Pulsing glow ring */}
         <motion.div
           className="absolute inset-0 rounded-3xl pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse, #F9CEDF 0%, transparent 68%)' }}
+          style={{ background: 'radial-gradient(ellipse, #d4a853 0%, transparent 68%)' }}
           animate={{ scale: [1, 1.06, 1], opacity: [0.45, 0.75, 0.45] }}
           transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
         />
@@ -110,24 +88,20 @@ export default function LandingPage() {
         >
           <div className="flex flex-col items-center gap-1 mb-1">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-              <path d="M10 16 L10 4 M4 10 L10 4 L16 10" stroke="#E8639B" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M10 16 L10 4 M4 10 L10 4 L16 10" stroke="#d4a853" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <p className="font-handwritten text-2xl font-bold text-ink-900">
+            <p className="font-vintage text-2xl font-bold text-sepia-200">
               Tap to enter
             </p>
           </div>
         </motion.div>
-        <motion.p
-          className="text-ink-600 text-xs font-sans"
-          animate={{ opacity: [0.6, 1, 0.6] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          Tap the booth to start your session
-        </motion.p>
+
       </motion.div>
 
-      {/* ── SHARED FLOATING DECORATIONS ── */}
-      <PageDecorations intensity={0.75} />
+      {/* Ambient particles instead of cute decorations */}
+      <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.5 }}>
+        {/* We just removed the PageDecorations entirely for the moody look */}
+      </div>
 
       {/* ── ENTER OVERLAY (opacity-only — GPU compositor, zero rasterisation cost) ── */}
       <AnimatePresence>

@@ -8,15 +8,9 @@ interface PhotoBoothProps {
 }
 
 /**
- * Cute modern photobooth illustration — pink & blush, white flowy curtains,
- * pink bows, fairy lights, flowers, hearts and stars.
- *
- * viewBox 440 × 400
- * Webcam preview window:
- *   left:   115/440 = 26.1%
- *   top:    70/400  = 17.5%
- *   width:  210/440 = 47.7%
- *   height: 254/400 = 63.5%
+ * 1950s Photoautomat - Fully Wooden Vintage Build.
+ * Features textured wood grain framing, eliminating metallic elements 
+ * for an authentic, premium wooden aesthetic.
  */
 const PhotoBooth = forwardRef<Webcam, PhotoBoothProps>(
   ({ showLive = false }, ref) => {
@@ -28,200 +22,303 @@ const PhotoBooth = forwardRef<Webcam, PhotoBoothProps>(
       facingMode: 'user',
     };
 
-    const lightColors = ['#FFD6E7', '#FFEC99', '#D9C2FF', '#B8E8FF', '#FFD6E7', '#FFEC99', '#D9C2FF', '#B8E8FF', '#FFD6E7'];
-
     return (
       <div className="relative flex items-center justify-center w-full select-none">
         <motion.div
           className="relative w-full"
-          style={{ maxWidth: 440 }}
+          style={{ maxWidth: 380 }}
           initial={{ y: 18, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }}
         >
           <svg
-            viewBox="0 0 440 400"
+            viewBox="0 0 340 460"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-full"
-            aria-label="Cute pink photo booth"
+            className="w-full drop-shadow-2xl"
+            aria-label="Vintage Wooden Photoautomat"
           >
             <defs>
-              <linearGradient id="frameGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#FDE8F3" />
-                <stop offset="55%" stopColor="#F9CEDF" />
-                <stop offset="100%" stopColor="#F4AAC8" />
+              {/* ── RICH WOOD COLOR GRADIENTS ── */}
+              
+              <linearGradient id="walnutWood" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#4A2616" />
+                <stop offset="50%" stopColor="#3A1C0E" />
+                <stop offset="100%" stopColor="#220F06" />
               </linearGradient>
-              <linearGradient id="colGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#F0A0C0" />
-                <stop offset="100%" stopColor="#F9CEDF" />
+
+              <linearGradient id="trimWood" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#2E160A" />
+                <stop offset="100%" stopColor="#140803" />
               </linearGradient>
-              <linearGradient id="colGradR" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#F9CEDF" />
-                <stop offset="100%" stopColor="#F0A0C0" />
+
+              <linearGradient id="lightWood" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#8C5C38" />
+                <stop offset="100%" stopColor="#5E371C" />
               </linearGradient>
-              <linearGradient id="curtainL" x1="1" y1="0" x2="0" y2="0">
-                <stop offset="0%" stopColor="#FFF5FA" />
-                <stop offset="100%" stopColor="#FFD6E8" />
+
+              <linearGradient id="creamAcrylic" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#FFFFFF" />
+                <stop offset="50%" stopColor="#FFFDF5" />
+                <stop offset="100%" stopColor="#F5E8C9" />
               </linearGradient>
-              <linearGradient id="curtainR" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stopColor="#FFF5FA" />
-                <stop offset="100%" stopColor="#FFD6E8" />
+
+              <linearGradient id="amberGlass" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#F9D490" stopOpacity="0.85" />
+                <stop offset="100%" stopColor="#D99E45" stopOpacity="0.5" />
               </linearGradient>
-              <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
-                <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur" />
+
+              <linearGradient id="velvetFold" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stopColor="#200308" />
+                <stop offset="35%" stopColor="#800014" />
+                <stop offset="70%" stopColor="#D4384B" />
+                <stop offset="90%" stopColor="#800014" />
+                <stop offset="100%" stopColor="#200308" />
+              </linearGradient>
+
+              <linearGradient id="wornLeather" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor="#2A2A2A" />
+                <stop offset="30%" stopColor="#1A1A1A" />
+                <stop offset="100%" stopColor="#0D0D0D" />
+              </linearGradient>
+
+              <linearGradient id="mirrorGlass" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
+                <stop offset="40%" stopColor="#e2e8f0" stopOpacity="0.3" />
+                <stop offset="60%" stopColor="#cbd5e1" stopOpacity="0.1" />
+                <stop offset="100%" stopColor="#475569" stopOpacity="0.6" />
+              </linearGradient>
+
+              <radialGradient id="incandescentLeak" cx="0.5" cy="0.4" r="0.6">
+                <stop offset="0%" stopColor="#FFE58F" stopOpacity="0.75" />
+                <stop offset="50%" stopColor="#D97A2E" stopOpacity="0.25" />
+                <stop offset="100%" stopColor="#1A0A04" stopOpacity="0" />
+              </radialGradient>
+
+              {/* ── SHADOWS & TEXTURE FILTERS ── */}
+              
+              <filter id="woodTexture">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015 0.35" numOctaves="3" result="woodNoise" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0" in="woodNoise" result="coloredNoise" />
+                <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="textured" />
+                <feBlend mode="multiply" in="textured" in2="SourceGraphic" />
+              </filter>
+
+              <filter id="woodWithShadow" x="-10%" y="-10%" width="120%" height="120%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015 0.35" numOctaves="3" result="woodNoise" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0" in="woodNoise" result="coloredNoise" />
+                <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="textured" />
+                <feBlend mode="multiply" in="textured" in2="SourceGraphic" result="woodOut" />
+                <feDropShadow dx="0" dy="12" stdDeviation="15" floodColor="#000" floodOpacity="0.6" in="woodOut" />
+              </filter>
+
+              <filter id="woodWithInnerBevel" x="-5%" y="-5%" width="110%" height="110%">
+                <feTurbulence type="fractalNoise" baseFrequency="0.015 0.35" numOctaves="3" result="woodNoise" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.22 0" in="woodNoise" result="coloredNoise" />
+                <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="textured" />
+                <feBlend mode="multiply" in="textured" in2="SourceGraphic" result="woodOut" />
+                <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#000" floodOpacity="0.85" in="woodOut" />
+              </filter>
+              
+              <filter id="sharpDropShadow" x="-5%" y="-5%" width="110%" height="110%">
+                <feDropShadow dx="0" dy="4" stdDeviation="4" floodColor="#000" floodOpacity="0.6" />
+              </filter>
+
+              <filter id="innerBevel">
+                <feDropShadow dx="0" dy="2" stdDeviation="2" floodColor="#000" floodOpacity="0.8" />
+              </filter>
+
+              <filter id="glowTransom" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="2.5" result="blur" />
                 <feMerge>
                   <feMergeNode in="blur" />
                   <feMergeNode in="SourceGraphic" />
                 </feMerge>
               </filter>
-              <filter id="frameShadow" x="-5%" y="-5%" width="110%" height="115%">
-                <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor="#E070A0" floodOpacity="0.14" />
+
+              <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+
+              <filter id="innerShadow">
+                <feOffset dx="0" dy="4"/>
+                <feGaussianBlur stdDeviation="6" result="offset-blur"/>
+                <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
+                <feFlood floodColor="black" floodOpacity="0.95" result="color"/>
+                <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
+                <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+              </filter>
+
+              <filter id="velvetTexture">
+                <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" result="noise" />
+                <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.15 0" in="noise" result="coloredNoise" />
+                <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="textured" />
+                <feBlend mode="multiply" in="textured" in2="SourceGraphic" />
               </filter>
             </defs>
 
-            {/* Floor shadow */}
-            <ellipse cx="220" cy="396" rx="180" ry="5.5" fill="#E8A0C0" opacity="0.18" />
+            {/* ── BACKGROUND ── */}
+            <rect x="0" y="0" width="340" height="460" fill="#0A0604" />
+            
+            {/* ── WOODEN CABINETRY FRAME ── */}
+            <rect x="15" y="10" width="310" height="440" rx="4" fill="url(#walnutWood)" filter="url(#woodWithShadow)" />
+            {/* Dark wood outer trim (replacing chrome) */}
+            <rect x="15" y="10" width="310" height="440" rx="4" fill="none" stroke="url(#trimWood)" strokeWidth="3" opacity="0.9" />
+            <rect x="22" y="17" width="296" height="426" rx="2" fill="none" stroke="url(#trimWood)" strokeWidth="1" opacity="0.8" />
 
-            {/* ── MAIN FRAME ── */}
-            <rect x="24" y="10" width="392" height="380" rx="30" fill="url(#frameGrad)" filter="url(#frameShadow)" />
-            <rect x="24" y="10" width="392" height="380" rx="30" fill="none" stroke="#E8A0C0" strokeWidth="2" />
-            <rect x="32" y="18" width="376" height="364" rx="24" fill="none" stroke="#F4C0D8" strokeWidth="1.2" strokeDasharray="5 4" />
-
-            {/* ── LEFT COLUMN ── */}
-            <rect x="24" y="10" width="92" height="380" rx="30" fill="url(#colGrad)" />
-            <rect x="60" y="10" width="56" height="380" fill="url(#colGrad)" />
-
-            {/* ── RIGHT COLUMN ── */}
-            <rect x="324" y="10" width="92" height="380" rx="30" fill="url(#colGradR)" />
-            <rect x="324" y="10" width="56" height="380" fill="url(#colGradR)" />
-
-            {/* ── TOP HEADER ── */}
-            <rect x="24" y="10" width="392" height="62" rx="30" fill="#F4AAC8" />
-            <rect x="24" y="40" width="392" height="32" fill="#F4AAC8" />
-            <rect x="24" y="62" width="392" height="6" fill="#E890B8" opacity="0.45" />
-
-            {/* ── BANNER — single line ── */}
-            <path d="M 118,23 L 322,23 L 330,38 L 322,53 L 118,53 L 110,38 Z" fill="#FFF0F8" opacity="0.92" />
-            <path d="M 118,23 L 322,23 L 330,38 L 322,53 L 118,53 L 110,38 Z" fill="none" stroke="#E890B8" strokeWidth="1.5" />
-            <text x="220" y="43" textAnchor="middle" fontFamily="Georgia, serif" fontSize="13" fill="#C0508A" fontStyle="italic" fontWeight="bold" letterSpacing="2">RETROMATICA</text>
-
-            {/* ── LEFT COLUMN DECORATIONS ── */}
-            {/* Flower 1 */}
-            <g transform="translate(62, 115)">
-              {([0,60,120,180,240,300] as number[]).map((a, i) => (
-                <ellipse key={i} cx={Math.round(Math.cos(a*Math.PI/180)*7)} cy={Math.round(Math.sin(a*Math.PI/180)*7)} rx="5" ry="5" fill={i%2===0?'#FFB7C8':'#FFCDD8'} />
-              ))}
-              <circle cx="0" cy="0" r="4" fill="#FFEC99" />
-            </g>
-            {/* Star */}
-            <path d="M 58,165 L 60,159 L 62,165 L 68,162 L 62,160 L 60,154 L 58,160 L 52,162 Z" fill="#F5C842" opacity="0.8" />
-            {/* Heart */}
-            <path d="M 62,222 C 62,217 57,215 57,220 C 57,225 62,229 62,229 C 62,229 67,225 67,220 C 67,215 62,217 62,222 Z" fill="#FF8AB0" opacity="0.6" />
-            {/* Flower 2 (lavender) */}
-            <g transform="translate(65, 292)">
-              {([0,60,120,180,240,300] as number[]).map((a, i) => (
-                <ellipse key={i} cx={Math.round(Math.cos(a*Math.PI/180)*6)} cy={Math.round(Math.sin(a*Math.PI/180)*6)} rx="4.5" ry="4.5" fill={i%2===0?'#D4A8E8':'#E8C8F8'} />
-              ))}
-              <circle cx="0" cy="0" r="3.5" fill="#FFEC99" />
-            </g>
-            {[182, 252, 340, 362].map(y => (
-              <circle key={y} cx={55} cy={y} r={2.5} fill="#E890B8" opacity="0.38" />
-            ))}
-
-            {/* ── RIGHT COLUMN DECORATIONS ── */}
-            <g transform="translate(378, 115)">
-              {([0,60,120,180,240,300] as number[]).map((a, i) => (
-                <ellipse key={i} cx={Math.round(Math.cos(a*Math.PI/180)*7)} cy={Math.round(Math.sin(a*Math.PI/180)*7)} rx="5" ry="5" fill={i%2===0?'#FFB7C8':'#FFCDD8'} />
-              ))}
-              <circle cx="0" cy="0" r="4" fill="#FFEC99" />
-            </g>
-            <path d="M 382,165 L 384,159 L 386,165 L 392,162 L 386,160 L 384,154 L 382,160 L 376,162 Z" fill="#F5C842" opacity="0.8" />
-            <path d="M 378,222 C 378,217 373,215 373,220 C 373,225 378,229 378,229 C 378,229 383,225 383,220 C 383,215 378,217 378,222 Z" fill="#FF8AB0" opacity="0.6" />
-            <g transform="translate(375, 292)">
-              {([0,60,120,180,240,300] as number[]).map((a, i) => (
-                <ellipse key={i} cx={Math.round(Math.cos(a*Math.PI/180)*6)} cy={Math.round(Math.sin(a*Math.PI/180)*6)} rx="4.5" ry="4.5" fill={i%2===0?'#D4A8E8':'#E8C8F8'} />
-              ))}
-              <circle cx="0" cy="0" r="3.5" fill="#FFEC99" />
-            </g>
-            {[182, 252, 340, 362].map(y => (
-              <circle key={y} cx={385} cy={y} r={2.5} fill="#E890B8" opacity="0.38" />
-            ))}
-
-            {/* ── PREVIEW FRAME ── */}
-            <rect x="107" y="64" width="226" height="262" rx="18" fill="#F090B8" opacity="0.35" />
-            <rect x="109" y="66" width="222" height="258" rx="16" fill="#E890B8" />
-            <rect x="112" y="69" width="216" height="252" rx="14" fill="#C0508A" />
-            {/* Preview opening */}
-            <rect x="115" y="70" width="210" height="254" rx="12" fill="#060606" />
-
-            {/* ── FAIRY LIGHTS WIRE ── */}
-            <path d="M 115,70 Q 155,60 195,70 Q 220,60 245,70 Q 285,60 325,70"
-              fill="none" stroke="#D4A0B8" strokeWidth="1.2" opacity="0.55" />
-            {/* Bulbs */}
-            {([130, 156, 183, 208, 220, 242, 270, 298, 318] as number[]).map((cx, i) => (
-              <g key={i}>
-                <circle cx={cx} cy={67} r={5.5} fill={lightColors[i]} filter="url(#glow)" opacity={0.9} />
-                <circle cx={cx} cy={67} r={2.5} fill="white" opacity={0.55} />
+            {/* ── FROSTED LEADED GLASS TRANSOMS ── */}
+            <rect x="30" y="25" width="280" height="50" rx="2" fill="#0A0604" filter="url(#innerShadow)" />
+            <rect x="30" y="25" width="280" height="50" rx="2" fill="url(#incandescentLeak)" opacity="0.8" />
+            {[0, 1, 2, 3, 4, 5].map((col) => (
+              <g key={`transom-${col}`}>
+                {/* Frosted pane */}
+                <rect x={34 + col * 46} y={28} width="40" height="44" rx="1" fill="url(#amberGlass)" filter="url(#glowTransom)" opacity="0.8" />
+                {/* Wooden leaded lines intersecting the pane */}
+                <rect x={34 + col * 46} y={49} width="40" height="2" fill="#1A0F08" />
+                <rect x={53 + col * 46} y={28} width="2" height="44" fill="#1A0F08" />
               </g>
             ))}
+            {/* Thick wood dividers between main window sections */}
+            {[1, 2, 3, 4, 5].map(col => (
+              <rect key={`div-${col}`} x={31 + col * 46} y={25} width="4" height="50" fill="url(#trimWood)" filter="url(#woodTexture)" />
+            ))}
 
-            {/* ── LEFT CURTAIN ── */}
-            <path
-              d="M 115,70 L 190,70 C 218,92 214,145 190,194 C 166,238 134,254 118,264 L 118,324 L 115,324 Z"
-              fill="url(#curtainL)"
-              opacity="0.93"
-            />
-            <path d="M 152,74 C 168,102 165,156 148,202" fill="none" stroke="#FFB8D4" strokeWidth="1.8" strokeLinecap="round" opacity="0.5" />
-            <path d="M 132,74 C 144,100 143,150 130,194" fill="none" stroke="#FFB8D4" strokeWidth="1.2" strokeLinecap="round" opacity="0.3" />
-            <path d="M 190,70 C 218,92 214,145 190,194 C 166,238 134,254 118,264"
-              fill="none" stroke="#F0A0C0" strokeWidth="1.8" opacity="0.38" />
+            <rect x="15" y="80" width="310" height="12" fill="url(#walnutWood)" stroke="#111" strokeWidth="1" />
+            <rect x="15" y="85" width="310" height="2" fill="url(#trimWood)" opacity="0.9" />
 
-            {/* Left bow */}
-            <g transform="translate(116, 264)">
-              <path d="M 0,0 C -4,-2 -15,-13 -9,0 C -15,13 -4,2 0,0 Z" fill="#E8639B" />
-              <path d="M 0,0 C 4,-2 15,-13 9,0 C 15,13 4,2 0,0 Z" fill="#E8639B" />
-              <circle cx="0" cy="0" r="3.5" fill="#C0508A" />
-              <circle cx="0" cy="0" r="1.5" fill="#FFB8D4" />
+            {/* ── INTERIOR CAVITY & LIGHTING ── */}
+            <rect x="105" y="150" width="130" height="290" fill="#050201" filter="url(#innerShadow)" />
+            {/* Ambient light leaking onto stool and inner walls */}
+            <rect x="105" y="150" width="130" height="290" fill="url(#incandescentLeak)" opacity="0.6" />
+            
+            {/* Wooden Swivel Stool (Replacing Chrome) */}
+            <rect x="145" y="325" width="50" height="14" rx="6" fill="url(#wornLeather)" stroke="#000" strokeWidth="1" />
+            <ellipse cx="170" cy="328" rx="20" ry="4" fill="#444" opacity="0.4" />
+            {/* Wooden column */}
+            <rect x="166" y="339" width="8" height="85" fill="url(#trimWood)" filter="url(#woodTexture)" />
+            {/* Wooden swivel rings */}
+            <ellipse cx="170" cy="342" rx="8" ry="3" fill="#1A0A04" />
+            <ellipse cx="170" cy="346" rx="10" ry="3" fill="url(#trimWood)" filter="url(#woodTexture)" />
+            <path d="M 145 425 Q 170 410 195 425 L 145 425 Z" fill="url(#trimWood)" filter="url(#woodTexture)" />
+
+            {/* ── WALNUT DOOR PANELS ── */}
+            <rect x="30" y="150" width="75" height="290" rx="2" fill="url(#walnutWood)" filter="url(#woodWithInnerBevel)" />
+            <rect x="30" y="150" width="75" height="290" rx="2" fill="none" stroke="url(#trimWood)" strokeWidth="2" opacity="0.9" />
+            
+            <rect x="235" y="150" width="75" height="290" rx="2" fill="url(#walnutWood)" filter="url(#woodWithInnerBevel)" />
+            <rect x="235" y="150" width="75" height="290" rx="2" fill="none" stroke="url(#trimWood)" strokeWidth="2" opacity="0.9" />
+
+            {/* ── 1950S ILLUMINATED SIGNAGE ── */}
+            <g filter="url(#sharpDropShadow)">
+              {/* Wooden Sign Box */}
+              <rect x="65" y="95" width="210" height="45" rx="10" fill="url(#trimWood)" filter="url(#woodTexture)" />
+              <rect x="69" y="99" width="202" height="37" rx="8" fill="url(#creamAcrylic)" />
+              <rect x="69" y="99" width="202" height="37" rx="8" fill="none" stroke="url(#lightWood)" strokeWidth="1.5" />
+              
+              <text 
+                x="170" y="125" 
+                textAnchor="middle" 
+                fontFamily="'Playfair Display', serif" 
+                fontSize="20" 
+                fill="#FFF7D6" 
+                fontWeight="900" 
+                letterSpacing="3"
+                filter="url(#softGlow)"
+              >
+                RETROMATICA
+              </text>
+              <text 
+                x="170" y="125" 
+                textAnchor="middle" 
+                fontFamily="'Playfair Display', serif" 
+                fontSize="20" 
+                fill="#8B0018" 
+                fontWeight="900" 
+                letterSpacing="3"
+              >
+                RETROMATICA
+              </text>
             </g>
 
-            {/* ── RIGHT CURTAIN ── */}
-            <path
-              d="M 325,70 L 250,70 C 222,92 226,145 250,194 C 274,238 306,254 322,264 L 322,324 L 325,324 Z"
-              fill="url(#curtainR)"
-              opacity="0.93"
-            />
-            <path d="M 288,74 C 272,102 275,156 292,202" fill="none" stroke="#FFB8D4" strokeWidth="1.8" strokeLinecap="round" opacity="0.5" />
-            <path d="M 308,74 C 296,100 297,150 310,194" fill="none" stroke="#FFB8D4" strokeWidth="1.2" strokeLinecap="round" opacity="0.3" />
-            <path d="M 250,70 C 222,92 226,145 250,194 C 274,238 306,254 322,264"
-              fill="none" stroke="#F0A0C0" strokeWidth="1.8" opacity="0.38" />
+            {/* ── LEFT PANEL: WOODEN INSTRUCTION PLAQUE ── */}
+            {/* Lighter Wood Board */}
+            <g filter="url(#sharpDropShadow)">
+              <rect x="35" y="170" width="65" height="90" rx="2" fill="url(#lightWood)" />
+              <rect x="35" y="170" width="65" height="90" rx="2" fill="none" stroke="#3E1C0A" strokeWidth="1" filter="url(#woodTexture)" />
+            </g>
+            {/* Wooden pegs replacing rivets */}
+            <circle cx="39" cy="174" r="1.5" fill="#3E1C0A" />
+            <circle cx="96" cy="174" r="1.5" fill="#3E1C0A" />
+            <circle cx="39" cy="256" r="1.5" fill="#3E1C0A" />
+            <circle cx="96" cy="256" r="1.5" fill="#3E1C0A" />
+            {/* Paper/Painted face */}
+            <rect x="38" y="173" width="59" height="84" rx="1" fill="#FFFDF5" opacity="0.9" />
+            <text x="67.5" y="188" textAnchor="middle" fontFamily="'Inter', sans-serif" fontSize="5" fill="#200308" fontWeight="900" letterSpacing="0.5">PHOTO BOOTH</text>
+            <rect x="42" y="194" width="51" height="1" fill="#D4384B" />
+            
+            {/* 3-pose photo strips graphic */}
+            {/* Strip 1 */}
+            <rect x="47" y="204" width="10" height="28" fill="#FFF" stroke="#555" strokeWidth="0.5" />
+            <rect x="48" y="206" width="8" height="7" fill="#1A1A1A" />
+            <rect x="48" y="214" width="8" height="7" fill="#1A1A1A" />
+            <rect x="48" y="222" width="8" height="7" fill="#1A1A1A" />
+            {/* Strip 2 */}
+            <rect x="62" y="204" width="10" height="28" fill="#FFF" stroke="#555" strokeWidth="0.5" />
+            <rect x="63" y="206" width="8" height="7" fill="#1A1A1A" />
+            <rect x="63" y="214" width="8" height="7" fill="#1A1A1A" />
+            <rect x="63" y="222" width="8" height="7" fill="#1A1A1A" />
+            {/* Pricing label */}
+            <text x="59" y="248" textAnchor="middle" fontFamily="'Playfair Display', serif" fontSize="7" fill="#1A1A1A" fontWeight="bold">3 POSES - 25¢</text>
 
-            {/* Right bow */}
-            <g transform="translate(324, 264)">
-              <path d="M 0,0 C -4,-2 -15,-13 -9,0 C -15,13 -4,2 0,0 Z" fill="#E8639B" />
-              <path d="M 0,0 C 4,-2 15,-13 9,0 C 15,13 4,2 0,0 Z" fill="#E8639B" />
-              <circle cx="0" cy="0" r="3.5" fill="#C0508A" />
-              <circle cx="0" cy="0" r="1.5" fill="#FFB8D4" />
+            {/* ── LEFT PANEL: WOODEN COIN ACCEPTOR UNIT ── */}
+            <g filter="url(#sharpDropShadow)">
+              <rect x="54" y="280" width="28" height="46" rx="3" fill="url(#trimWood)" filter="url(#woodTexture)" />
+              <rect x="58" y="284" width="20" height="38" rx="2" fill="#1A0A04" filter="url(#innerBevel)" />
+              {/* Dual coin slots */}
+              <rect x="63" y="288" width="2.5" height="14" rx="1" fill="#000" />
+              <rect x="71" y="288" width="2.5" height="14" rx="1" fill="#000" />
+              <text x="68" y="311" textAnchor="middle" fontFamily="'Inter', sans-serif" fontSize="5.5" fill="#FFF" fontWeight="bold">25¢</text>
+              {/* Painted red wood coin return push button */}
+              <rect x="63" y="315" width="10" height="4" rx="1" fill="#8B0018" />
             </g>
 
-            {/* ── BOTTOM ── */}
-            <rect x="24" y="362" width="392" height="28" rx="30" fill="url(#frameGrad)" />
-            <rect x="24" y="362" width="392" height="10" fill="#F0A0C0" opacity="0.3" />
+            {/* ── RIGHT PANEL: WOOD FRAMED MIRROR ── */}
+            <g filter="url(#sharpDropShadow)">
+              <rect x="255" y="170" width="34" height="90" rx="2" fill="url(#trimWood)" filter="url(#woodTexture)" />
+              <rect x="257" y="172" width="30" height="86" rx="1" fill="url(#mirrorGlass)" />
+              <path d="M 257 195 L 287 175 L 287 185 L 257 205 Z" fill="#FFF" opacity="0.4" />
+              <path d="M 257 210 L 287 190 L 287 195 L 257 215 Z" fill="#FFF" opacity="0.2" />
+            </g>
 
-            {/* ── CORNER STARS ── */}
-            <path d="M 38,26 L 40,20 L 42,26 L 48,24 L 42,22 L 40,16 L 38,22 L 32,24 Z" fill="#F5C842" opacity="0.9" />
-            <path d="M 396,26 L 398,20 L 400,26 L 406,24 L 400,22 L 398,16 L 396,22 L 390,24 Z" fill="#F5C842" opacity="0.9" />
-            <circle cx="35" cy="53" r="2.5" fill="#F5C842" opacity="0.65" />
-            <circle cx="405" cy="48" r="2" fill="#F5C842" opacity="0.6" />
-            <circle cx="105" cy="16" r="2" fill="#F5C842" opacity="0.5" />
-            <circle cx="335" cy="16" r="2" fill="#F5C842" opacity="0.5" />
+            {/* ── RIGHT PANEL: WOODEN CHUTE PHOTO SLOT ── */}
+            <g filter="url(#sharpDropShadow)">
+              <rect x="245" y="275" width="54" height="65" rx="4" fill="url(#trimWood)" filter="url(#woodTexture)" />
+              <rect x="248" y="278" width="48" height="59" rx="2" fill="url(#lightWood)" />
+              <rect x="252" y="285" width="40" height="45" rx="2" fill="#1A0A04" filter="url(#innerShadow)" />
+              <rect x="257" y="295" width="30" height="25" rx="2" fill="#000" filter="url(#innerShadow)" />
+              {/* Wooden dispensing lip/flap */}
+              <path d="M 254 316 L 290 316 L 290 322 L 254 322 Z" fill="url(#trimWood)" filter="url(#woodTexture)" />
+            </g>
 
-            {/* Bottom hearts */}
-            <path d="M 48,354 C 48,350 44,348 44,352 C 44,357 48,360 48,360 C 48,360 52,357 52,352 C 52,348 48,350 48,354 Z" fill="#FF8AB0" opacity="0.5" />
-            <path d="M 392,354 C 392,350 388,348 388,352 C 388,357 392,360 392,360 C 392,360 396,357 396,352 C 396,348 392,350 392,354 Z" fill="#FF8AB0" opacity="0.5" />
-            {/* Header hearts */}
-            <path d="M 100,38 C 100,35 97,34 97,37 C 97,40 100,43 100,43 C 100,43 103,40 103,37 C 103,34 100,35 100,38 Z" fill="#FFB8D4" opacity="0.7" />
-            <path d="M 340,38 C 340,35 337,34 337,37 C 337,40 340,43 340,43 C 340,43 343,40 343,37 C 343,34 340,35 340,38 Z" fill="#FFB8D4" opacity="0.7" />
+            {/* ── VELVET RED CURTAINS ── */}
+            <g filter="url(#velvetTexture)">
+              {/* Overlapping wavy paths simulating heavy draped velvet */}
+              <path d="M 105 150 Q 115 220 100 310 Q 115 310 135 305 Q 145 220 140 150 Z" fill="url(#velvetFold)" />
+              <path d="M 130 150 Q 140 220 125 307 Q 145 305 160 297 Q 165 220 160 150 Z" fill="url(#velvetFold)" />
+              <path d="M 150 150 Q 160 220 145 301 Q 165 295 180 285 Q 185 210 180 150 Z" fill="url(#velvetFold)" />
+              <path d="M 170 150 Q 185 210 165 290 Q 190 280 210 270 Q 225 220 220 150 Z" fill="url(#velvetFold)" />
+              <path d="M 100 310 Q 112 315 125 307 Q 135 310 145 301 Q 155 302 165 290 Q 190 285 210 270" fill="none" stroke="#200308" strokeWidth="2.5" strokeLinecap="round" />
+            </g>
+
+            {/* ── FLOOR PLATES ── */}
+            <rect x="30" y="440" width="75" height="10" fill="url(#trimWood)" opacity="0.9" filter="url(#woodTexture)" />
+            <rect x="235" y="440" width="75" height="10" fill="url(#trimWood)" opacity="0.9" filter="url(#woodTexture)" />
+            <rect x="105" y="445" width="130" height="5" fill="#000" />
+            <rect x="15" y="450" width="310" height="10" rx="2" fill="url(#trimWood)" filter="url(#woodTexture)" />
           </svg>
 
           {/* ── LIVE WEBCAM ── */}
@@ -229,12 +326,12 @@ const PhotoBooth = forwardRef<Webcam, PhotoBoothProps>(
             <div
               style={{
                 position: 'absolute',
-                left: '26.1%',
-                top: '17.5%',
-                width: '47.7%',
-                height: '63.5%',
+                left: '30.88%',
+                top: '32.6%',
+                width: '38.23%',
+                height: '63.04%',
                 overflow: 'hidden',
-                borderRadius: 12,
+                borderRadius: 4,
               }}
             >
               <Webcam
@@ -255,9 +352,10 @@ const PhotoBooth = forwardRef<Webcam, PhotoBoothProps>(
               />
               <div style={{
                 position: 'absolute', inset: 0,
-                background: 'radial-gradient(ellipse at center, transparent 50%, rgba(18,4,12,0.45) 100%)',
+                background: 'radial-gradient(ellipse at center, transparent 50%, rgba(5,2,1,0.7) 100%)',
                 pointerEvents: 'none',
-                borderRadius: 12,
+                borderRadius: 4,
+                boxShadow: 'inset 0px 4px 12px rgba(0,0,0,0.9)'
               }} />
             </div>
           )}
