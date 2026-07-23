@@ -55,7 +55,6 @@ export default function CameraCapture() {
   } = useSession();
 
   const webcamRef = useRef<Webcam>(null);
-  const hiddenVideoRef = useRef<HTMLVideoElement>(null);
   const [isFlashing, setIsFlashing] = useState(false);
   const [showCountdownOverlay, setShowCountdownOverlay] = useState(false);
   const [countdownPhotoIndex, setCountdownPhotoIndex] = useState(1);
@@ -121,7 +120,7 @@ export default function CameraCapture() {
   }, [settings.colorMode]);
 
   const captureNative = useCallback((): string | null => {
-    const video = hiddenVideoRef.current;
+    const video = webcamRef.current?.video;
     if (!video || video.readyState < 2) return null;
 
     const outW = 1080;
@@ -208,12 +207,7 @@ export default function CameraCapture() {
     }
   }, [cameraPermission, runCaptureLoop]);
 
-  const handleUserMedia = useCallback((stream: MediaStream) => {
-    setCameraPermission('granted');
-    if (hiddenVideoRef.current) {
-      hiddenVideoRef.current.srcObject = stream;
-    }
-  }, [setCameraPermission]);
+  const handleUserMedia = useCallback(() => setCameraPermission('granted'), [setCameraPermission]);
   const handleUserMediaError = useCallback(() => setCameraPermission('denied'), [setCameraPermission]);
 
   if (cameraPermission === 'denied') {
@@ -373,24 +367,6 @@ export default function CameraCapture() {
 
             {/* Viewfinder Lens (Webcam) */}
             <div className="relative flex-1 bg-black overflow-hidden flex items-center justify-center">
-              <video
-                ref={hiddenVideoRef}
-                autoPlay
-                playsInline
-                muted
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: 1080,
-                  height: 1440,
-                  opacity: 0.001,
-                  zIndex: 0,
-                  pointerEvents: 'none',
-                  objectFit: 'cover',
-                  transform: 'scaleX(-1)'
-                }}
-              />
               <Webcam
                 ref={webcamRef}
                 audio={false}
