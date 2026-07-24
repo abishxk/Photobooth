@@ -195,15 +195,26 @@ const PhotoBooth = forwardRef<Webcam, PhotoBoothProps>(
             {/* Ambient light leaking onto stool and inner walls */}
             <rect x="105" y="150" width="130" height="290" fill="url(#incandescentLeak)" opacity="0.6" />
             
-            {/* Wooden Swivel Stool (Replacing Chrome) */}
-            <rect x="145" y="325" width="50" height="14" rx="6" fill="url(#wornLeather)" stroke="#000" strokeWidth="1" />
-            <ellipse cx="170" cy="328" rx="20" ry="4" fill="#444" opacity="0.4" />
-            {/* Wooden column */}
-            <rect x="166" y="339" width="8" height="85" fill="url(#trimWood)" filter="url(#woodTexture)" />
-            {/* Wooden swivel rings */}
-            <ellipse cx="170" cy="342" rx="8" ry="3" fill="#1A0A04" />
-            <ellipse cx="170" cy="346" rx="10" ry="3" fill="url(#trimWood)" filter="url(#woodTexture)" />
-            <path d="M 145 425 Q 170 410 195 425 L 145 425 Z" fill="url(#trimWood)" filter="url(#woodTexture)" />
+            {/* ── CLASSIC VINTAGE WOODEN BENCH ── */}
+            {/* Floor shadow */}
+            <ellipse cx="170" cy="427" rx="52" ry="6" fill="#000000" opacity="0.7" />
+
+            {/* Wooden legs */}
+            <rect x="125" y="346" width="10" height="80" rx="1" fill="url(#trimWood)" filter="url(#woodTexture)" />
+            <rect x="205" y="346" width="10" height="80" rx="1" fill="url(#trimWood)" filter="url(#woodTexture)" />
+
+            {/* Cross-stretcher lower support bar */}
+            <rect x="125" y="398" width="90" height="7" rx="1" fill="url(#trimWood)" filter="url(#woodTexture)" />
+            <circle cx="130" cy="401.5" r="1.5" fill="#1A0A04" />
+            <circle cx="210" cy="401.5" r="1.5" fill="#1A0A04" />
+
+            {/* Under-seat apron frame */}
+            <rect x="120" y="344" width="100" height="12" fill="url(#trimWood)" filter="url(#woodTexture)" />
+
+            {/* Wooden seat plank */}
+            <rect x="114" y="332" width="112" height="14" rx="3" fill="url(#lightWood)" filter="url(#woodTexture)" />
+            <rect x="114" y="332" width="112" height="14" rx="3" fill="none" stroke="#2E160A" strokeWidth="1.2" />
+            <rect x="116" y="333" width="108" height="2" rx="1" fill="#D99E45" opacity="0.45" />
 
             {/* ── WALNUT DOOR PANELS ── */}
             <rect x="30" y="150" width="75" height="290" rx="2" fill="url(#walnutWood)" filter="url(#woodWithInnerBevel)" />
