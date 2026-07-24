@@ -76,10 +76,8 @@ export default function LandingPage() {
 
       {/* ── PHOTOBOOTH (click / tap target) ── */}
       <motion.button
-        className="relative w-full focus:outline-none"
+        className="relative w-[75%] sm:w-full max-w-[315px] sm:max-w-[420px] px-2 sm:px-3 focus:outline-none"
         style={{
-          maxWidth: 420,
-          padding: '0 12px',
           cursor: isEntering ? 'default' : 'pointer',
           WebkitTapHighlightColor: 'transparent',
           background: 'none',
