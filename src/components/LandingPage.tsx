@@ -10,6 +10,34 @@ function sleep(ms: number) {
   return new Promise<void>(r => setTimeout(r, ms));
 }
 
+function RoomSceneBackground() {
+  return (
+    <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
+      {/* 1. White & Black Tiled Wall (Upper 74% of scene) */}
+      <div
+        className="absolute top-0 left-0 right-0 h-[74%] bg-[#121212]"
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 50% 35%, rgba(255, 235, 200, 0.15) 0%, rgba(0, 0, 0, 0.8) 85%),
+            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23111111'/%3E%3Crect x='1' y='1' width='38' height='38' fill='%23f4f1ea' rx='1'/%3E%3Crect x='41' y='1' width='38' height='38' fill='%231a1a1a' rx='1'/%3E%3Crect x='1' y='41' width='38' height='38' fill='%231a1a1a' rx='1'/%3E%3Crect x='41' y='41' width='38' height='38' fill='%23f4f1ea' rx='1'/%3E%3Cline x1='2' y1='2' x2='38' y2='2' stroke='%23ffffff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='42' y1='42' x2='78' y2='42' stroke='%23ffffff' stroke-width='1' opacity='0.8'/%3E%3C/svg%3E")
+          `,
+        }}
+      />
+
+      {/* 2. Wooden Baseboard Skirting Mold Trim Line */}
+      <div className="absolute top-[74%] left-0 right-0 h-3 bg-gradient-to-b from-[#3b2713] via-[#1a0f05] to-[#070301] border-t border-[#543b1c] shadow-[0_4px_12px_rgba(0,0,0,0.9)] z-10" />
+
+      {/* 3. Plain Floor (Lower 26% of scene) */}
+      <div className="absolute top-[74%] left-0 right-0 bottom-0 bg-gradient-to-b from-[#1c1c1c] via-[#121212] to-[#0a0a0a]">
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/5 opacity-30" />
+      </div>
+
+      {/* 4. Grounding Shadow beneath Photo Booth */}
+      <div className="absolute left-1/2 -translate-x-1/2 top-[71%] w-[380px] sm:w-[440px] h-14 rounded-full bg-black/85 blur-xl z-10 pointer-events-none" />
+    </div>
+  );
+}
+
 export default function LandingPage() {
   const { goSettings, navState, setNavState } = useSession();
   const [isEntering, setIsEntering] = useState(false);
@@ -31,7 +59,7 @@ export default function LandingPage() {
 
   return (
     <motion.div
-      className="min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden"
       style={{
         paddingTop: 'env(safe-area-inset-top)',
         paddingBottom: 'env(safe-area-inset-bottom)',
@@ -42,7 +70,7 @@ export default function LandingPage() {
       exit={{ opacity: 0, transition: { duration: 0.15 } }}
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
     >
-      {/* ── AMBIENT BACKGROUND GLOWS REMOVED FOR MOODY VIBE ── */}
+      <RoomSceneBackground />
 
       {/* ── PHOTOBOOTH (click / tap target) ── */}
       <motion.button
