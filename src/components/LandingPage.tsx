@@ -35,7 +35,7 @@ function RoomSceneBackground() {
       </div>
 
       {/* 4. Grounding Shadow beneath Photo Booth */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-[71%] translate-y-[52px] sm:translate-y-0 w-[270px] sm:w-[440px] h-12 sm:h-14 rounded-full bg-black/85 blur-xl z-10 pointer-events-none" />
+      <div className="absolute left-1/2 -translate-x-1/2 top-[71%] w-[380px] sm:w-[440px] h-14 rounded-full bg-black/85 blur-xl z-10 pointer-events-none" />
     </div>
   );
 }
@@ -76,8 +76,10 @@ export default function LandingPage() {
 
       {/* ── PHOTOBOOTH (click / tap target) ── */}
       <motion.button
-        className="relative w-[75%] sm:w-full max-w-[315px] sm:max-w-[420px] px-2 sm:px-3 focus:outline-none translate-y-[52px] sm:translate-y-0"
+        className="relative w-full focus:outline-none"
         style={{
+          maxWidth: 420,
+          padding: '0 12px',
           cursor: isEntering ? 'default' : 'pointer',
           WebkitTapHighlightColor: 'transparent',
           background: 'none',
@@ -105,7 +107,7 @@ export default function LandingPage() {
 
       {/* ── TAP TO ENTER CTA ── */}
       <motion.div
-        className="relative mt-2 text-center select-none translate-y-[52px] sm:translate-y-0"
+        className="relative mt-2 text-center select-none"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: isEntering ? 0 : 1, y: 0 }}
         transition={{ delay: fromBooth ? 0.1 : 0.35, duration: 0.4 }}
