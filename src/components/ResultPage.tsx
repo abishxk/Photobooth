@@ -4,6 +4,7 @@ import { Download, RefreshCw, LogOut, Sparkles } from 'lucide-react';
 import { toPng } from 'html-to-image';
 import { useSession } from '../context/SessionProvider';
 import PhotoStrip from './PhotoStrip';
+import { isIOS, generateCanvasPhotoStrip } from '../utils/canvasPhotoStrip';
 
 // Reusable interior background component
 function BoothInterior() {
@@ -78,20 +79,42 @@ export default function ResultPage() {
   useEffect(() => {
     if (generatedStrip || isGeneratingStrip) return;
     const generate = async () => {
-      if (!stripRef.current) return;
       setIsGeneratingStrip(true);
       await new Promise(r => setTimeout(r, 900));
       try {
-        const dataUrl = await toPng(stripRef.current, {
-          quality: 1,
-          pixelRatio: 3,
-          cacheBust: true,
-        });
-        setGeneratedStrip(dataUrl);
+        if (isIOS()) {
+          const dataUrl = await generateCanvasPhotoStrip({
+            photos: capturedPhotos,
+            colorMode: settings.colorMode,
+            showTimestamp: settings.showTimestamp,
+            stripStyle: settings.stripStyle,
+            roundedEdges: settings.roundedEdges,
+          });
+          setGeneratedStrip(dataUrl);
+        } else {
+          if (!stripRef.current) return;
+          const dataUrl = await toPng(stripRef.current, {
+            quality: 1,
+            pixelRatio: 3,
+            cacheBust: true,
+          });
+          setGeneratedStrip(dataUrl);
+        }
       } catch {
         try {
-          const dataUrl = await toPng(stripRef.current!, { quality: 1, pixelRatio: 3 });
-          setGeneratedStrip(dataUrl);
+          if (isIOS()) {
+            const dataUrl = await generateCanvasPhotoStrip({
+              photos: capturedPhotos,
+              colorMode: settings.colorMode,
+              showTimestamp: settings.showTimestamp,
+              stripStyle: settings.stripStyle,
+              roundedEdges: settings.roundedEdges,
+            });
+            setGeneratedStrip(dataUrl);
+          } else if (stripRef.current) {
+            const dataUrl = await toPng(stripRef.current, { quality: 1, pixelRatio: 3 });
+            setGeneratedStrip(dataUrl);
+          }
         } catch {
           if (capturedPhotos[0]) setGeneratedStrip(capturedPhotos[0]);
         }
