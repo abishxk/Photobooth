@@ -13,9 +13,9 @@ function sleep(ms: number) {
 function RoomSceneBackground() {
   return (
     <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none">
-      {/* 1. White & Black Tiled Wall (Extends from top down to baseboard) */}
+      {/* 1. White & Black Tiled Wall (Upper 74% of scene) */}
       <div
-        className="absolute top-0 left-0 right-0 bottom-[85px] sm:bottom-[95px] bg-[#121212]"
+        className="absolute top-0 left-0 right-0 h-[74%] bg-[#121212]"
         style={{
           backgroundImage: `
             radial-gradient(circle at 50% 35%, rgba(255, 235, 200, 0.15) 0%, rgba(0, 0, 0, 0.8) 85%),
@@ -27,15 +27,15 @@ function RoomSceneBackground() {
       />
 
       {/* 2. Wooden Baseboard Skirting Mold Trim Line */}
-      <div className="absolute bottom-[85px] sm:bottom-[95px] left-0 right-0 h-3.5 bg-gradient-to-b from-[#3b2713] via-[#1a0f05] to-[#070301] border-t border-[#543b1c] shadow-[0_4px_12px_rgba(0,0,0,0.9)] z-10" />
+      <div className="absolute top-[74%] left-0 right-0 h-3 bg-gradient-to-b from-[#3b2713] via-[#1a0f05] to-[#070301] border-t border-[#543b1c] shadow-[0_4px_12px_rgba(0,0,0,0.9)] z-10" />
 
-      {/* 3. Plain Floor (Bottom area where machine stands) */}
-      <div className="absolute bottom-0 left-0 right-0 h-[85px] sm:h-[95px] bg-gradient-to-b from-[#1c1c1c] via-[#121212] to-[#0a0a0a]">
+      {/* 3. Plain Floor (Lower 26% of scene) */}
+      <div className="absolute top-[74%] left-0 right-0 bottom-0 bg-gradient-to-b from-[#1c1c1c] via-[#121212] to-[#0a0a0a]">
         <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/5 opacity-30" />
       </div>
 
-      {/* 4. Grounding Shadow directly beneath Photo Booth cabinet base */}
-      <div className="absolute left-1/2 -translate-x-1/2 bottom-[77px] sm:bottom-[87px] w-[270px] sm:w-[370px] h-5 rounded-full bg-black/90 blur-md z-10 pointer-events-none" />
+      {/* 4. Grounding Shadow beneath Photo Booth */}
+      <div className="absolute left-1/2 -translate-x-1/2 top-[71%] w-[380px] sm:w-[440px] h-14 rounded-full bg-black/85 blur-xl z-10 pointer-events-none" />
     </div>
   );
 }
@@ -61,7 +61,7 @@ export default function LandingPage() {
 
   return (
     <motion.div
-      className="relative min-h-[100dvh] flex flex-col items-center justify-end pb-[75px] sm:pb-[85px] overflow-hidden"
+      className="relative min-h-[100dvh] flex flex-col items-center justify-center overflow-hidden"
       style={{
         paddingTop: 'env(safe-area-inset-top)',
         paddingBottom: 'env(safe-area-inset-bottom)',
@@ -76,14 +76,14 @@ export default function LandingPage() {
 
       {/* ── PHOTOBOOTH (click / tap target) ── */}
       <motion.button
-        className="relative w-[75%] sm:w-full max-w-[315px] sm:max-w-[420px] px-2 sm:px-3 focus:outline-none z-20"
+        className="relative w-[75%] sm:w-full max-w-[315px] sm:max-w-[420px] px-2 sm:px-3 focus:outline-none"
         style={{
           cursor: isEntering ? 'default' : 'pointer',
           WebkitTapHighlightColor: 'transparent',
           background: 'none',
           border: 'none',
           // Nudge very slightly on entry — cheap, GPU-friendly
-          transformOrigin: '50% 100%',
+          transformOrigin: '50% 45%',
         }}
         // On entering: barely perceptible zoom nudge — cheap to render
         animate={isEntering ? { scale: 1.06, opacity: 0 } : { scale: 1, opacity: 1 }}
@@ -103,26 +103,27 @@ export default function LandingPage() {
         <PhotoBooth showLive={false} />
       </motion.button>
 
-      {/* ── TAP TO ENTER CTA (Positioned on floor) ── */}
+      {/* ── TAP TO ENTER CTA ── */}
       <motion.div
-        className="absolute bottom-2 sm:bottom-3 left-0 right-0 text-center select-none z-30 pointer-events-none"
+        className="relative mt-2 text-center select-none"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: isEntering ? 0 : 1, y: 0 }}
         transition={{ delay: fromBooth ? 0.1 : 0.35, duration: 0.4 }}
       >
         <motion.div
-          animate={{ y: [0, -4, 0] }}
+          animate={{ y: [0, -5, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <div className="flex flex-col items-center gap-0.5">
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden>
+          <div className="flex flex-col items-center gap-1 mb-1">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
               <path d="M10 16 L10 4 M4 10 L10 4 L16 10" stroke="#d4a853" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
-            <p className="font-vintage text-lg sm:text-xl font-bold text-sepia-200">
+            <p className="font-vintage text-2xl font-bold text-sepia-200">
               Tap to enter
             </p>
           </div>
         </motion.div>
+
       </motion.div>
 
       {/* Ambient particles instead of cute decorations */}
