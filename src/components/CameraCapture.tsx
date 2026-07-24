@@ -142,6 +142,9 @@ export default function CameraCapture() {
     tempCanvas.width = vw;
     tempCanvas.height = vh;
     const tempCtx = tempCanvas.getContext('2d')!;
+    // Flip horizontally to match live mirrored preview
+    tempCtx.translate(vw, 0);
+    tempCtx.scale(-1, 1);
     tempCtx.drawImage(video, 0, 0, vw, vh);
 
     const canvas = document.createElement('canvas');

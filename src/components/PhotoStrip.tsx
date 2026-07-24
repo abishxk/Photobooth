@@ -126,7 +126,7 @@ const PhotoStrip = forwardRef<HTMLDivElement, PhotoStripProps>(
               letterSpacing: 0.5,
             }}
           >
-            {dateStr} · {timeStr}
+            {dateStr}, {timeStr}
           </div>
         )}
       </div>

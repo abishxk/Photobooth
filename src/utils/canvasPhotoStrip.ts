@@ -194,7 +194,7 @@ export async function generateCanvasPhotoStrip(options: GenerateStripOptions): P
       })
       .toUpperCase();
 
-    const text = `${dateStr} · ${timeStr}`;
+    const text = `${dateStr}, ${timeStr}`;
 
     ctx.fillStyle = stampColor;
     ctx.font = `${stampFontSize}px 'Special Elite', monospace`;
