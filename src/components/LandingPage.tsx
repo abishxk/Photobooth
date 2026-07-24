@@ -15,44 +15,27 @@ function RoomSceneBackground() {
     <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden select-none">
       {/* 1. White & Black Tiled Wall (Upper 74% of scene) */}
       <div
-        className="absolute top-0 left-0 right-0 h-[74%] bg-[#141414]"
+        className="absolute top-0 left-0 right-0 h-[74%] bg-[#121212]"
         style={{
           backgroundImage: `
-            /* Soft overhead ambient light wash from ceiling */
-            radial-gradient(ellipse 130% 80% at 50% 0%, rgba(255, 230, 185, 0.22) 0%, rgba(180, 130, 70, 0.08) 50%, rgba(5, 2, 1, 0.78) 100%),
-            /* Warm spotlight glow behind photobooth header */
-            radial-gradient(circle at 50% 28%, rgba(212, 168, 83, 0.2) 0%, transparent 65%),
-            /* Tiled wall SVG pattern */
+            radial-gradient(circle at 50% 35%, rgba(255, 235, 200, 0.15) 0%, rgba(0, 0, 0, 0.8) 85%),
             url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23111111'/%3E%3Crect x='1' y='1' width='38' height='38' fill='%23f4f1ea' rx='1'/%3E%3Crect x='41' y='1' width='38' height='38' fill='%231a1a1a' rx='1'/%3E%3Crect x='1' y='41' width='38' height='38' fill='%231a1a1a' rx='1'/%3E%3Crect x='41' y='41' width='38' height='38' fill='%23f4f1ea' rx='1'/%3E%3Cline x1='2' y1='2' x2='38' y2='2' stroke='%23ffffff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='42' y1='42' x2='78' y2='42' stroke='%23ffffff' stroke-width='1' opacity='0.8'/%3E%3C/svg%3E")
           `,
-          backgroundPosition: 'center bottom, center bottom, center bottom',
-          backgroundSize: '100% 100%, 100% 100%, 80px 80px',
+          backgroundPosition: 'center bottom, center bottom',
+          backgroundSize: '100% 100%, 80px 80px',
         }}
       />
 
       {/* 2. Wooden Baseboard Skirting Mold Trim Line */}
-      <div className="absolute top-[74%] left-0 right-0 h-3.5 bg-gradient-to-b from-[#3d2712] via-[#211408] to-[#0a0502] border-t border-[#5e3f1b] shadow-[0_4px_14px_rgba(0,0,0,0.92)] z-10" />
+      <div className="absolute top-[74%] left-0 right-0 h-3 bg-gradient-to-b from-[#3b2713] via-[#1a0f05] to-[#070301] border-t border-[#543b1c] shadow-[0_4px_12px_rgba(0,0,0,0.9)] z-10" />
 
       {/* 3. Plain Floor (Lower 26% of scene) */}
-      <div
-        className="absolute top-[74%] left-0 right-0 bottom-0 bg-[#161412]"
-        style={{
-          backgroundImage: `
-            /* Warm light pool on floor in front of photobooth */
-            radial-gradient(ellipse 75% 65% at 50% 0%, rgba(212, 168, 83, 0.16) 0%, transparent 80%),
-            /* Linear floor shadow depth gradient */
-            linear-gradient(to bottom, #1d1916 0%, #13100e 55%, #080706 100%)
-          `,
-        }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/[0.02] to-white/[0.05] opacity-40" />
+      <div className="absolute top-[74%] left-0 right-0 bottom-0 bg-gradient-to-b from-[#1c1c1c] via-[#121212] to-[#0a0a0a]">
+        <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/5 opacity-30" />
       </div>
 
-      {/* 4. Multi-layer Natural Ground Contact Shadows under Photo Booth */}
-      {/* Tight sharp contact shadow */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-[72.5%] w-[330px] sm:w-[380px] h-4 rounded-full bg-black/95 blur-sm z-10" />
-      {/* Soft ambient occlusion shadow pool */}
-      <div className="absolute left-1/2 -translate-x-1/2 top-[70.5%] w-[420px] sm:w-[490px] h-16 rounded-full bg-black/75 blur-xl z-10" />
+      {/* 4. Grounding Shadow beneath Photo Booth */}
+      <div className="absolute left-1/2 -translate-x-1/2 top-[71%] w-[380px] sm:w-[440px] h-14 rounded-full bg-black/85 blur-xl z-10 pointer-events-none" />
     </div>
   );
 }
