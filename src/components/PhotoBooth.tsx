@@ -262,17 +262,17 @@ const PhotoBooth = forwardRef<Webcam, PhotoBoothProps>(
             
             {/* 3-pose photo strips graphic */}
             {/* Strip 1 */}
-            <rect x="47" y="204" width="10" height="28" fill="#FFF" stroke="#555" strokeWidth="0.5" />
-            <rect x="48" y="206" width="8" height="7" fill="#1A1A1A" />
-            <rect x="48" y="214" width="8" height="7" fill="#1A1A1A" />
-            <rect x="48" y="222" width="8" height="7" fill="#1A1A1A" />
+            <rect x="55" y="204" width="10" height="28" fill="#FFF" stroke="#555" strokeWidth="0.5" />
+            <rect x="56" y="206" width="8" height="7" fill="#1A1A1A" />
+            <rect x="56" y="214" width="8" height="7" fill="#1A1A1A" />
+            <rect x="56" y="222" width="8" height="7" fill="#1A1A1A" />
             {/* Strip 2 */}
-            <rect x="62" y="204" width="10" height="28" fill="#FFF" stroke="#555" strokeWidth="0.5" />
-            <rect x="63" y="206" width="8" height="7" fill="#1A1A1A" />
-            <rect x="63" y="214" width="8" height="7" fill="#1A1A1A" />
-            <rect x="63" y="222" width="8" height="7" fill="#1A1A1A" />
+            <rect x="70" y="204" width="10" height="28" fill="#FFF" stroke="#555" strokeWidth="0.5" />
+            <rect x="71" y="206" width="8" height="7" fill="#1A1A1A" />
+            <rect x="71" y="214" width="8" height="7" fill="#1A1A1A" />
+            <rect x="71" y="222" width="8" height="7" fill="#1A1A1A" />
             {/* Pricing label */}
-            <text x="59" y="248" textAnchor="middle" fontFamily="'Playfair Display', serif" fontSize="7" fill="#1A1A1A" fontWeight="bold">3 POSES - 25¢</text>
+            <text x="67.5" y="248" textAnchor="middle" fontFamily="'Playfair Display', serif" fontSize="6.5" fill="#1A1A1A" fontWeight="bold">3 POSES - 25¢</text>
 
             {/* ── LEFT PANEL: WOODEN COIN ACCEPTOR UNIT ── */}
             <g filter="url(#sharpDropShadow)">
