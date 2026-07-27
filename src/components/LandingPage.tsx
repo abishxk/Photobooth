@@ -89,7 +89,7 @@ export default function LandingPage() {
             margin-top: calc((1 - 0.75) * -100%) !important;
           }
           .cta-label {
-            margin-top: 3rem !important;
+            top: 3rem !important;
           }
         }
       `}</style>
