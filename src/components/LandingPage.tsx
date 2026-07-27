@@ -88,6 +88,9 @@ export default function LandingPage() {
             transform: scale(0.75) translateY(2.5rem) !important;
             margin-top: calc((1 - 0.75) * -100%) !important;
           }
+          .cta-label {
+            margin-top: 3rem !important;
+          }
         }
       `}</style>
       <motion.button
@@ -122,7 +125,7 @@ export default function LandingPage() {
 
       {/* ── TAP TO ENTER CTA ── */}
       <motion.div
-        className="relative mt-2 text-center select-none"
+        className="cta-label relative mt-2 text-center select-none"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: isEntering ? 0 : 1, y: 0 }}
         transition={{ delay: fromBooth ? 0.1 : 0.35, duration: 0.4 }}
