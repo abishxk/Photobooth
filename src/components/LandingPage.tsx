@@ -85,9 +85,8 @@ export default function LandingPage() {
         @media (max-width: 767px) {
           .photobooth-btn {
             transform-origin: 50% 100% !important;
-            transform: scale(0.75) !important;
+            transform: scale(0.75) translateY(2.5rem) !important;
             margin-top: calc((1 - 0.75) * -100%) !important;
-            margin-bottom: 2rem !important;
           }
         }
       `}</style>
