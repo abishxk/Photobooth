@@ -75,8 +75,23 @@ export default function LandingPage() {
       <RoomSceneBackground />
 
       {/* ── PHOTOBOOTH (click / tap target) ── */}
+      {/*
+        On phones: scale to 75% anchored at the bottom so the booth stays
+        grounded. The negative margin-top collapses the 25% of empty space
+        that CSS scaling leaves above the element.
+        On md+ (≥768 px): full size, no transform adjustment needed.
+      */}
+      <style>{`
+        @media (max-width: 767px) {
+          .photobooth-btn {
+            transform-origin: 50% 100% !important;
+            transform: scale(0.75) !important;
+            margin-top: calc((1 - 0.75) * -100%) !important;
+          }
+        }
+      `}</style>
       <motion.button
-        className="relative w-full focus:outline-none"
+        className="photobooth-btn relative w-full focus:outline-none"
         style={{
           maxWidth: 420,
           padding: '0 12px',
