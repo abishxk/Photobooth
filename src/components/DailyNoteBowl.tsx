@@ -55,14 +55,6 @@ function CrumpledNote({ note, onClose }: { note: string; onClose: () => void }) 
               {note}
             </p>
           </div>
-
-          <motion.p
-            className="absolute bottom-[12%] left-0 right-0 text-center font-vintage text-[10px] sm:text-xs font-bold tracking-[0.25em] text-[#3a2512] uppercase select-none"
-            animate={{ opacity: [0.35, 0.85, 0.35] }}
-            transition={{ duration: 2.8, repeat: Infinity }}
-          >
-            tap to close
-          </motion.p>
         </div>
       </motion.div>
     </motion.div>
