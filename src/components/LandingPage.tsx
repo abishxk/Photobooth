@@ -123,8 +123,10 @@ export default function LandingPage() {
           animate={{ opacity: isEntering ? 0 : 1, y: 0 }}
           transition={{ delay: fromBooth ? 0.12 : 0.50, duration: 0.50, ease: 'easeOut' }}
         >
-          {/* Stool Floor Shadow */}
-          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[140px] h-10 bg-black/90 blur-lg rounded-[100%] pointer-events-none" />
+          {/* Stool Directional Shadow (Left) */}
+          <div className="absolute top-[30%] left-[-70%] w-[100%] h-[70%] bg-black/90 blur-[25px] rounded-full pointer-events-none -z-10" style={{ transform: 'rotate(-15deg)' }} />
+          {/* Stool Contact Shadow */}
+          <div className="absolute bottom-[2px] left-1/2 -translate-x-1/2 w-[80px] h-[12px] bg-black/95 blur-[4px] rounded-full pointer-events-none -z-10" />
           <DailyNoteJar />
         </motion.div>
 
@@ -148,8 +150,10 @@ export default function LandingPage() {
         whileTap={isEntering ? {} : { scale: 0.97, transition: { duration: 0.1 } }}
         aria-label="Tap to enter the photo booth"
       >
-        {/* Booth Floor Shadow */}
-        <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[90%] h-16 bg-black/95 blur-2xl rounded-[100%] pointer-events-none" />
+        {/* Booth Directional Shadow (Left Wall) */}
+        <div className="absolute top-[5%] left-[-60%] w-[90%] h-[95%] bg-black/90 blur-[45px] rounded-full pointer-events-none -z-10" style={{ transform: 'rotate(-10deg)' }} />
+        {/* Booth Contact Shadow (Floor) */}
+        <div className="absolute bottom-[-8px] left-1/2 -translate-x-1/2 w-[92%] h-[25px] bg-black/95 blur-[10px] rounded-full pointer-events-none -z-10" />
 
         {/* Pulsing glow ring */}
         <motion.div
