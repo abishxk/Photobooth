@@ -8,9 +8,8 @@ import paperImg from '../assets/paper.png';
 function CrumpledNote({ note, onClose }: { note: string; onClose: () => void }) {
   return (
     <motion.div
-      className="fixed inset-0 z-[200] flex items-center justify-center"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-black md:bg-[#060402]/90"
       style={{
-        background: 'rgba(6,4,2,0.90)',
         backdropFilter: 'blur(14px)',
         WebkitBackdropFilter: 'blur(14px)',
         cursor: 'pointer',
