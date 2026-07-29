@@ -181,7 +181,7 @@ export default function DailyNoteJar() {
           alt="Daily note jar on stool"
           draggable={false}
           style={{
-            width: 170,
+            width: 240,
             height: 'auto',
             display: 'block',
             userSelect: 'none',
