@@ -22,7 +22,7 @@ function CrumpledNote({ note, onClose }: { note: string; onClose: () => void }) 
       onClick={onClose}
     >
       <motion.div
-        className="relative mx-4 max-w-[500px] w-[90vw]"
+        className="relative mx-4 max-w-[700px] w-[95vw] sm:w-[85vw]"
         initial={{ scale: 0.2, rotate: -22, opacity: 0, y: 120 }}
         animate={{ scale: 1, rotate: ['-22deg', '5deg', '-2deg', '0.5deg'], opacity: 1, y: 0 }}
         exit={{ scale: 0.15, rotate: 24, opacity: 0, y: -90 }}
@@ -55,7 +55,7 @@ function CrumpledNote({ note, onClose }: { note: string; onClose: () => void }) 
           </p>
 
           <motion.p
-            className="mt-6 font-vintage text-[8px] tracking-[0.32em] text-[#9a7838] uppercase select-none"
+            className="mt-8 font-vintage text-[10px] sm:text-xs font-bold tracking-[0.25em] text-[#3a2512] uppercase select-none"
             animate={{ opacity: [0.35, 0.85, 0.35] }}
             transition={{ duration: 2.8, repeat: Infinity }}
           >
