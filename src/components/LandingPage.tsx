@@ -101,7 +101,7 @@ export default function LandingPage() {
         {/* ── DAILY NOTE STOOL — left of booth, desktop only ── */}
         <motion.div
           className="hidden md:block absolute z-20"
-          style={{ left: '-195px', bottom: '-4px' }}
+          style={{ left: '-160px', bottom: '-26px' }}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: isEntering ? 0 : 1, y: 0 }}
           transition={{ delay: fromBooth ? 0.12 : 0.50, duration: 0.50, ease: 'easeOut' }}

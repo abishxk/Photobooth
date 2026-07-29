@@ -181,7 +181,7 @@ export default function DailyNoteJar() {
           alt="Daily note jar on stool"
           draggable={false}
           style={{
-            width: 240,
+            width: 192,
             height: 'auto',
             display: 'block',
             userSelect: 'none',
@@ -189,15 +189,6 @@ export default function DailyNoteJar() {
             filter: 'drop-shadow(0 16px 28px rgba(0,0,0,0.70))',
           }}
         />
-
-        <motion.p
-          className="font-vintage text-center text-[10px] tracking-[0.28em] uppercase mt-1"
-          style={{ color: '#c8a060', textShadow: '0 1px 4px rgba(0,0,0,0.7)' }}
-          animate={{ opacity: [0.4, 0.85, 0.4] }}
-          transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          Daily Note
-        </motion.p>
       </motion.div>
 
       <AnimatePresence>
