@@ -91,8 +91,8 @@ export default function LandingPage() {
             className="absolute z-20"
             style={{
               // Approximate percentage placement
-              left: '29%',
-              top: '61%',
+              left: '28%',
+              top: '62.5%',
               width: '10.4%',
             }}
           >
@@ -110,7 +110,7 @@ export default function LandingPage() {
             className="absolute z-10"
             style={{
               left: '31%',
-              top: '21%',
+              top: '24%',
               width: '44.25%',
             }}
           >
@@ -136,7 +136,7 @@ export default function LandingPage() {
           
           {/* Tap to enter CTA over the booth */}
           <motion.div
-            className="absolute z-30 pointer-events-none select-none w-full flex justify-center top-[82%] md:top-[92%]"
+            className="absolute z-30 pointer-events-none select-none w-full flex justify-center top-[82%] md:top-[90%]"
             style={{ left: '0%' }}
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: isEntering ? 0 : 1, y: 0 }}
