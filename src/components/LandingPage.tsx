@@ -105,7 +105,7 @@ export default function LandingPage() {
           }
           .scene-wrapper {
             transform: scale(0.70);
-            margin-top: 40px !important;
+            margin-top: 80px !important;
             margin-left: 80px !important;
           }
           .daily-note-stool {
