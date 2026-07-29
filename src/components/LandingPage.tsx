@@ -6,6 +6,13 @@ import DailyNoteJar from './DailyNoteBowl';
 // Using unified scene
 import bgsceneImg from '../assets/newscene.png';
 
+/** ms to wait for the overlay to fully cover the screen before navigating */
+const TRANSITION_MS = 320;
+
+function sleep(ms: number) {
+  return new Promise<void>(r => setTimeout(r, ms));
+}
+
 export default function LandingPage() {
   const { goSettings, navState, setNavState } = useSession();
   const [isEntering, setIsEntering] = useState(false);
