@@ -4,7 +4,7 @@ import { useSession } from '../context/SessionProvider';
 import PhotoBooth from './PhotoBooth';
 import DailyNoteJar from './DailyNoteBowl';
 // Using unified scene
-import bgsceneImg from '../assets/newscene.png';
+import bgsceneImg from '../assets/tryscene.png';
 
 /** ms to wait for the overlay to fully cover the screen before navigating */
 const TRANSITION_MS = 320;
