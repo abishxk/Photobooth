@@ -88,7 +88,7 @@ export default function DailyNoteJar() {
             draggable={false}
             className="relative z-10"
             style={{
-              width: 192,
+              width: '100%',
               height: 'auto',
               display: 'block',
               userSelect: 'none',
