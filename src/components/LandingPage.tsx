@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSession } from '../context/SessionProvider';
 import PhotoBooth from './PhotoBooth';
 import DailyNoteJar from './DailyNoteBowl';
-import bgwallImg from '../assets/bgwall.png';
-import floorImg from '../assets/floor.png';
+import bgwallImg from '../assets/newbgwall.png';
+import floorImg from '../assets/newfloor.png';
 
 /** ms to wait for the overlay to fully cover the screen before navigating */
 const TRANSITION_MS = 320;
