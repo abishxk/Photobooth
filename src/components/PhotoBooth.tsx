@@ -44,9 +44,6 @@ const PhotoBooth = forwardRef<Webcam, PhotoBoothProps>(
               filter: 'drop-shadow(-80px 40px 30px rgba(0,0,0,0.85))'
             }}
           />
-          {/* Tight contact shadow directly underneath */}
-          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[90%] h-6 bg-black blur-md rounded-full pointer-events-none z-0" />
-
           {/* ── LIVE WEBCAM ── */}
           {showLive && (
             <div

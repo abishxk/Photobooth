@@ -97,8 +97,6 @@ export default function DailyNoteJar() {
               filter: 'drop-shadow(-40px 20px 20px rgba(0,0,0,0.85))',
             }}
           />
-          {/* Tight contact shadow directly underneath */}
-          <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-[60%] h-3 bg-black blur-[4px] rounded-full pointer-events-none z-0" />
         </motion.div>
 
       {createPortal(
