@@ -91,7 +91,7 @@ export default function LandingPage() {
         }
         @media (max-width: 767px) {
           .bg-tiles {
-            background-position: calc(50% + 45px) bottom, calc(50% + 45px) bottom !important;
+            background-position: calc(50% + 35px) bottom, calc(50% + 35px) bottom !important;
           }
           .grounding-shadow {
             left: calc(50% + 25px) !important;
