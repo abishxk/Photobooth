@@ -30,56 +30,6 @@ export default function SettingsPage() {
       exit={{ opacity: 0, transition: { duration: 0.3 } }}
       transition={{ duration: 0.5 }}
     >
-      {/* ── INTERIOR BACKGROUND: WOOD PANELING & CURTAINS ── */}
-      <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="w-full h-full opacity-90">
-          <defs>
-            <linearGradient id="wallWood" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#0a0402" />
-              <stop offset="20%" stopColor="#1a0a05" />
-              <stop offset="80%" stopColor="#1a0a05" />
-              <stop offset="100%" stopColor="#0a0402" />
-            </linearGradient>
-            <linearGradient id="redCurtain" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stopColor="#1a0204" />
-              <stop offset="25%" stopColor="#660010" />
-              <stop offset="50%" stopColor="#990018" />
-              <stop offset="75%" stopColor="#660010" />
-              <stop offset="100%" stopColor="#1a0204" />
-            </linearGradient>
-            <filter id="velvetTexture">
-              <feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="3" result="noise" />
-              <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.25 0" in="noise" result="coloredNoise" />
-              <feComposite operator="in" in="coloredNoise" in2="SourceGraphic" result="textured" />
-              <feBlend mode="multiply" in="textured" in2="SourceGraphic" />
-            </filter>
-            <filter id="shadowCurtain">
-              <feDropShadow dx="0" dy="0" stdDeviation="4" floodColor="#000" floodOpacity="0.8" />
-            </filter>
-          </defs>
-
-          {/* Wooden Wall */}
-          <rect width="100" height="100" fill="url(#wallWood)" />
-          {/* Vertical panel lines */}
-          <line x1="25" y1="0" x2="25" y2="100" stroke="#050201" strokeWidth="0.5" />
-          <line x1="50" y1="0" x2="50" y2="100" stroke="#050201" strokeWidth="0.5" />
-          <line x1="75" y1="0" x2="75" y2="100" stroke="#050201" strokeWidth="0.5" />
-          
-          {/* Dim Ambient Overhead Light */}
-          <circle cx="50" cy="-20" r="80" fill="#d4a853" opacity="0.05" filter="blur(10px)" />
-          
-          {/* Left Curtain */}
-          <g filter="url(#shadowCurtain)">
-            <path d="M 0 0 Q 15 50 0 100 Z" fill="url(#redCurtain)" filter="url(#velvetTexture)" />
-            <path d="M 0 0 Q 15 50 0 100" fill="none" stroke="#1a0204" strokeWidth="1.5" filter="url(#velvetTexture)" opacity="0.9" />
-          </g>
-          {/* Right Curtain */}
-          <g filter="url(#shadowCurtain)">
-            <path d="M 100 0 Q 85 50 100 100 Z" fill="url(#redCurtain)" filter="url(#velvetTexture)" />
-            <path d="M 100 0 Q 85 50 100 100" fill="none" stroke="#1a0204" strokeWidth="1.5" filter="url(#velvetTexture)" opacity="0.9" />
-          </g>
-        </svg>
-      </div>
 
       {/* ── TOP NAV (Engraved Plate Style) ── */}
       <div className="relative z-10 w-full px-5 py-4 flex-shrink-0">

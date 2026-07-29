@@ -114,7 +114,7 @@ export default function LandingPage() {
             z-index: 30 !important;
           }
           .cta-label {
-            top: 3rem !important;
+            top: 0rem !important;
           }
         }
       `}</style>
