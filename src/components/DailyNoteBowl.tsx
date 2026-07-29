@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getDailyNote } from '../data/notes';
 import stoolImg from '../assets/stool.png';
@@ -6,7 +7,7 @@ import paperImg from '../assets/paper.png';
 
 // ── CRUMPLED PAPER NOTE OVERLAY ───────────────────────────────────────────────
 function CrumpledNote({ note, onClose }: { note: string; onClose: () => void }) {
-  return (
+  return createPortal(
     <motion.div
       className="fixed inset-0 z-[200] flex items-center justify-center bg-black md:bg-[#060402]/90"
       style={{
@@ -64,7 +65,8 @@ function CrumpledNote({ note, onClose }: { note: string; onClose: () => void }) 
           </motion.p>
         </div>
       </motion.div>
-    </motion.div>
+    </motion.div>,
+    document.body
   );
 }
 

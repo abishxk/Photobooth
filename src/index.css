@@ -12,7 +12,11 @@
   html {
     scroll-behavior: smooth;
     /* Use dynamic viewport height — critical for iPhone Safari */
+    height: 100dvh;
     height: -webkit-fill-available;
+    width: 100vw;
+    overflow: hidden;
+    overscroll-behavior: none;
   }
 
   body {
@@ -21,7 +25,8 @@
     font-family: 'Inter', system-ui, sans-serif;
     min-height: 100vh;
     min-height: -webkit-fill-available;
-    /* Prevent overscroll bounce on iOS */
+    width: 100vw;
+    overflow: hidden;
     overscroll-behavior: none;
     /* Prevent iOS text size adjustment */
     -webkit-text-size-adjust: 100%;
