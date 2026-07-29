@@ -110,7 +110,7 @@ export default function LandingPage() {
             margin-left: 80px !important;
           }
           .daily-note-stool {
-            left: -120px !important;
+            left: -130px !important;
             bottom: -20px !important;
             z-index: 30 !important;
           }
