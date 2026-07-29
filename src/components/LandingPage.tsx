@@ -90,11 +90,10 @@ export default function LandingPage() {
           <div 
             className="absolute z-20"
             style={{
-              // Approximate percentage placement relative to 1672x940
-              // The user can tweak these percentages if they don't perfectly align with the baked stool
-              left: '32%',
+              // Approximate percentage placement
+              left: '29%',
               top: '63%',
-              width: '10.4%', // 174/1672 = 10.4%
+              width: '10.4%',
             }}
           >
             <motion.div
@@ -110,9 +109,9 @@ export default function LandingPage() {
           <div 
             className="absolute z-10"
             style={{
-              left: '27.87%', // 611 / 2192
-              top: '3.21%',   // 47 / 1461
-              width: '44.25%', // 970 / 2192
+              left: '31%',
+              top: '3.21%',
+              width: '44.25%',
             }}
           >
             <motion.button
