@@ -88,6 +88,7 @@ export default function LandingPage() {
             transform-origin: 50% 100% !important;
             transform: scale(0.70) translateY(2.5rem) !important;
             margin-top: calc((1 - 0.70) * -100%) !important;
+            margin-left: 25px !important;
           }
           .daily-note-stool {
             left: -50px !important;
@@ -101,7 +102,7 @@ export default function LandingPage() {
       `}</style>
 
       {/* Wrapper gives us a positioned context so the stool can overlap */}
-      <div className="scene-wrapper relative z-10" style={{ width: '100%', maxWidth: 420 }}>
+      <div className="scene-wrapper relative z-10" style={{ width: '100%', maxWidth: 420, marginLeft: '80px' }}>
 
         {/* ── DAILY NOTE STOOL ── */}
         <motion.div
