@@ -110,7 +110,7 @@ export default function LandingPage() {
             className="absolute z-10"
             style={{
               left: '30.5%',
-              top: '31%',
+              top: '33%',
               width: '44.25%',
             }}
           >
