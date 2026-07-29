@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSession } from '../context/SessionProvider';
 import PhotoBooth from './PhotoBooth';
+import DailyNoteJar from './DailyNoteBowl';
 
 /** ms to wait for the overlay to fully cover the screen before navigating */
 const TRANSITION_MS = 320;
@@ -74,12 +75,12 @@ export default function LandingPage() {
     >
       <RoomSceneBackground />
 
-      {/* ── PHOTOBOOTH (click / tap target) ── */}
+      {/* ── PHOTOBOOTH + STOOL COMPOSITION ── */}
       {/*
         On phones: scale to 75% anchored at the bottom so the booth stays
         grounded. The negative margin-top collapses the 25% of empty space
         that CSS scaling leaves above the element.
-        On md+ (≥768 px): full size, no transform adjustment needed.
+        On md+ (≥768 px): full size, stool appears to the left overlapping slightly.
       */}
       <style>{`
         @media (max-width: 767px) {
@@ -93,7 +94,22 @@ export default function LandingPage() {
           }
         }
       `}</style>
-      <motion.button
+
+      {/* Wrapper gives us a positioned context so the stool can overlap */}
+      <div className="relative z-10" style={{ width: '100%', maxWidth: 420 }}>
+
+        {/* ── DAILY NOTE STOOL — left of booth, desktop only ── */}
+        <motion.div
+          className="hidden md:block absolute z-20"
+          style={{ right: '94%', bottom: 0 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: isEntering ? 0 : 1, y: 0 }}
+          transition={{ delay: fromBooth ? 0.12 : 0.50, duration: 0.50, ease: 'easeOut' }}
+        >
+          <DailyNoteJar />
+        </motion.div>
+
+        <motion.button
         className="photobooth-btn relative w-full focus:outline-none"
         style={{
           maxWidth: 420,
@@ -113,6 +129,7 @@ export default function LandingPage() {
         whileTap={isEntering ? {} : { scale: 0.97, transition: { duration: 0.1 } }}
         aria-label="Tap to enter the photo booth"
       >
+
         {/* Pulsing glow ring */}
         <motion.div
           className="absolute inset-0 rounded-3xl pointer-events-none"
@@ -122,6 +139,8 @@ export default function LandingPage() {
         />
         <PhotoBooth showLive={false} />
       </motion.button>
+
+      </div> {/* end photobooth wrapper */}
 
       {/* ── TAP TO ENTER CTA ── */}
       <motion.div
