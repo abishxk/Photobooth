@@ -53,13 +53,13 @@ export default function SettingsPage() {
         
         {/* Brass Plate Container */}
         <motion.div 
-          className="relative bg-gradient-to-br from-[#c49b5c] via-[#8c6b36] to-[#4a3617] rounded-xl p-2 shadow-[0_15px_30px_rgba(0,0,0,0.8)] border border-[#fce3a2]"
+          className="relative bg-gradient-to-br from-[#e6c173] via-[#a37e3d] to-[#594119] rounded-xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.9),inset_0_1px_2px_rgba(255,255,255,0.4)] border border-[#ffe8a1]"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Inner dark chassis */}
-          <div className="relative bg-[#120804] rounded-lg p-5 shadow-[inset_0_10px_20px_rgba(0,0,0,0.9)] border border-[#26130b] flex flex-col gap-5">
+          <div className="relative bg-[#140603] rounded-lg p-6 shadow-[inset_0_15px_30px_rgba(0,0,0,1)] border-t-[3px] border-[#000] border-b border-[#3b1d11] border-x border-[#000] flex flex-col gap-6">
             
             {/* Corner Screws */}
             <Screw className="top-2 left-2" />
@@ -170,11 +170,11 @@ export default function SettingsPage() {
             aria-label="Start photo booth session"
           >
             {/* Outer brass housing */}
-            <div className="w-full bg-gradient-to-b from-[#d4a853] to-[#8c6b36] rounded-lg shadow-[0_8px_15px_rgba(0,0,0,0.8)] border border-[#e6d0a3] p-1.5 flex items-center justify-center">
+            <div className="w-full bg-gradient-to-b from-[#e6c173] to-[#8c6b36] rounded-xl shadow-[0_15px_30px_rgba(0,0,0,0.9)] border border-[#ffe8a1] p-2 flex items-center justify-center">
               {/* Plunger button (Red Bakelite) */}
-              <div className="w-full bg-gradient-to-b from-[#c4252a] to-[#7a0f14] rounded shadow-[inset_0_2px_3px_rgba(255,255,255,0.3),0_5px_0px_#4a0508,0_8px_10px_rgba(0,0,0,0.6)] border border-[#4a0508] transition-all duration-75 group-active:translate-y-[5px] group-active:shadow-[inset_0_2px_3px_rgba(255,255,255,0.3),0_0px_0px_#4a0508,0_2px_4px_rgba(0,0,0,0.6)] flex items-center justify-center py-4 relative mb-[5px] group-active:mb-0">
-                <div className="flex items-center gap-3 text-[#ffebd6] font-vintage text-2xl font-black tracking-widest drop-shadow-[0_2px_3px_rgba(0,0,0,0.8)]">
-                   <Camera size={24} strokeWidth={2.5} />
+              <div className="w-full bg-gradient-to-b from-[#c4252a] to-[#7a0f14] rounded-lg shadow-[inset_0_3px_6px_rgba(255,255,255,0.3),0_8px_0px_#3b0408,0_12px_15px_rgba(0,0,0,0.7)] border border-[#5c0b11] transition-all duration-75 group-active:translate-y-[8px] group-active:shadow-[inset_0_3px_6px_rgba(255,255,255,0.3),0_0px_0px_#3b0408,0_4px_5px_rgba(0,0,0,0.8)] flex items-center justify-center py-5">
+                <div className="flex items-center gap-3 text-[#ffe8a1] font-vintage text-2xl font-black tracking-widest drop-shadow-[0_3px_5px_rgba(0,0,0,0.9)]">
+                   <Camera size={26} strokeWidth={2.5} />
                    LET'S GO
                 </div>
               </div>
@@ -215,25 +215,23 @@ function MechanicalRow({ icon, label, children }: { icon: React.ReactNode; label
 
 function MechanicalChip({ id, active, onClick, children, subtitle }: any) {
   return (
-    <div className="flex-1 flex flex-col relative" style={{ height: subtitle ? 52 : 46 }}>
-      <button
-        id={id}
-        onClick={onClick}
-        aria-pressed={active}
-        className={`
-          absolute inset-x-0 top-0 flex flex-col items-center justify-center
-          font-vintage font-bold rounded transition-all duration-100 select-none focus:outline-none uppercase tracking-wider
-          ${active 
-            ? 'bg-[#0a0402] text-[#d4a853] shadow-[inset_0_3px_6px_rgba(0,0,0,0.9)] border border-[#000] translate-y-[4px]' 
-            : 'bg-gradient-to-b from-[#3a2015] to-[#26130b] text-[#e8d5b5] shadow-[0_4px_0_#0a0402,0_6px_8px_rgba(0,0,0,0.6)] border border-[#4a2b1c] hover:from-[#422619] hover:to-[#2e170d] active:translate-y-[4px] active:shadow-[0_0px_0_#0a0402,0_0px_0px_rgba(0,0,0,0)]'
-          }
-        `}
-        style={{ height: subtitle ? 48 : 42 }}
-      >
-        <span className="text-[13px] leading-none drop-shadow-[0_1px_1px_rgba(0,0,0,0.8)]">{children}</span>
-        {subtitle && <span className={`text-[9px] font-sans mt-1 uppercase tracking-widest ${active ? 'text-[#8c6b36]' : 'text-[#8c6b36]/70'}`}>{subtitle}</span>}
-      </button>
-    </div>
+    <button
+      id={id}
+      onClick={onClick}
+      aria-pressed={active}
+      className={`
+        relative flex-1 flex flex-col items-center justify-center
+        font-vintage font-bold rounded transition-all duration-75 select-none focus:outline-none uppercase tracking-wider
+        ${active 
+          ? 'bg-[#110502] text-[#e6c173] border-2 border-[#000] shadow-[inset_0_4px_10px_rgba(0,0,0,1)] translate-y-[4px]' 
+          : 'bg-gradient-to-b from-[#3a1d11] to-[#2a130b] text-[#fce3a2] border-x-2 border-t-2 border-[#5c301c] border-b-[6px] border-b-[#0a0402] shadow-[0_4px_10px_rgba(0,0,0,0.6)] hover:from-[#4a2617] hover:to-[#3a1d11] active:translate-y-[4px] active:border-b-[2px]'
+        }
+      `}
+      style={{ height: subtitle ? 52 : 46 }}
+    >
+      <span className="text-[13px] leading-none drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">{children}</span>
+      {subtitle && <span className={`text-[9px] font-sans mt-1 uppercase tracking-widest ${active ? 'text-[#a37e3d]' : 'text-[#a37e3d]/70'}`}>{subtitle}</span>}
+    </button>
   );
 }
 
@@ -243,25 +241,25 @@ function MechanicalToggle({ id, icon, label, checked, disabled, onToggle }: any)
       id={id}
       onClick={disabled ? undefined : onToggle} 
       disabled={disabled}
-      className={`flex-1 flex flex-col justify-center gap-2 p-2.5 bg-[#180a06] border border-[#050201] rounded shadow-[inset_0_2px_5px_rgba(0,0,0,0.9)] ${disabled ? 'opacity-40 cursor-not-allowed' : 'active:scale-[0.98] cursor-pointer hover:bg-[#1a0b07] transition-colors'}`}
+      className={`flex-1 flex flex-col justify-center gap-2 p-3 bg-[#140603] border-t-[3px] border-[#050201] border-b-2 border-[#2a130b] rounded-lg shadow-[inset_0_4px_10px_rgba(0,0,0,0.9)] ${disabled ? 'opacity-40 cursor-not-allowed' : 'active:scale-[0.98] cursor-pointer hover:bg-[#1a0805] transition-colors'}`}
     >
       <div className="flex items-center gap-3">
         {/* Switch casing */}
-        <div className="relative w-12 h-6 bg-[#050201] rounded-full border border-[#000] shadow-[inset_0_2px_5px_rgba(0,0,0,1)] flex-shrink-0">
+        <div className="relative w-12 h-6 bg-[#0a0402] rounded border-2 border-[#000] shadow-[inset_0_2px_4px_rgba(0,0,0,1)] flex-shrink-0">
           {/* Bat handle */}
           <motion.div 
-            className="absolute top-0 w-6 h-6 rounded-full bg-gradient-to-b from-[#e6d0a3] to-[#8c6b36] border border-[#4a3617] shadow-[0_2px_4px_rgba(0,0,0,0.8)] flex flex-col items-center justify-center gap-[1px] z-10"
-            animate={{ left: checked ? 24 : 0 }}
-            transition={{ type: "spring", stiffness: 500, damping: 30 }}
+            className="absolute top-[-2px] w-6 h-[26px] rounded bg-gradient-to-b from-[#e6c173] via-[#8c6b36] to-[#4a3617] border-x border-t border-[#fce3a2] border-b-[4px] border-b-[#33220a] shadow-[0_4px_5px_rgba(0,0,0,0.8)] flex flex-col items-center justify-center gap-[2px] z-10"
+            animate={{ left: checked ? 22 : -2 }}
+            transition={{ type: "spring", stiffness: 600, damping: 25 }}
           >
-            <div className="w-2.5 h-[1px] bg-[#4a3617] opacity-70" />
-            <div className="w-2.5 h-[1px] bg-[#4a3617] opacity-70" />
-            <div className="w-2.5 h-[1px] bg-[#4a3617] opacity-70" />
+            <div className="w-3 h-px bg-[#4a3617] opacity-60" />
+            <div className="w-3 h-px bg-[#4a3617] opacity-60" />
+            <div className="w-3 h-px bg-[#4a3617] opacity-60" />
           </motion.div>
           {/* Red/Green indicator dots inside casing */}
           <div className="absolute inset-0 flex items-center justify-between px-2">
-             <div className="w-1.5 h-1.5 rounded-full bg-[#111]" />
-             <div className="w-1.5 h-1.5 rounded-full bg-[#5c0b11]" />
+             <div className="w-2 h-2 rounded-full bg-[#111] shadow-[inset_0_1px_2px_rgba(0,0,0,1)]" />
+             <div className="w-2 h-2 rounded-full bg-[#5c0b11] shadow-[inset_0_1px_2px_rgba(0,0,0,1)]" />
           </div>
         </div>
         <div className="flex items-center gap-1.5">
