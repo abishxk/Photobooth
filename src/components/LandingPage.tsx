@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSession } from '../context/SessionProvider';
 import PhotoBooth from './PhotoBooth';
 import DailyNoteJar from './DailyNoteBowl';
-import newbgwallImg from '../assets/newbgwall.png';
+import bgwallImg from '../assets/bgwall.png';
 import floorImg from '../assets/floor.png';
 
 /** ms to wait for the overlay to fully cover the screen before navigating */
@@ -22,7 +22,7 @@ function RoomSceneBackground() {
         style={{
           backgroundImage: `
             radial-gradient(circle at 50% 35%, rgba(255, 235, 200, 0.15) 0%, rgba(0, 0, 0, 0.8) 85%),
-            url("${newbgwallImg}")
+            url("${bgwallImg}")
           `,
           backgroundSize: '100% 100%, auto auto',
         }}
