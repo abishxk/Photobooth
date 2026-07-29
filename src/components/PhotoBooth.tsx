@@ -2,7 +2,7 @@ import { forwardRef } from 'react';
 import Webcam from 'react-webcam';
 import { motion } from 'framer-motion';
 import { useSession } from '../context/SessionProvider';
-import boothImg from '../assets/newbooth.png';
+import boothImg from '../assets/trybooth.png';
 
 interface PhotoBoothProps {
   showLive?: boolean;
