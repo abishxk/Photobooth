@@ -2,7 +2,7 @@ import { useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getDailyNote } from '../data/notes';
-import stoolImg from '../assets/stool.png';
+import stoolImg from '../assets/newstool.png';
 import paperImg from '../assets/paper.png';
 
 // ── CRUMPLED PAPER NOTE OVERLAY ───────────────────────────────────────────────
