@@ -46,12 +46,29 @@ export default function LandingPage() {
       transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
     >
       {/* ── UNIFIED SCENE CONTAINER ── */}
-      {/* This container locks to the 1672x940 aspect ratio and scales to cover the viewport. */}
+      {/* This container locks to the 3:2 aspect ratio and scales to cover the viewport. */}
+      <style>{`
+        .scene-scaler {
+          /* Desktop/Landscape: Anchor to the bottom center (floor fully visible, ceiling cropped) */
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        @media (max-aspect-ratio: 1/1) {
+          .scene-scaler {
+            /* Mobile/Portrait: Anchor vertically center, shifted to show the left side (stool) */
+            bottom: auto;
+            top: 50%;
+            left: 35%;
+            transform: translate(-35%, -50%);
+          }
+        }
+      `}</style>
       <div 
-        className="absolute inset-0 flex items-center justify-center overflow-hidden z-0 pointer-events-none"
+        className="absolute inset-0 overflow-hidden z-0 pointer-events-none"
       >
         <div 
-          className="relative pointer-events-auto"
+          className="scene-scaler absolute pointer-events-auto"
           style={{
             // 2192 / 1461 = 1.5003
             aspectRatio: '2192 / 1461',
