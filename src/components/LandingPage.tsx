@@ -84,10 +84,15 @@ export default function LandingPage() {
       */}
       <style>{`
         @media (max-width: 767px) {
-          .photobooth-btn {
+          .scene-wrapper {
             transform-origin: 50% 100% !important;
-            transform: scale(0.75) translateY(2.5rem) !important;
-            margin-top: calc((1 - 0.75) * -100%) !important;
+            transform: scale(0.70) translateY(2.5rem) !important;
+            margin-top: calc((1 - 0.70) * -100%) !important;
+          }
+          .daily-note-stool {
+            left: -50px !important;
+            bottom: -20px !important;
+            z-index: 30 !important;
           }
           .cta-label {
             top: 3rem !important;
@@ -96,11 +101,11 @@ export default function LandingPage() {
       `}</style>
 
       {/* Wrapper gives us a positioned context so the stool can overlap */}
-      <div className="relative z-10" style={{ width: '100%', maxWidth: 420 }}>
+      <div className="scene-wrapper relative z-10" style={{ width: '100%', maxWidth: 420 }}>
 
-        {/* ── DAILY NOTE STOOL — left of booth, desktop only ── */}
+        {/* ── DAILY NOTE STOOL ── */}
         <motion.div
-          className="hidden md:block absolute z-20"
+          className="absolute z-20 daily-note-stool"
           style={{ left: '-160px', bottom: '-26px' }}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: isEntering ? 0 : 1, y: 0 }}
