@@ -94,17 +94,18 @@ export default function LandingPage() {
           left: calc(50% + 80px) !important;
           transform: translateX(-50%) !important;
         }
+        /* LAPTOP & DESKTOP (Default) */
+        .scene-wrapper {
+          transform: scale(0.95);
+          margin-top: -40px;
+        }
         @media (max-width: 767px) {
           .bg-tiles {
             background-position: calc(50% + 35px) bottom, calc(50% + 35px) bottom !important;
           }
-          .grounding-shadow {
-            display: none;
-          }
           .scene-wrapper {
-            transform-origin: 50% 100% !important;
-            transform: scale(0.70) translateY(4rem) !important;
-            margin-top: calc((1 - 0.70) * -100%) !important;
+            transform: scale(0.70);
+            margin-top: -70px !important;
             margin-left: 80px !important;
           }
           .daily-note-stool {
@@ -152,13 +153,6 @@ export default function LandingPage() {
         whileTap={isEntering ? {} : { scale: 0.97, transition: { duration: 0.1 } }}
         aria-label="Tap to enter the photo booth"
       >
-        {/* Soft Ambient Shadow Behind Lower Half of Booth */}
-        <div className="absolute bottom-[-10px] left-1/2 -translate-x-1/2 w-[110%] h-[40%] bg-black/80 blur-[30px] rounded-[100%] pointer-events-none -z-10" />
-        {/* Thin Contact Shadow along the entire base */}
-        <div className="absolute bottom-[-2px] left-1/2 -translate-x-1/2 w-[98%] h-[8px] bg-black/95 blur-[4px] rounded-[100%] pointer-events-none -z-10" />
-        {/* Darker Corner Shadows */}
-        <div className="absolute bottom-[-4px] left-[5%] w-[20px] h-[6px] bg-black blur-[3px] rounded-full pointer-events-none -z-10" />
-        <div className="absolute bottom-[-4px] right-[5%] w-[20px] h-[6px] bg-black blur-[3px] rounded-full pointer-events-none -z-10" />
 
         {/* Pulsing glow ring */}
         <motion.div
