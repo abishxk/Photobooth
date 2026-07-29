@@ -102,11 +102,11 @@ export default function LandingPage() {
             transform-origin: 50% 100% !important;
             transform: scale(0.70) translateY(4rem) !important;
             margin-top: calc((1 - 0.70) * -100%) !important;
-            margin-left: 50px !important;
+            margin-left: 60px !important;
           }
           .daily-note-stool {
-            left: -90px !important;
-            bottom: -50px !important;
+            left: -100px !important;
+            bottom: -40px !important;
             z-index: 30 !important;
           }
           .cta-label {
