@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSession } from '../context/SessionProvider';
 import PhotoBooth from './PhotoBooth';
 import DailyNoteJar from './DailyNoteBowl';
+import bgwallImg from '../assets/bgwall.png';
 
 /** ms to wait for the overlay to fully cover the screen before navigating */
 const TRANSITION_MS = 320;
@@ -20,9 +21,9 @@ function RoomSceneBackground() {
         style={{
           backgroundImage: `
             radial-gradient(circle at 50% 35%, rgba(255, 235, 200, 0.15) 0%, rgba(0, 0, 0, 0.8) 85%),
-            url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23111111'/%3E%3Crect x='1' y='1' width='38' height='38' fill='%23f4f1ea' rx='1'/%3E%3Crect x='41' y='1' width='38' height='38' fill='%231a1a1a' rx='1'/%3E%3Crect x='1' y='41' width='38' height='38' fill='%231a1a1a' rx='1'/%3E%3Crect x='41' y='41' width='38' height='38' fill='%23f4f1ea' rx='1'/%3E%3Cline x1='2' y1='2' x2='38' y2='2' stroke='%23ffffff' stroke-width='1' opacity='0.8'/%3E%3Cline x1='42' y1='42' x2='78' y2='42' stroke='%23ffffff' stroke-width='1' opacity='0.8'/%3E%3C/svg%3E")
+            url("${bgwallImg}")
           `,
-          backgroundSize: '100% 100%, 80px 80px',
+          backgroundSize: '100% 100%, auto auto',
         }}
       />
 
