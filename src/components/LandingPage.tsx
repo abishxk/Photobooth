@@ -104,7 +104,8 @@ export default function LandingPage() {
             margin-left: 25px !important;
           }
           .daily-note-stool {
-            left: -50px !important;
+            left: -70px !important;
+            bottom: -36px !important;
             z-index: 30 !important;
           }
           .cta-label {
