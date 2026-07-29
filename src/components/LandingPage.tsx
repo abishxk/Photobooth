@@ -35,8 +35,6 @@ function RoomSceneBackground() {
         <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/5 opacity-30" />
       </div>
 
-      {/* 4. Grounding Shadow beneath Photo Booth */}
-      <div className="absolute top-[71%] w-[380px] sm:w-[440px] h-14 rounded-full bg-black/85 blur-xl z-10 pointer-events-none grounding-shadow" />
     </div>
   );
 }
@@ -95,8 +93,7 @@ export default function LandingPage() {
             background-position: calc(50% + 35px) bottom, calc(50% + 35px) bottom !important;
           }
           .grounding-shadow {
-            left: calc(50% + 25px) !important;
-            transform: translateX(-50%) !important;
+            display: none;
           }
           .scene-wrapper {
             transform-origin: 50% 100% !important;
@@ -126,6 +123,8 @@ export default function LandingPage() {
           animate={{ opacity: isEntering ? 0 : 1, y: 0 }}
           transition={{ delay: fromBooth ? 0.12 : 0.50, duration: 0.50, ease: 'easeOut' }}
         >
+          {/* Stool Floor Shadow */}
+          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[140px] h-10 bg-black/90 blur-lg rounded-[100%] pointer-events-none" />
           <DailyNoteJar />
         </motion.div>
 
@@ -149,6 +148,8 @@ export default function LandingPage() {
         whileTap={isEntering ? {} : { scale: 0.97, transition: { duration: 0.1 } }}
         aria-label="Tap to enter the photo booth"
       >
+        {/* Booth Floor Shadow */}
+        <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-[90%] h-16 bg-black/95 blur-2xl rounded-[100%] pointer-events-none" />
 
         {/* Pulsing glow ring */}
         <motion.div
