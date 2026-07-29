@@ -83,19 +83,19 @@ export default function LandingPage() {
       */}
       <style>{`
         .bg-tiles {
-          background-position: calc(50% + 80px) bottom, calc(50% + 80px) bottom;
+          background-position: calc(50% + 80px) bottom, calc(50% + 80px) bottom !important;
         }
         .grounding-shadow {
-          left: calc(50% + 80px);
-          transform: translateX(-50%);
+          left: calc(50% + 80px) !important;
+          transform: translateX(-50%) !important;
         }
         @media (max-width: 767px) {
           .bg-tiles {
-            background-position: calc(50% + 25px) bottom, calc(50% + 25px) bottom;
+            background-position: calc(50% + 25px) bottom, calc(50% + 25px) bottom !important;
           }
           .grounding-shadow {
-            left: calc(50% + 25px);
-            transform: translateX(-50%);
+            left: calc(50% + 25px) !important;
+            transform: translateX(-50%) !important;
           }
           .scene-wrapper {
             transform-origin: 50% 100% !important;
@@ -105,7 +105,6 @@ export default function LandingPage() {
           }
           .daily-note-stool {
             left: -50px !important;
-            bottom: -2px !important;
             z-index: 30 !important;
           }
           .cta-label {
