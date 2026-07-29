@@ -92,7 +92,7 @@ export default function LandingPage() {
             style={{
               // Approximate percentage placement
               left: '21%',
-              top: '60%',
+              top: '65%',
               width: '25%',
             }}
           >
