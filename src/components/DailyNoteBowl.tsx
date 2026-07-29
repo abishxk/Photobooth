@@ -93,10 +93,14 @@ export default function DailyNoteJar() {
               display: 'block',
               userSelect: 'none',
               WebkitUserSelect: 'none',
-              // Strong directional shadow to the bottom-left mimicking reference
-              filter: 'drop-shadow(-40px 20px 20px rgba(0,0,0,0.85))',
+              // Strong directional shadow to the bottom-right mimicking booth
+              filter: 'drop-shadow(40px 20px 20px rgba(0,0,0,0.85))',
             }}
           />
+          {/* Strong contact shadows for stool legs */}
+          <div className="absolute bottom-1 left-[15%] w-[25%] h-3 bg-black blur-[3px] rounded-full pointer-events-none z-0" />
+          <div className="absolute bottom-1 right-[15%] w-[25%] h-3 bg-black blur-[3px] rounded-full pointer-events-none z-0" />
+          <div className="absolute bottom-[4px] left-1/2 -translate-x-1/2 w-[70%] h-[6px] bg-black/90 blur-[5px] rounded-full pointer-events-none z-0" />
         </motion.div>
 
       {createPortal(

@@ -40,8 +40,8 @@ const PhotoBooth = forwardRef<Webcam, PhotoBoothProps>(
               display: 'block', 
               width: '100%', 
               height: 'auto',
-              // Strong directional shadow to the bottom-left mimicking reference
-              filter: 'drop-shadow(-80px 40px 30px rgba(0,0,0,0.85))'
+              // Strong directional shadow to the bottom-right
+              filter: 'drop-shadow(80px 40px 30px rgba(0,0,0,0.85))'
             }}
           />
           {/* ── LIVE WEBCAM ── */}
