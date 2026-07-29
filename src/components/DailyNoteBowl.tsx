@@ -7,7 +7,7 @@ import paperImg from '../assets/paper.png';
 
 // ── CRUMPLED PAPER NOTE OVERLAY ───────────────────────────────────────────────
 function CrumpledNote({ note, onClose }: { note: string; onClose: () => void }) {
-  return createPortal(
+  return (
     <motion.div
       className="fixed inset-0 z-[200] flex items-center justify-center bg-black md:bg-[#060402]/90"
       style={{
@@ -65,11 +65,9 @@ function CrumpledNote({ note, onClose }: { note: string; onClose: () => void }) 
           </motion.p>
         </div>
       </motion.div>
-    </motion.div>,
-    document.body
+    </motion.div>
   );
 }
-
 // ── MAIN EXPORT ───────────────────────────────────────────────────────────────
 export default function DailyNoteJar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -107,14 +105,17 @@ export default function DailyNoteJar() {
         />
       </motion.div>
 
-      <AnimatePresence>
-        {isOpen && (
-          <CrumpledNote
-            note={noteRef.current ?? ''}
-            onClose={() => setIsOpen(false)}
-          />
-        )}
-      </AnimatePresence>
+      {createPortal(
+        <AnimatePresence>
+          {isOpen && (
+            <CrumpledNote
+              note={noteRef.current ?? ''}
+              onClose={() => setIsOpen(false)}
+            />
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
     </>
   );
 }
