@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useSession } from '../context/SessionProvider';
 import PhotoBooth from './PhotoBooth';
 import DailyNoteJar from './DailyNoteBowl';
-import bgwallImg from '../assets/bgwall.png';
+import newbgwallImg from '../assets/newbgwall.png';
+import floorImg from '../assets/floor.png';
 
 /** ms to wait for the overlay to fully cover the screen before navigating */
 const TRANSITION_MS = 320;
@@ -21,7 +22,7 @@ function RoomSceneBackground() {
         style={{
           backgroundImage: `
             radial-gradient(circle at 50% 35%, rgba(255, 235, 200, 0.15) 0%, rgba(0, 0, 0, 0.8) 85%),
-            url("${bgwallImg}")
+            url("${newbgwallImg}")
           `,
           backgroundSize: '100% 100%, auto auto',
         }}
@@ -30,10 +31,17 @@ function RoomSceneBackground() {
       {/* 2. Wooden Baseboard Skirting Mold Trim Line */}
       <div className="absolute top-[74%] left-0 right-0 h-3 bg-gradient-to-b from-[#3b2713] via-[#1a0f05] to-[#070301] border-t border-[#543b1c] shadow-[0_4px_12px_rgba(0,0,0,0.9)] z-10" />
 
-      {/* 3. Plain Floor (Lower 26% of scene) */}
-      <div className="absolute top-[74%] left-0 right-0 bottom-0 bg-gradient-to-b from-[#1c1c1c] via-[#121212] to-[#0a0a0a]">
-        <div className="absolute inset-0 bg-gradient-to-t from-transparent to-white/5 opacity-30" />
-      </div>
+      {/* 3. Floor Image (Lower 26% of scene) */}
+      <div 
+        className="absolute top-[74%] left-0 right-0 bottom-0 bg-[#0a0a0a]"
+        style={{
+          backgroundImage: `
+            linear-gradient(to top, transparent, rgba(255,255,255,0.05)),
+            url("${floorImg}")
+          `,
+          backgroundSize: '100% 100%, auto auto',
+        }}
+      />
 
     </div>
   );
