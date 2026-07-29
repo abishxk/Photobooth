@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Camera, ArrowLeft, Eye, Clock, Timer, Calendar, Layers } from 'lucide-react';
 import { useSession } from '../context/SessionProvider';
 import type { ColorMode, IntervalSeconds, StripStyle } from '../types';
+import woodenbgImg from '../assets/woodenbg.png';
 
 const INTERVALS: IntervalSeconds[] = [2, 3, 5, 8];
 const STRIP_STYLES: { value: StripStyle; label: string; sub: string }[] = [
@@ -20,10 +21,11 @@ export default function SettingsPage() {
 
   return (
     <motion.div
-      className="relative min-h-[100dvh] max-h-[100dvh] flex flex-col overflow-hidden bg-[#0a0402]"
+      className="relative min-h-[100dvh] max-h-[100dvh] flex flex-col overflow-hidden bg-cover bg-center"
       style={{
         paddingTop: 'env(safe-area-inset-top)',
         paddingBottom: 'env(safe-area-inset-bottom)',
+        backgroundImage: `url("${woodenbgImg}")`
       }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

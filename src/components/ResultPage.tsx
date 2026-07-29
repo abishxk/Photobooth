@@ -5,6 +5,7 @@ import { toPng } from 'html-to-image';
 import { useSession } from '../context/SessionProvider';
 import PhotoStrip from './PhotoStrip';
 import { isIOS, generateCanvasPhotoStrip } from '../utils/canvasPhotoStrip';
+import woodenbgImg from '../assets/woodenbg.png';
 
 
 
@@ -123,10 +124,11 @@ export default function ResultPage() {
 
   return (
     <motion.div
-      className="relative min-h-[100dvh] max-h-[100dvh] flex flex-col overflow-hidden bg-[#0a0402]"
+      className="relative min-h-[100dvh] max-h-[100dvh] flex flex-col overflow-hidden bg-cover bg-center"
       style={{
         paddingTop: 'env(safe-area-inset-top)',
         paddingBottom: 'env(safe-area-inset-bottom)',
+        backgroundImage: `url("${woodenbgImg}")`
       }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

@@ -4,17 +4,13 @@ import LandingPage from './components/LandingPage';
 import SettingsPage from './components/SettingsPage';
 import CameraCapture from './components/CameraCapture';
 import ResultPage from './components/ResultPage';
-import woodenbgImg from './assets/woodenbg.png';
 
 function AppInner() {
   const { phase } = useSession();
 
   return (
     // overflow-hidden prevents any flash of scrollbar during transitions
-    <div 
-      className="relative min-h-[100dvh] overflow-hidden bg-cover bg-center"
-      style={{ backgroundImage: `url("${woodenbgImg}")` }}
-    >
+    <div className="relative min-h-[100dvh] overflow-hidden">
       <AnimatePresence mode="wait">
         {phase === 'landing'  && <LandingPage   key="landing"  />}
         {phase === 'settings' && <SettingsPage  key="settings" />}

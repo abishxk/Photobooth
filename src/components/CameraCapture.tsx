@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { AlertCircle, Camera, RefreshCw } from 'lucide-react';
 import { useSession } from '../context/SessionProvider';
 import Countdown from './Countdown';
+import woodenbgImg from '../assets/woodenbg.png';
 
 function playShutterSound() {
   try {
@@ -268,8 +269,8 @@ export default function CameraCapture() {
 
   return (
     <div
-      className="relative min-h-[100dvh] max-h-[100dvh] flex flex-col overflow-hidden bg-[#0a0402]"
-      style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)' }}
+      className="relative min-h-[100dvh] max-h-[100dvh] flex flex-col overflow-hidden bg-cover bg-center"
+      style={{ paddingTop: 'env(safe-area-inset-top)', paddingBottom: 'env(safe-area-inset-bottom)', backgroundImage: `url("${woodenbgImg}")` }}
     >
 
 
