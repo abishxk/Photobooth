@@ -53,12 +53,12 @@ export default function LandingPage() {
         <div 
           className="relative pointer-events-auto"
           style={{
-            // 1672 / 940 = 1.7787
-            aspectRatio: '1672 / 940',
+            // 2192 / 1461 = 1.5003
+            aspectRatio: '2192 / 1461',
             minWidth: '100vw',
             minHeight: '100dvh',
-            width: 'max(100vw, calc(100dvh * 1.7787))',
-            height: 'max(100dvh, calc(100vw / 1.7787))',
+            width: 'max(100vw, calc(100dvh * 1.5003))',
+            height: 'max(100dvh, calc(100vw / 1.5003))',
             flexShrink: 0,
           }}
         >
@@ -93,9 +93,9 @@ export default function LandingPage() {
           <div 
             className="absolute z-10"
             style={{
-              left: '48%',
-              top: '19.5%',
-              width: '27.2%', // 455/1672 = 27.2%
+              left: '27.87%', // 611 / 2192
+              top: '3.21%',   // 47 / 1461
+              width: '44.25%', // 970 / 2192
             }}
           >
             <motion.button
