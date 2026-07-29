@@ -35,9 +35,17 @@ const PhotoBooth = forwardRef<Webcam, PhotoBoothProps>(
           <img
             src={boothImg}
             alt="Vintage Wooden Photoautomat"
-            className="w-full drop-shadow-2xl pointer-events-none"
-            style={{ display: 'block', width: '100%', height: 'auto' }}
+            className="w-full pointer-events-none relative z-10"
+            style={{ 
+              display: 'block', 
+              width: '100%', 
+              height: 'auto',
+              // Strong directional shadow to the bottom-left mimicking reference
+              filter: 'drop-shadow(-80px 40px 30px rgba(0,0,0,0.85))'
+            }}
           />
+          {/* Tight contact shadow directly underneath */}
+          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-[90%] h-6 bg-black blur-md rounded-full pointer-events-none z-0" />
 
           {/* ── LIVE WEBCAM ── */}
           {showLive && (

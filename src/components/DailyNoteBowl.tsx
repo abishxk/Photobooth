@@ -82,20 +82,24 @@ export default function DailyNoteJar() {
         role="button"
         aria-label="Open your daily note"
       >
-        <img
-          src={stoolImg}
-          alt="Daily note jar on stool"
-          draggable={false}
-          style={{
-            width: 192,
-            height: 'auto',
-            display: 'block',
-            userSelect: 'none',
-            WebkitUserSelect: 'none',
-            filter: 'drop-shadow(0 16px 28px rgba(0,0,0,0.70))',
-          }}
-        />
-      </motion.div>
+          <img
+            src={stoolImg}
+            alt="Daily note jar on stool"
+            draggable={false}
+            className="relative z-10"
+            style={{
+              width: 192,
+              height: 'auto',
+              display: 'block',
+              userSelect: 'none',
+              WebkitUserSelect: 'none',
+              // Strong directional shadow to the bottom-left mimicking reference
+              filter: 'drop-shadow(-40px 20px 20px rgba(0,0,0,0.85))',
+            }}
+          />
+          {/* Tight contact shadow directly underneath */}
+          <div className="absolute bottom-1 left-1/2 -translate-x-1/2 w-[60%] h-3 bg-black blur-[4px] rounded-full pointer-events-none z-0" />
+        </motion.div>
 
       {createPortal(
         <AnimatePresence>
