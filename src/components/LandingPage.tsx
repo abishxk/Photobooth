@@ -28,8 +28,6 @@ function RoomSceneBackground() {
         }}
       />
 
-      {/* 2. Wooden Baseboard Skirting Mold Trim Line */}
-      <div className="absolute top-[74%] left-0 right-0 h-3 bg-gradient-to-b from-[#3b2713] via-[#1a0f05] to-[#070301] border-t border-[#543b1c] shadow-[0_4px_12px_rgba(0,0,0,0.9)] z-10" />
 
       {/* 3. Floor Image (Lower 26% of scene) */}
       <div 
