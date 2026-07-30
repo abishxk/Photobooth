@@ -33,7 +33,7 @@ export default function SettingsPage() {
       transition={{ duration: 0.5 }}
     >
 
-      {/* ── TOP NAV (Engraved Plate Style) ── */}
+      {/* ── TOP NAV ── */}
       <div className="relative z-10 w-full px-5 py-4 flex-shrink-0">
         <div className="flex justify-start">
           <motion.button
@@ -47,114 +47,108 @@ export default function SettingsPage() {
         </div>
       </div>
 
-      {/* ── MAIN CONTENT (BRASS CONTROL PANEL) ── */}
+      {/* ── MAIN CONTENT (VINTAGE TICKET/PAPER PANEL) ── */}
       <div className="relative z-10 flex-1 w-full max-w-md mx-auto px-4 flex flex-col justify-center min-h-0 overflow-hidden">
         
-        {/* Brass Plate Container */}
+        {/* Paper Plate Container */}
         <motion.div 
-          className="relative bg-gradient-to-br from-[#e6c173] via-[#a37e3d] to-[#594119] rounded-xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.9),inset_0_1px_2px_rgba(255,255,255,0.4)] border border-[#ffe8a1]"
+          className="relative bg-[#f4ebd8] rounded-xl p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-[#e5d5b5] flex flex-col gap-5 sm:gap-7"
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          style={{ backgroundImage: 'radial-gradient(#dccba3 1px, transparent 1px)', backgroundSize: '16px 16px' }}
         >
-          {/* Inner dark chassis */}
-          <div className="relative bg-gradient-to-br from-[#381a10] to-[#1a0a05] rounded-lg py-5 px-4 sm:p-6 shadow-[inset_0_10px_20px_rgba(0,0,0,0.8)] border-t-[3px] border-[#0a0402] border-b border-[#4a2617] border-x border-[#0a0402] flex flex-col gap-4 sm:gap-6">
-            
-            {/* Corner Screws */}
-            <Screw className="top-1.5 left-1.5 sm:top-2 sm:left-2" />
-            <Screw className="top-1.5 right-1.5 sm:top-2 sm:right-2" />
-            <Screw className="bottom-1.5 left-1.5 sm:bottom-2 sm:left-2" />
-            <Screw className="bottom-1.5 right-1.5 sm:bottom-2 sm:right-2" />
+          {/* Inner border to look like a ticket */}
+          <div className="absolute inset-2 border-2 border-[#d3c9b7] rounded-lg pointer-events-none opacity-50" />
 
-            {/* Color Mode */}
-            <MechanicalRow label="TONE">
-              <div className="flex gap-2">
-                <MechanicalChip
-                  id="mono-btn"
-                  active={settings.colorMode === 'monochrome'}
-                  onClick={() => updateSettings({ colorMode: 'monochrome' as ColorMode })}
-                >B&amp;W</MechanicalChip>
-                <MechanicalChip
-                  id="retro-btn"
-                  active={settings.colorMode === 'retro'}
-                  onClick={() => updateSettings({ colorMode: 'retro' as ColorMode })}
-                  subtitle="FILM"
-                >RETRO</MechanicalChip>
-              </div>
-            </MechanicalRow>
-
-            <Divider />
-
-            {/* Interval */}
-            <MechanicalRow label="DELAY">
-              <div className="flex gap-2">
-                {INTERVALS.map(sec => (
-                  <MechanicalChip
-                    key={sec}
-                    id={`interval-${sec}`}
-                    active={settings.interval === sec}
-                    onClick={() => updateSettings({ interval: sec as IntervalSeconds })}
-                  >
-                    {sec}s
-                  </MechanicalChip>
-                ))}
-              </div>
-            </MechanicalRow>
-
-            <Divider />
-
-            {/* Strip Style */}
-            <MechanicalRow label="STRIP">
-              <div className="flex gap-2">
-                {STRIP_STYLES.map(({ value, label, sub }) => (
-                  <MechanicalChip
-                    key={value}
-                    id={`strip-${value}`}
-                    active={settings.stripStyle === value}
-                    onClick={() => updateSettings({ stripStyle: value })}
-                    subtitle={sub}
-                  >
-                    {label}
-                  </MechanicalChip>
-                ))}
-              </div>
-            </MechanicalRow>
-
-            <Divider />
-
-            {/* Toggles */}
-            <div className="flex flex-col sm:flex-row gap-3">
-              <MechanicalToggle
-                id="countdown-toggle"
-                label="COUNTDOWN"
-                checked={settings.showCountdown}
-                onToggle={() => updateSettings({ showCountdown: !settings.showCountdown })}
-              />
-
-              <MechanicalToggle
-                id="timestamp-toggle"
-                label="DATE STAMP"
-                checked={settings.showTimestamp}
-                disabled={settings.stripStyle === 'film'}
-                onToggle={() => updateSettings({ showTimestamp: !settings.showTimestamp })}
-              />
+          {/* Color Mode */}
+          <MechanicalRow label="TONE">
+            <div className="flex gap-2">
+              <MechanicalChip
+                id="mono-btn"
+                active={settings.colorMode === 'monochrome'}
+                onClick={() => updateSettings({ colorMode: 'monochrome' as ColorMode })}
+              >B&amp;W</MechanicalChip>
+              <MechanicalChip
+                id="retro-btn"
+                active={settings.colorMode === 'retro'}
+                onClick={() => updateSettings({ colorMode: 'retro' as ColorMode })}
+                subtitle="FILM"
+              >RETRO</MechanicalChip>
             </div>
-            
+          </MechanicalRow>
+
+          <Divider />
+
+          {/* Interval */}
+          <MechanicalRow label="DELAY">
+            <div className="flex gap-2">
+              {INTERVALS.map(sec => (
+                <MechanicalChip
+                  key={sec}
+                  id={`interval-${sec}`}
+                  active={settings.interval === sec}
+                  onClick={() => updateSettings({ interval: sec as IntervalSeconds })}
+                >
+                  {sec}s
+                </MechanicalChip>
+              ))}
+            </div>
+          </MechanicalRow>
+
+          <Divider />
+
+          {/* Strip Style */}
+          <MechanicalRow label="STRIP">
+            <div className="flex gap-2">
+              {STRIP_STYLES.map(({ value, label, sub }) => (
+                <MechanicalChip
+                  key={value}
+                  id={`strip-${value}`}
+                  active={settings.stripStyle === value}
+                  onClick={() => updateSettings({ stripStyle: value })}
+                  subtitle={sub}
+                >
+                  {label}
+                </MechanicalChip>
+              ))}
+            </div>
+          </MechanicalRow>
+
+          <Divider />
+
+          {/* Toggles */}
+          <div className="flex flex-col sm:flex-row gap-4">
+            <MechanicalToggle
+              id="countdown-toggle"
+              label="COUNTDOWN"
+              checked={settings.showCountdown}
+              onToggle={() => updateSettings({ showCountdown: !settings.showCountdown })}
+            />
+
+            <MechanicalToggle
+              id="timestamp-toggle"
+              label="DATE STAMP"
+              checked={settings.showTimestamp}
+              disabled={settings.stripStyle === 'film'}
+              onToggle={() => updateSettings({ showTimestamp: !settings.showTimestamp })}
+            />
           </div>
+          
         </motion.div>
 
         {/* ── SUMMARY TEXT ── */}
         <motion.p
-          className="text-center text-[#a37e3d] text-[10px] font-vintage tracking-[0.2em] mt-3 sm:mt-5 mb-1 sm:mb-2 uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,1)]"
+          className="text-center text-[#dccba3] text-[10px] font-typewriter font-bold tracking-[0.2em] mt-5 mb-2 uppercase drop-shadow-md"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
         >
           {settings.interval}s DELAY · {settings.colorMode === 'monochrome' ? 'B&W TONE' : 'RETRO TONE'}
-          {settings.showCountdown ? ' · COUNTDOWN ENGAGED' : ''}
+          {settings.showCountdown ? ' · COUNTDOWN ON' : ''}
         </motion.p>
 
-        {/* ── SHUTTER RELEASE BUTTON ── */}
+        {/* ── STAMP START BUTTON ── */}
         <motion.div
           className="mt-2 mb-6"
           initial={{ opacity: 0, y: 15 }}
@@ -166,13 +160,9 @@ export default function SettingsPage() {
             className="group w-full focus:outline-none"
             aria-label="Start photo booth session"
           >
-            {/* Outer brass housing */}
-            <div className="w-full bg-gradient-to-b from-[#e6c173] to-[#8c6b36] rounded-xl shadow-[0_15px_30px_rgba(0,0,0,0.9)] border border-[#ffe8a1] p-1.5 sm:p-2 flex items-center justify-center">
-              {/* Plunger button (Red Bakelite) */}
-              <div className="w-full bg-gradient-to-b from-[#c4252a] to-[#7a0f14] rounded-lg shadow-[inset_0_3px_6px_rgba(255,255,255,0.3),0_8px_0px_#3b0408,0_12px_15px_rgba(0,0,0,0.7)] border border-[#5c0b11] transition-all duration-75 group-active:translate-y-[8px] group-active:shadow-[inset_0_3px_6px_rgba(255,255,255,0.3),0_0px_0px_#3b0408,0_4px_5px_rgba(0,0,0,0.8)] flex items-center justify-center py-3 sm:py-5">
-                <div className="flex items-center gap-3 text-[#ffe8a1] font-vintage text-xl sm:text-2xl font-black tracking-widest drop-shadow-[0_3px_5px_rgba(0,0,0,0.9)]">
-                   START
-                </div>
+            <div className="w-full bg-[#2b251d] rounded-xl shadow-lg border-2 border-[#1a1611] transition-all duration-75 group-active:scale-[0.98] flex items-center justify-center py-4 sm:py-5 hover:bg-[#1f1b15]">
+              <div className="flex items-center gap-3 text-[#f4ebd8] font-typewriter text-xl sm:text-2xl font-black tracking-[0.3em] uppercase">
+                 START
               </div>
             </div>
           </button>
@@ -185,23 +175,15 @@ export default function SettingsPage() {
 
 /* ── SUB-COMPONENTS ── */
 
-function Screw({ className }: { className: string }) {
-  return (
-    <div className={`absolute w-3.5 h-3.5 rounded-full bg-gradient-to-br from-[#777] to-[#222] shadow-[inset_0_1px_1px_rgba(255,255,255,0.3),0_1px_2px_rgba(0,0,0,0.8)] flex items-center justify-center border border-[#111] ${className}`}>
-      <div className="w-2.5 h-px bg-[#111] rotate-45 shadow-[0_1px_0_rgba(255,255,255,0.2)]" />
-    </div>
-  );
-}
-
 function Divider() {
-  return <div className="h-px bg-[#4a2617] border-b border-[#0a0402] mx-1" />;
+  return <div className="h-px border-b-[2px] border-dotted border-[#d3c9b7] mx-2 opacity-60" />;
 }
 
 function MechanicalRow({ label, children }: { label: string; children: React.ReactNode; }) {
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex items-center gap-4 relative z-10">
       <div className="flex items-center gap-1.5 min-w-[70px] flex-shrink-0">
-        <span className="font-vintage text-sm font-black text-[#a37e3d] drop-shadow-[0_1px_1px_rgba(0,0,0,1)] tracking-widest">{label}</span>
+        <span className="font-typewriter text-sm font-bold text-[#2b251d] tracking-widest opacity-80 uppercase">{label}</span>
       </div>
       <div className="flex-1">{children}</div>
     </div>
@@ -216,16 +198,16 @@ function MechanicalChip({ id, active, onClick, children, subtitle }: any) {
       aria-pressed={active}
       className={`
         relative flex-1 flex flex-col items-center justify-center
-        font-vintage font-bold rounded transition-all duration-75 select-none focus:outline-none uppercase tracking-wider
+        font-typewriter font-bold rounded-md transition-all duration-150 select-none focus:outline-none uppercase tracking-wider border-2
         ${active 
-          ? 'bg-[#1c0a04] text-[#e6c173] border-2 border-[#0a0402] shadow-[inset_0_4px_10px_rgba(0,0,0,0.8)] translate-y-[4px]' 
-          : 'bg-gradient-to-b from-[#4a2617] to-[#361a0f] text-[#fce3a2] border-x-2 border-t-2 border-[#6d3921] border-b-[6px] border-b-[#140603] shadow-[0_4px_10px_rgba(0,0,0,0.6)] hover:from-[#5c301c] hover:to-[#4a2617] active:translate-y-[4px] active:border-b-[2px]'
+          ? 'bg-[#2b251d] text-[#f4ebd8] border-[#2b251d] shadow-sm' 
+          : 'bg-transparent text-[#5c5040] border-[#d3c9b7] hover:bg-[#ede5d1] active:bg-[#e3d8c1]'
         }
       `}
       style={{ height: subtitle ? 52 : 46 }}
     >
-      <span className="text-[13px] leading-none drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">{children}</span>
-      {subtitle && <span className={`text-[9px] font-sans mt-1 uppercase tracking-widest ${active ? 'text-[#a37e3d]' : 'text-[#a37e3d]/70'}`}>{subtitle}</span>}
+      <span className="text-[13px] leading-none">{children}</span>
+      {subtitle && <span className={`text-[9px] mt-1 tracking-widest ${active ? 'opacity-80' : 'opacity-60'}`}>{subtitle}</span>}
     </button>
   );
 }
@@ -236,30 +218,15 @@ function MechanicalToggle({ id, label, checked, disabled, onToggle }: any) {
       id={id}
       onClick={disabled ? undefined : onToggle} 
       disabled={disabled}
-      className={`flex-1 flex flex-col justify-center gap-2 p-3 bg-gradient-to-br from-[#291107] to-[#1c0a04] border-t-[3px] border-[#0a0402] border-b-2 border-[#381a10] rounded-lg shadow-[inset_0_4px_8px_rgba(0,0,0,0.8)] ${disabled ? 'opacity-40 cursor-not-allowed' : 'active:scale-[0.98] cursor-pointer hover:from-[#36160a] hover:to-[#220d05] transition-colors'}`}
+      className={`flex-1 flex items-center justify-between p-3 px-4 bg-transparent border-2 border-[#d3c9b7] rounded-md ${disabled ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer hover:bg-[#ede5d1] transition-colors'}`}
     >
-      <div className="flex items-center gap-3">
-        {/* Switch casing */}
-        <div className="relative w-12 h-6 bg-[#0a0402] rounded border-2 border-[#000] shadow-[inset_0_2px_4px_rgba(0,0,0,1)] flex-shrink-0">
-          {/* Bat handle */}
-          <motion.div 
-            className="absolute top-[-2px] w-6 h-[26px] rounded bg-gradient-to-b from-[#e6c173] via-[#8c6b36] to-[#4a3617] border-x border-t border-[#fce3a2] border-b-[4px] border-b-[#33220a] shadow-[0_4px_5px_rgba(0,0,0,0.8)] flex flex-col items-center justify-center gap-[2px] z-10"
-            animate={{ left: checked ? 22 : -2 }}
-            transition={{ type: "spring", stiffness: 600, damping: 25 }}
-          >
-            <div className="w-3 h-px bg-[#4a3617] opacity-60" />
-            <div className="w-3 h-px bg-[#4a3617] opacity-60" />
-            <div className="w-3 h-px bg-[#4a3617] opacity-60" />
-          </motion.div>
-          {/* Red/Green indicator dots inside casing */}
-          <div className="absolute inset-0 flex items-center justify-between px-2">
-             <div className="w-2 h-2 rounded-full bg-[#111] shadow-[inset_0_1px_2px_rgba(0,0,0,1)]" />
-             <div className="w-2 h-2 rounded-full bg-[#5c0b11] shadow-[inset_0_1px_2px_rgba(0,0,0,1)]" />
-          </div>
-        </div>
-        <div className="flex items-center gap-1.5">
-          <span className="font-vintage text-[11px] font-black text-[#a37e3d] tracking-wider leading-none mt-0.5">{label}</span>
-        </div>
+      <span className="font-typewriter text-[12px] font-bold text-[#2b251d] opacity-80 tracking-widest uppercase">{label}</span>
+      <div className={`relative w-10 h-5 rounded-full transition-colors flex-shrink-0 ${checked ? 'bg-[#2b251d]' : 'bg-[#c2b6a1]'}`}>
+        <motion.div 
+          className="absolute top-[2px] w-4 h-4 rounded-full bg-[#f4ebd8] shadow-sm"
+          animate={{ left: checked ? 22 : 2 }}
+          transition={{ type: "spring", stiffness: 500, damping: 25 }}
+        />
       </div>
     </button>
   );
