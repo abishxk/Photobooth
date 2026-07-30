@@ -78,16 +78,16 @@ export default function LandingPage() {
             --mobile-scene-y: -50%;    /* Move the entire room up/down */
 
             /* 2. STOOL OVERLAY ADJUSTMENTS */
-            /* make trystool bigger and move to left */
-            --mobile-stool-scale: 1.2; /* adjust here */
-            --mobile-stool-x: -5%;     /* adjust here */
+            /* reset to perfectly match the baked background */
+            --mobile-stool-scale: 1.0; /* adjust here */
+            --mobile-stool-x: 0%;      /* adjust here */
             --mobile-stool-y: 0%;      /* adjust here */
 
             /* 3. BOOTH OVERLAY ADJUSTMENTS */
-            /* move trybooth smaller and move up */
-            --mobile-booth-scale: 0.85; /* adjust here */
-            --mobile-booth-x: 0%;       /* adjust here */
-            --mobile-booth-y: -5%;      /* adjust here */
+            /* reset to perfectly match the baked background */
+            --mobile-booth-scale: 1.0; /* adjust here */
+            --mobile-booth-x: 0%;      /* adjust here */
+            --mobile-booth-y: 0%;      /* adjust here */
           }
 
           .scene-scaler {
