@@ -81,7 +81,7 @@ export default function LandingPage() {
             /* make trystool bigger and move to left */
             --mobile-stool-scale: 1.2; /* adjust here */
             --mobile-stool-x: -5%;     /* adjust here */
-            --mobile-stool-y: 30%;      /* adjust here */
+            --mobile-stool-y: 0%;      /* adjust here */
 
             /* 3. BOOTH OVERLAY ADJUSTMENTS */
             /* move trybooth smaller and move up */
