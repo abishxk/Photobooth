@@ -38,23 +38,20 @@ function CrumpledNote({ note, onClose }: { note: string; onClose: () => void }) 
           }}
         />
 
-        {/* Note text */}
         <div
-          className="absolute inset-0"
-          style={{ padding: '18% 12% 22%' }}
+          className="absolute inset-0 flex items-center justify-center"
+          style={{ padding: '15% 20% 20%' }}
         >
-          <div className="w-full h-full flex items-center justify-center">
-            <p
-              className="font-handwriting text-center text-[#1c1204] leading-relaxed font-semibold"
-              style={{
-                fontSize: 'clamp(1.25rem, 6.5vw, 1.75rem)',
-                fontStyle: 'italic',
-                textShadow: '0 1px 2px rgba(255,244,210,0.4)',
-              }}
-            >
-              {note}
-            </p>
-          </div>
+          <p
+            className="font-handwriting text-center text-[#1c1204] leading-relaxed font-semibold max-w-[90%]"
+            style={{
+              fontSize: 'clamp(1.25rem, 6.5vw, 1.75rem)',
+              fontStyle: 'italic',
+              textShadow: '0 1px 2px rgba(255,244,210,0.4)',
+            }}
+          >
+            {note}
+          </p>
         </div>
       </motion.div>
     </motion.div>
