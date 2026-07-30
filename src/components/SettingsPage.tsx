@@ -38,11 +38,12 @@ export default function SettingsPage() {
         <div className="flex justify-start">
           <motion.button
             onClick={goLanding}
-            className="active:scale-95 transition-transform focus:outline-none drop-shadow-md"
-            whileTap={{ scale: 0.93 }}
+            className="focus:outline-none drop-shadow-lg"
+            whileHover={{ scale: 1.05, transition: { duration: 0.22 } }}
+            whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
             aria-label="Exit booth"
           >
-            <img src={exitImg} alt="Exit Booth" className="h-12 sm:h-16 w-auto object-contain" />
+            <img src={exitImg} alt="Exit Booth" className="h-16 sm:h-24 w-auto object-contain" />
           </motion.button>
         </div>
       </div>
