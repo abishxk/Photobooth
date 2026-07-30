@@ -66,6 +66,16 @@ export default function LandingPage() {
             transform-origin: 47.75% 70%;
             transform: scale(0.70);
           }
+          
+          /* Independent tweaks for mobile overlays */
+          .mobile-stool {
+            transform-origin: bottom center;
+            transform: scale(1.2) translateX(-5%); /* adjust here */
+          }
+          .mobile-booth {
+            transform-origin: top center;
+            transform: scale(0.85) translateY(-5%); /* adjust here */
+          }
         }
       `}</style>
       <div
@@ -94,7 +104,7 @@ export default function LandingPage() {
           <div className="absolute inset-0 mobile-overlay-scaler">
             {/* Interactive Stool Overlay */}
             <div
-            className="absolute z-20"
+            className="absolute z-20 mobile-stool"
             style={{
               // Approximate percentage placement
               left: '20.75%',
@@ -113,7 +123,7 @@ export default function LandingPage() {
 
           {/* Interactive Booth Overlay */}
           <div
-            className="absolute z-10"
+            className="absolute z-10 mobile-booth"
             style={{
               left: '30.5%',
               top: '34.5%',
