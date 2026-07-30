@@ -45,7 +45,7 @@ function CrumpledNote({ note, onClose }: { note: string; onClose: () => void }) 
         >
           <div className="w-full h-full flex items-center justify-center">
             <p
-              className="font-vintage text-center text-[#1c1204] leading-relaxed"
+              className="font-handwriting text-center text-[#1c1204] leading-relaxed font-semibold"
               style={{
                 fontSize: 'clamp(1.25rem, 6.5vw, 1.75rem)',
                 fontStyle: 'italic',

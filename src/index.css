@@ -81,6 +81,9 @@
   .font-typewriter {
     font-family: 'Special Elite', monospace;
   }
+  .font-handwriting {
+    font-family: 'Caveat', cursive;
+  }
 }
 
 /* ── FLASH OVERLAY ── */
