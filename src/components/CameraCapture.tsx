@@ -129,43 +129,31 @@ export default function CameraCapture() {
               d[idx + 2] = Math.max(0, Math.min(255, outB));
               
             } else {
-              // --- Retro Faded Color Film ---
+              // --- Retro Film (Classic Sepia Tone) ---
               
-              // Aggressive desaturation (45%)
-              const desatFactor = 0.45;
-              r = r * (1 - desatFactor) + lum * desatFactor;
-              g = g * (1 - desatFactor) + lum * desatFactor;
-              b = b * (1 - desatFactor) + lum * desatFactor;
+              const t = lum / 255;
+              const curved =
+                t < 0.5
+                  ? 2.3 * t * t
+                  : 1 - Math.pow(-2 * t + 2, 2) * 0.42;
+              let gray = Math.max(0, Math.min(255, curved * 255));
 
-              // Color grading: Lift shadows significantly, push towards cyan
-              r = r * 0.8 + 25; 
-              g = g * 0.8 + 35; 
-              b = b * 0.8 + 45; 
+              const grain = (Math.random() - 0.5) * 15;
+              gray = Math.max(0, Math.min(255, gray + grain));
 
-              // Warm up the highlights heavily
-              const highlightWeight = lum / 255;
-              r += highlightWeight * 35;
-              g += highlightWeight * 15;
-              b -= highlightWeight * 15;
+              const tR = Math.min(255, Math.max(0, gray * 1.05 + 6));
+              const tG = Math.min(255, Math.max(0, gray * 0.97));
+              const tB = Math.min(255, Math.max(0, gray * 0.82 - 8));
 
-              // Apply an S-curve to the RGB channels for faded contrast
-              const applyFadedCurve = (channel: number) => {
-                  let norm = channel / 255;
-                  let c = norm < 0.5 ? 2 * norm * norm : 1 - Math.pow(-2 * norm + 2, 2) / 2;
-                  // Restrict the output range to give it a faded, low-contrast print look (e.g. 20 to 240)
-                  return 20 + (220 * c);
-              };
-              
-              r = applyFadedCurve(r);
-              g = applyFadedCurve(g);
-              b = applyFadedCurve(b);
+              // We apply a heavy vignette specifically for Retro mode
+              const dx = (x / w - 0.5) * 2;
+              const dy = (y / h - 0.5) * 2;
+              const dist2 = dx * dx + dy * dy;
+              const vig = Math.max(0, 1 - dist2 * 0.52);
 
-              // Add grain
-              r += finalGrain; g += finalGrain; b += finalGrain;
-
-              d[idx]     = Math.max(0, Math.min(255, r));
-              d[idx + 1] = Math.max(0, Math.min(255, g));
-              d[idx + 2] = Math.max(0, Math.min(255, b));
+              d[idx]     = Math.round(tR * vig);
+              d[idx + 1] = Math.round(tG * vig);
+              d[idx + 2] = Math.round(tB * vig);
             }
           }
         }
