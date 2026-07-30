@@ -91,7 +91,7 @@ export default function LandingPage() {
             className="absolute z-20"
             style={{
               // Approximate percentage placement
-              left: '21%',
+              left: '20.5%',
               top: '64.5%',
               width: '26%',
             }}
