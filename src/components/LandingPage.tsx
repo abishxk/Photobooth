@@ -56,11 +56,15 @@ export default function LandingPage() {
         }
         @media (max-aspect-ratio: 1/1) {
           .scene-scaler {
-            /* Mobile/Portrait: Anchor vertically center, shifted to show the left side (stool) */
+            /* Mobile/Portrait: Anchor vertically center, horizontally center the booth+stool group */
             bottom: auto;
             top: 50%;
-            left: 35%;
-            transform: translate(-35%, -50%);
+            left: 50%;
+            transform: translate(-47.75%, -50%);
+          }
+          .mobile-overlay-scaler {
+            transform-origin: 47.75% 70%;
+            transform: scale(0.70);
           }
         }
       `}</style>
@@ -86,8 +90,10 @@ export default function LandingPage() {
             className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
           />
 
-          {/* Interactive Stool Overlay */}
-          <div
+          {/* Overlay Wrapper for Mobile Scaling */}
+          <div className="absolute inset-0 mobile-overlay-scaler">
+            {/* Interactive Stool Overlay */}
+            <div
             className="absolute z-20"
             style={{
               // Approximate percentage placement
@@ -153,6 +159,8 @@ export default function LandingPage() {
               </div>
             </motion.div>
           </motion.div>
+          </div>
+          {/* End Overlay Wrapper */}
 
         </div>
       </div>
