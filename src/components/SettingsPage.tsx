@@ -58,13 +58,13 @@ export default function SettingsPage() {
           transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Inner dark chassis */}
-          <div className="relative bg-gradient-to-br from-[#381a10] to-[#1a0a05] rounded-lg p-4 sm:p-6 shadow-[inset_0_10px_20px_rgba(0,0,0,0.8)] border-t-[3px] border-[#0a0402] border-b border-[#4a2617] border-x border-[#0a0402] flex flex-col gap-4 sm:gap-6">
+          <div className="relative bg-gradient-to-br from-[#381a10] to-[#1a0a05] rounded-lg py-5 px-4 sm:p-6 shadow-[inset_0_10px_20px_rgba(0,0,0,0.8)] border-t-[3px] border-[#0a0402] border-b border-[#4a2617] border-x border-[#0a0402] flex flex-col gap-4 sm:gap-6">
             
             {/* Corner Screws */}
-            <Screw className="top-2 left-2" />
-            <Screw className="top-2 right-2" />
-            <Screw className="bottom-2 left-2" />
-            <Screw className="bottom-2 right-2" />
+            <Screw className="top-1.5 left-1.5 sm:top-2 sm:left-2" />
+            <Screw className="top-1.5 right-1.5 sm:top-2 sm:right-2" />
+            <Screw className="bottom-1.5 left-1.5 sm:bottom-2 sm:left-2" />
+            <Screw className="bottom-1.5 right-1.5 sm:bottom-2 sm:right-2" />
 
             {/* Color Mode */}
             <MechanicalRow label="TONE">
