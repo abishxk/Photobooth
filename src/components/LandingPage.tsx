@@ -74,7 +74,7 @@ export default function LandingPage() {
           }
           .mobile-booth {
             transform-origin: top center;
-            transform: scale(0.85) translateY(-5%); /* adjust here */
+            transform: scale(1) translateY(-5%); /* adjust here */
           }
         }
       `}</style>
