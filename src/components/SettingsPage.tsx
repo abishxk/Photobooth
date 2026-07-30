@@ -239,7 +239,7 @@ function MechanicalToggle({ id, label, checked, disabled, onToggle }: any) {
       disabled={disabled}
       className={`flex-1 flex flex-col justify-center gap-2 p-2 sm:p-3 bg-gradient-to-br from-[#291107] to-[#1c0a04] border-t-[3px] border-[#0a0402] border-b-2 border-[#381a10] rounded-lg shadow-[inset_0_4px_8px_rgba(0,0,0,0.8)] ${disabled ? 'opacity-40 cursor-not-allowed' : 'active:scale-[0.98] cursor-pointer hover:from-[#36160a] hover:to-[#220d05] transition-colors'}`}
     >
-      <div className="flex items-center justify-center sm:justify-start gap-2 sm:gap-3">
+      <div className="flex items-center justify-center gap-2 sm:gap-3">
         {/* Switch casing */}
         <div className="relative w-12 h-6 bg-[#0a0402] rounded border-2 border-[#000] shadow-[inset_0_2px_4px_rgba(0,0,0,1)] flex-shrink-0">
           {/* Bat handle */}
