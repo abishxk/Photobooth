@@ -158,14 +158,27 @@ export default function ResultPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.4 }}
               >
-                <div className="px-4 py-1.5 bg-[#1a0a05] rounded shadow-[inset_0_2px_4px_rgba(0,0,0,0.8)] border-b border-[#3b1d11] inline-block mb-3">
-                  <h2 className="font-vintage text-2xl font-bold tracking-widest text-[#a37e3d] drop-shadow-[0_1px_1px_rgba(0,0,0,1)]">
+                {/* Premium Brass Nameplate */}
+                <div className="relative px-8 py-2 bg-gradient-to-b from-[#e3c158] via-[#c99a2e] to-[#9c7112] rounded-[4px] border-[1px] border-[#fde8a1] shadow-[inset_0_1px_2px_rgba(255,255,255,0.7),inset_0_-2px_4px_rgba(0,0,0,0.4),0_8px_16px_rgba(0,0,0,0.7)] inline-block mb-3">
+                  {/* Left Screw */}
+                  <div className="absolute left-2.5 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-gradient-to-br from-[#7a580d] to-[#d6ad45] shadow-[inset_0_1px_1px_rgba(0,0,0,0.8),0_1px_1px_rgba(255,255,255,0.5)] border-[0.5px] border-[#4a3507] flex items-center justify-center">
+                    <div className="w-[6px] h-[1px] bg-[#362502] rotate-45" />
+                  </div>
+                  
+                  {/* Right Screw */}
+                  <div className="absolute right-2.5 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-gradient-to-br from-[#7a580d] to-[#d6ad45] shadow-[inset_0_1px_1px_rgba(0,0,0,0.8),0_1px_1px_rgba(255,255,255,0.5)] border-[0.5px] border-[#4a3507] flex items-center justify-center">
+                    <div className="w-[6px] h-[1px] bg-[#362502] -rotate-12" />
+                  </div>
+
+                  <h2 className="font-vintage text-2xl font-bold tracking-[0.2em] text-[#332205] opacity-90" style={{ textShadow: '0 1px 1px rgba(255,255,255,0.5), 0 -1px 1px rgba(0,0,0,0.3)' }}>
                     YOUR EXPOSURES
                   </h2>
                 </div>
-                <p className="text-[#c49b5c] font-vintage text-[10px] tracking-widest uppercase">
+                <div className="flex items-center justify-center gap-2 text-[#e3c158] font-vintage text-[10px] tracking-[0.25em] uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] opacity-80">
+                  <span className="w-8 h-[1px] bg-gradient-to-r from-transparent to-[#e3c158]" />
                   {settings.photoCount} SHOTS · READY TO ARCHIVE
-                </p>
+                  <span className="w-8 h-[1px] bg-gradient-to-l from-transparent to-[#e3c158]" />
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
