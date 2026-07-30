@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useSession } from '../context/SessionProvider';
 import type { ColorMode, IntervalSeconds, StripStyle } from '../types';
 import woodenbgImg from '../assets/woodenbg.png';
+import exitImg from '../assets/exit.png';
 
 const INTERVALS: IntervalSeconds[] = [2, 3, 5, 8];
 const STRIP_STYLES: { value: StripStyle; label: string; sub: string }[] = [
@@ -37,11 +38,11 @@ export default function SettingsPage() {
         <div className="flex justify-start">
           <motion.button
             onClick={goLanding}
-            className="flex items-center gap-1 text-[#b38c4b] font-vintage text-lg active:scale-95 transition-transform focus:outline-none drop-shadow-md font-bold"
+            className="active:scale-95 transition-transform focus:outline-none drop-shadow-md"
             whileTap={{ scale: 0.93 }}
             aria-label="Exit booth"
           >
-            EXIT BOOTH
+            <img src={exitImg} alt="Exit Booth" className="h-10 sm:h-12 w-auto object-contain" />
           </motion.button>
         </div>
       </div>
