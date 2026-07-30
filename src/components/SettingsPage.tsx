@@ -59,7 +59,7 @@ export default function SettingsPage() {
           transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Inner dark chassis */}
-          <div className="relative bg-[#140603] rounded-lg p-6 shadow-[inset_0_15px_30px_rgba(0,0,0,1)] border-t-[3px] border-[#000] border-b border-[#3b1d11] border-x border-[#000] flex flex-col gap-6">
+          <div className="relative bg-[#140603] rounded-lg p-4 sm:p-6 shadow-[inset_0_15px_30px_rgba(0,0,0,1)] border-t-[3px] border-[#000] border-b border-[#3b1d11] border-x border-[#000] flex flex-col gap-4 sm:gap-6">
             
             {/* Corner Screws */}
             <Screw className="top-2 left-2" />
@@ -148,7 +148,7 @@ export default function SettingsPage() {
 
         {/* ── SUMMARY TEXT ── */}
         <motion.p
-          className="text-center text-[#a37e3d] text-[10px] font-vintage tracking-[0.2em] mt-5 mb-2 uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,1)]"
+          className="text-center text-[#a37e3d] text-[10px] font-vintage tracking-[0.2em] mt-3 sm:mt-5 mb-1 sm:mb-2 uppercase drop-shadow-[0_1px_2px_rgba(0,0,0,1)]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
@@ -170,12 +170,12 @@ export default function SettingsPage() {
             aria-label="Start photo booth session"
           >
             {/* Outer brass housing */}
-            <div className="w-full bg-gradient-to-b from-[#e6c173] to-[#8c6b36] rounded-xl shadow-[0_15px_30px_rgba(0,0,0,0.9)] border border-[#ffe8a1] p-2 flex items-center justify-center">
+            <div className="w-full bg-gradient-to-b from-[#e6c173] to-[#8c6b36] rounded-xl shadow-[0_15px_30px_rgba(0,0,0,0.9)] border border-[#ffe8a1] p-1.5 sm:p-2 flex items-center justify-center">
               {/* Plunger button (Red Bakelite) */}
-              <div className="w-full bg-gradient-to-b from-[#c4252a] to-[#7a0f14] rounded-lg shadow-[inset_0_3px_6px_rgba(255,255,255,0.3),0_8px_0px_#3b0408,0_12px_15px_rgba(0,0,0,0.7)] border border-[#5c0b11] transition-all duration-75 group-active:translate-y-[8px] group-active:shadow-[inset_0_3px_6px_rgba(255,255,255,0.3),0_0px_0px_#3b0408,0_4px_5px_rgba(0,0,0,0.8)] flex items-center justify-center py-5">
-                <div className="flex items-center gap-3 text-[#ffe8a1] font-vintage text-2xl font-black tracking-widest drop-shadow-[0_3px_5px_rgba(0,0,0,0.9)]">
-                   <Camera size={26} strokeWidth={2.5} />
-                   LET'S GO
+              <div className="w-full bg-gradient-to-b from-[#c4252a] to-[#7a0f14] rounded-lg shadow-[inset_0_3px_6px_rgba(255,255,255,0.3),0_8px_0px_#3b0408,0_12px_15px_rgba(0,0,0,0.7)] border border-[#5c0b11] transition-all duration-75 group-active:translate-y-[8px] group-active:shadow-[inset_0_3px_6px_rgba(255,255,255,0.3),0_0px_0px_#3b0408,0_4px_5px_rgba(0,0,0,0.8)] flex items-center justify-center py-3 sm:py-5">
+                <div className="flex items-center gap-3 text-[#ffe8a1] font-vintage text-xl sm:text-2xl font-black tracking-widest drop-shadow-[0_3px_5px_rgba(0,0,0,0.9)]">
+                   <Camera className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={2.5} />
+                   START
                 </div>
               </div>
             </div>
