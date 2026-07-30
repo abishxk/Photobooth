@@ -58,7 +58,7 @@ export default function SettingsPage() {
           transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Inner dark chassis */}
-          <div className="relative bg-gradient-to-br from-[#381a10] to-[#1a0a05] rounded-lg py-5 px-4 sm:p-6 shadow-[inset_0_10px_20px_rgba(0,0,0,0.8)] border-t-[3px] border-[#0a0402] border-b border-[#4a2617] border-x border-[#0a0402] flex flex-col gap-4 sm:gap-6">
+          <div className="relative bg-gradient-to-br from-[#381a10] to-[#1a0a05] rounded-lg py-3 px-3 sm:p-6 shadow-[inset_0_10px_20px_rgba(0,0,0,0.8)] border-t-[3px] border-[#0a0402] border-b border-[#4a2617] border-x border-[#0a0402] flex flex-col gap-3 sm:gap-6">
             
             {/* Corner Screws */}
             <Screw className="top-1.5 left-1.5 sm:top-2 sm:left-2" />
@@ -169,8 +169,8 @@ export default function SettingsPage() {
             {/* Outer brass housing */}
             <div className="w-full bg-gradient-to-b from-[#e6c173] to-[#8c6b36] rounded-xl shadow-[0_15px_30px_rgba(0,0,0,0.9)] border border-[#ffe8a1] p-1.5 sm:p-2 flex items-center justify-center">
               {/* Plunger button (Red Bakelite) */}
-              <div className="w-full bg-gradient-to-b from-[#c4252a] to-[#7a0f14] rounded-lg shadow-[inset_0_3px_6px_rgba(255,255,255,0.3),0_8px_0px_#3b0408,0_12px_15px_rgba(0,0,0,0.7)] border border-[#5c0b11] transition-all duration-75 group-active:translate-y-[8px] group-active:shadow-[inset_0_3px_6px_rgba(255,255,255,0.3),0_0px_0px_#3b0408,0_4px_5px_rgba(0,0,0,0.8)] flex items-center justify-center py-3 sm:py-5">
-                <div className="flex items-center gap-3 text-[#ffe8a1] font-vintage text-xl sm:text-2xl font-black tracking-widest drop-shadow-[0_3px_5px_rgba(0,0,0,0.9)]">
+              <div className="w-full bg-gradient-to-b from-[#c4252a] to-[#7a0f14] rounded-lg shadow-[inset_0_3px_6px_rgba(255,255,255,0.3),0_8px_0px_#3b0408,0_12px_15px_rgba(0,0,0,0.7)] border border-[#5c0b11] transition-all duration-75 group-active:translate-y-[8px] group-active:shadow-[inset_0_3px_6px_rgba(255,255,255,0.3),0_0px_0px_#3b0408,0_4px_5px_rgba(0,0,0,0.8)] flex items-center justify-center py-2 sm:py-5">
+                <div className="flex items-center gap-3 text-[#ffe8a1] font-vintage text-lg sm:text-2xl font-black tracking-widest drop-shadow-[0_3px_5px_rgba(0,0,0,0.9)]">
                    START
                 </div>
               </div>
