@@ -149,7 +149,7 @@ export default function CameraCapture() {
               const dx = (x / w - 0.5) * 2;
               const dy = (y / h - 0.5) * 2;
               const dist2 = dx * dx + dy * dy;
-              const vig = Math.max(0, 1 - dist2 * 0.52);
+              const vig = Math.max(0, 1 - dist2 * 0.26);
 
               d[idx]     = Math.round(tR * vig);
               d[idx + 1] = Math.round(tG * vig);
