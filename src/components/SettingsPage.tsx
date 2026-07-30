@@ -39,8 +39,9 @@ export default function SettingsPage() {
           <motion.button
             onClick={goLanding}
             className="focus:outline-none drop-shadow-lg"
-            whileHover={{ scale: 1.05, transition: { duration: 0.22 } }}
-            whileTap={{ scale: 0.95, transition: { duration: 0.1 } }}
+            whileHover={{ scale: 1.05, y: -4 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: 'spring', stiffness: 260, damping: 18 }}
             aria-label="Exit booth"
           >
             <img src={exitImg} alt="Exit Booth" className="h-16 sm:h-24 w-auto object-contain" />

@@ -235,20 +235,26 @@ export default function ResultPage() {
 
                 {/* Secondary Mechanical Buttons */}
                 <div className="grid grid-cols-2 gap-3">
-                  <button
+                  <motion.button
                     onClick={goSettings}
                     className="relative flex items-center justify-center gap-2 bg-[#3b1d11] text-[#e8d5b5] border-x-2 border-t-2 border-[#542d1c] border-b-[6px] border-b-[#110502] hover:bg-[#4a2617] active:translate-y-[4px] active:border-b-[2px] font-vintage font-bold tracking-widest text-xs uppercase py-4 rounded-sm shadow-[0_5px_10px_rgba(0,0,0,0.6)]"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: 'spring', stiffness: 260, damping: 18 }}
                   >
                     <RefreshCw size={14} />
                     <span>NEW COIN</span>
-                  </button>
-                  <button
+                  </motion.button>
+                  <motion.button
                     onClick={goLanding}
                     className="relative flex items-center justify-center gap-2 bg-[#1a0a05] text-[#a37e3d] border-x-2 border-t-2 border-[#2b1f0d] border-b-[6px] border-b-[#050201] hover:bg-[#26130b] active:translate-y-[4px] active:border-b-[2px] font-vintage font-bold tracking-widest text-xs uppercase py-4 rounded-sm shadow-[0_5px_10px_rgba(0,0,0,0.6)]"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                    transition={{ type: 'spring', stiffness: 260, damping: 18 }}
                   >
                     <LogOut size={14} />
                     <span>EXIT BOOTH</span>
-                  </button>
+                  </motion.button>
                 </div>
               </motion.div>
             )}
