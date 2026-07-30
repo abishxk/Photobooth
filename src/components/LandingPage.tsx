@@ -178,25 +178,7 @@ export default function LandingPage() {
             </motion.button>
           </div>
 
-          {/* Tap to enter CTA over the booth */}
-          <motion.div
-            className="absolute z-30 pointer-events-none select-none w-full flex justify-center top-[82%] md:top-[90%]"
-            style={{ left: '0%' }}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: isEntering ? 0 : 1, y: 0 }}
-            transition={{ delay: fromBooth ? 0.1 : 0.35, duration: 0.4 }}
-          >
-            <motion.div animate={{ y: [0, -5, 0] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
-              <div className="flex flex-col items-center gap-1">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-                  <path d="M10 16 L10 4 M4 10 L10 4 L16 10" stroke="#d4a853" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                <p className="font-vintage text-2xl font-bold text-[#d4a853] drop-shadow-md">
-                  Tap to enter
-                </p>
-              </div>
-            </motion.div>
-          </motion.div>
+
 
 
         </div>
