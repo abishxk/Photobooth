@@ -42,7 +42,7 @@ export default function SettingsPage() {
             whileTap={{ scale: 0.93 }}
             aria-label="Exit booth"
           >
-            <img src={exitImg} alt="Exit Booth" className="h-10 sm:h-12 w-auto object-contain" />
+            <img src={exitImg} alt="Exit Booth" className="h-12 sm:h-16 w-auto object-contain" />
           </motion.button>
         </div>
       </div>
