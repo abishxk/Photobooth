@@ -59,7 +59,7 @@ export default function SettingsPage() {
           transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Inner dark chassis */}
-          <div className="relative bg-gradient-to-br from-[#381a10] to-[#1a0a05] rounded-lg py-3 px-3 sm:p-6 shadow-[inset_0_10px_20px_rgba(0,0,0,0.8)] border-t-[3px] border-[#0a0402] border-b border-[#4a2617] border-x border-[#0a0402] flex flex-col gap-3 sm:gap-6">
+          <div className="relative bg-gradient-to-br from-[#381a10] to-[#1a0a05] rounded-lg pt-6 pb-4 px-3 sm:pt-8 sm:pb-6 sm:px-6 shadow-[inset_0_10px_20px_rgba(0,0,0,0.8)] border-t-[3px] border-[#0a0402] border-b border-[#4a2617] border-x border-[#0a0402] flex flex-col gap-4 sm:gap-6">
             
             {/* Corner Screws */}
             <Screw className="top-1.5 left-1.5 sm:top-2 sm:left-2" />
@@ -124,7 +124,7 @@ export default function SettingsPage() {
             <Divider />
 
             {/* Toggles */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-row gap-2 sm:gap-3">
               <MechanicalToggle
                 id="countdown-toggle"
                 label="COUNTDOWN"
@@ -157,14 +157,14 @@ export default function SettingsPage() {
 
         {/* ── SHUTTER RELEASE BUTTON ── */}
         <motion.div
-          className="mt-2 mb-6"
+          className="mt-2 mb-6 flex justify-center"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           <button
             onClick={handleStart}
-            className="group w-full focus:outline-none"
+            className="group w-[85%] sm:w-full focus:outline-none"
             aria-label="Start photo booth session"
           >
             {/* Outer brass housing */}
@@ -237,9 +237,9 @@ function MechanicalToggle({ id, label, checked, disabled, onToggle }: any) {
       id={id}
       onClick={disabled ? undefined : onToggle} 
       disabled={disabled}
-      className={`flex-1 flex flex-col justify-center gap-2 p-3 bg-gradient-to-br from-[#291107] to-[#1c0a04] border-t-[3px] border-[#0a0402] border-b-2 border-[#381a10] rounded-lg shadow-[inset_0_4px_8px_rgba(0,0,0,0.8)] ${disabled ? 'opacity-40 cursor-not-allowed' : 'active:scale-[0.98] cursor-pointer hover:from-[#36160a] hover:to-[#220d05] transition-colors'}`}
+      className={`flex-1 flex flex-col justify-center gap-2 p-2 sm:p-3 bg-gradient-to-br from-[#291107] to-[#1c0a04] border-t-[3px] border-[#0a0402] border-b-2 border-[#381a10] rounded-lg shadow-[inset_0_4px_8px_rgba(0,0,0,0.8)] ${disabled ? 'opacity-40 cursor-not-allowed' : 'active:scale-[0.98] cursor-pointer hover:from-[#36160a] hover:to-[#220d05] transition-colors'}`}
     >
-      <div className="flex items-center gap-3">
+      <div className="flex items-center justify-center sm:justify-start gap-2 sm:gap-3">
         {/* Switch casing */}
         <div className="relative w-12 h-6 bg-[#0a0402] rounded border-2 border-[#000] shadow-[inset_0_2px_4px_rgba(0,0,0,1)] flex-shrink-0">
           {/* Bat handle */}
@@ -259,7 +259,7 @@ function MechanicalToggle({ id, label, checked, disabled, onToggle }: any) {
           </div>
         </div>
         <div className="flex items-center gap-1.5">
-          <span className="font-vintage text-[11px] font-black text-[#a37e3d] tracking-wider leading-none mt-0.5">{label}</span>
+          <span className="font-vintage text-[9.5px] sm:text-[11px] font-black text-[#a37e3d] tracking-wider leading-none mt-0.5">{label}</span>
         </div>
       </div>
     </button>
