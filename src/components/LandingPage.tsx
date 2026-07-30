@@ -70,7 +70,7 @@ export default function LandingPage() {
           /* Independent tweaks for mobile overlays */
           .mobile-stool {
             transform-origin: bottom center;
-            transform: scale(1.2) translateX(-5%) translateY(-10%); /* adjust here */
+            transform: scale(1.5) translateX(-5%) translateY(-10%); /* adjust here */
           }
           .mobile-booth {
             transform-origin: top center;
