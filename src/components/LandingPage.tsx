@@ -48,33 +48,62 @@ export default function LandingPage() {
       {/* ── UNIFIED SCENE CONTAINER ── */}
       {/* This container locks to the 3:2 aspect ratio and scales to cover the viewport. */}
       <style>{`
+        :root {
+          /* --- DESKTOP OVERLAY BASE SETTINGS --- */
+          --stool-left: 20.75%;
+          --stool-top: 64.40%;
+          --stool-width: 26%;
+
+          --booth-left: 30.5%;
+          --booth-top: 34.5%;
+          --booth-width: 44.25%;
+        }
+
         .scene-scaler {
           /* Desktop/Landscape: Anchor to the bottom center (floor fully visible, ceiling cropped) */
           bottom: 0;
           left: 50%;
           transform: translateX(-50%);
         }
+
         @media (max-aspect-ratio: 1/1) {
+          /* --- MOBILE OVERLAY TWEAKS --- */
+          /* NOTE: The room background has the booth/stool baked into it!
+             Tweaking these variables changes the interactive overlays ONLY. */
+          :root {
+            /* 1. SCENE ZOOM (Zoom the entire room in/out) */
+            --mobile-scene-scale: 1.0; /* Decrease this to make everything smaller on mobile */
+            --mobile-scene-x: -47.75%; /* Move the entire room left/right */
+            --mobile-scene-y: -50%;    /* Move the entire room up/down */
+
+            /* 2. STOOL OVERLAY ADJUSTMENTS */
+            /* make trystool bigger and move to left */
+            --mobile-stool-scale: 1.2; /* adjust here */
+            --mobile-stool-x: -5%;     /* adjust here */
+            --mobile-stool-y: 0%;      /* adjust here */
+
+            /* 3. BOOTH OVERLAY ADJUSTMENTS */
+            /* move trybooth smaller and move up */
+            --mobile-booth-scale: 0.85; /* adjust here */
+            --mobile-booth-x: 0%;       /* adjust here */
+            --mobile-booth-y: -5%;      /* adjust here */
+          }
+
           .scene-scaler {
-            /* Mobile/Portrait: Anchor vertically center, horizontally center the booth+stool group */
             bottom: auto;
             top: 50%;
             left: 50%;
-            transform: translate(-47.75%, -50%);
-          }
-          .mobile-overlay-scaler {
-            transform-origin: 47.75% 70%;
-            transform: scale(0.70);
+            transform: translate(var(--mobile-scene-x), var(--mobile-scene-y)) scale(var(--mobile-scene-scale));
           }
           
-          /* Independent tweaks for mobile overlays */
           .mobile-stool {
             transform-origin: bottom center;
-            transform: scale(1.5) translateX(-30%) translateY(40%); /* adjust here */
+            transform: scale(var(--mobile-stool-scale)) translate(var(--mobile-stool-x), var(--mobile-stool-y));
           }
+          
           .mobile-booth {
             transform-origin: top center;
-            transform: scale(1) translateY(-5%); /* adjust here */
+            transform: scale(var(--mobile-booth-scale)) translate(var(--mobile-booth-x), var(--mobile-booth-y));
           }
         }
       `}</style>
@@ -100,16 +129,14 @@ export default function LandingPage() {
             className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
           />
 
-          {/* Overlay Wrapper for Mobile Scaling */}
-          <div className="absolute inset-0 mobile-overlay-scaler">
+
             {/* Interactive Stool Overlay */}
             <div
               className="absolute z-20 mobile-stool"
               style={{
-                // Approximate percentage placement
-                left: '20.75%',
-                top: '64.40%',
-                width: '26%',
+                left: 'var(--stool-left)',
+                top: 'var(--stool-top)',
+                width: 'var(--stool-width)',
               }}
             >
               <motion.div
@@ -125,9 +152,9 @@ export default function LandingPage() {
             <div
               className="absolute z-10 mobile-booth"
               style={{
-                left: '30.5%',
-                top: '34.5%',
-                width: '44.25%',
+                left: 'var(--booth-left)',
+                top: 'var(--booth-top)',
+                width: 'var(--booth-width)',
               }}
             >
               <motion.button
@@ -169,8 +196,7 @@ export default function LandingPage() {
                 </div>
               </motion.div>
             </motion.div>
-          </div>
-          {/* End Overlay Wrapper */}
+
 
         </div>
       </div>
