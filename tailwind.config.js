@@ -10,6 +10,7 @@ export default {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         vintage: ['Playfair Display', 'serif'],
         typewriter: ['Special Elite', 'monospace'],
+        handwriting: ['Caveat', 'cursive'],
       },
       colors: {
         paper: {
