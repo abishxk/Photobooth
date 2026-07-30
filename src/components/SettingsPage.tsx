@@ -57,7 +57,7 @@ export default function SettingsPage() {
           transition={{ delay: 0.1, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           {/* Inner dark chassis */}
-          <div className="relative bg-[#140603] rounded-lg p-4 sm:p-6 shadow-[inset_0_15px_30px_rgba(0,0,0,1)] border-t-[3px] border-[#000] border-b border-[#3b1d11] border-x border-[#000] flex flex-col gap-4 sm:gap-6">
+          <div className="relative bg-gradient-to-br from-[#381a10] to-[#1a0a05] rounded-lg p-4 sm:p-6 shadow-[inset_0_10px_20px_rgba(0,0,0,0.8)] border-t-[3px] border-[#0a0402] border-b border-[#4a2617] border-x border-[#0a0402] flex flex-col gap-4 sm:gap-6">
             
             {/* Corner Screws */}
             <Screw className="top-2 left-2" />
@@ -193,7 +193,7 @@ function Screw({ className }: { className: string }) {
 }
 
 function Divider() {
-  return <div className="h-px bg-[#26130b] border-b border-[#050201] mx-1" />;
+  return <div className="h-px bg-[#4a2617] border-b border-[#0a0402] mx-1" />;
 }
 
 function MechanicalRow({ label, children }: { label: string; children: React.ReactNode; }) {
@@ -217,8 +217,8 @@ function MechanicalChip({ id, active, onClick, children, subtitle }: any) {
         relative flex-1 flex flex-col items-center justify-center
         font-vintage font-bold rounded transition-all duration-75 select-none focus:outline-none uppercase tracking-wider
         ${active 
-          ? 'bg-[#110502] text-[#e6c173] border-2 border-[#000] shadow-[inset_0_4px_10px_rgba(0,0,0,1)] translate-y-[4px]' 
-          : 'bg-gradient-to-b from-[#3a1d11] to-[#2a130b] text-[#fce3a2] border-x-2 border-t-2 border-[#5c301c] border-b-[6px] border-b-[#0a0402] shadow-[0_4px_10px_rgba(0,0,0,0.6)] hover:from-[#4a2617] hover:to-[#3a1d11] active:translate-y-[4px] active:border-b-[2px]'
+          ? 'bg-[#1c0a04] text-[#e6c173] border-2 border-[#0a0402] shadow-[inset_0_4px_10px_rgba(0,0,0,0.8)] translate-y-[4px]' 
+          : 'bg-gradient-to-b from-[#4a2617] to-[#361a0f] text-[#fce3a2] border-x-2 border-t-2 border-[#6d3921] border-b-[6px] border-b-[#140603] shadow-[0_4px_10px_rgba(0,0,0,0.6)] hover:from-[#5c301c] hover:to-[#4a2617] active:translate-y-[4px] active:border-b-[2px]'
         }
       `}
       style={{ height: subtitle ? 52 : 46 }}
@@ -235,7 +235,7 @@ function MechanicalToggle({ id, label, checked, disabled, onToggle }: any) {
       id={id}
       onClick={disabled ? undefined : onToggle} 
       disabled={disabled}
-      className={`flex-1 flex flex-col justify-center gap-2 p-3 bg-[#140603] border-t-[3px] border-[#050201] border-b-2 border-[#2a130b] rounded-lg shadow-[inset_0_4px_10px_rgba(0,0,0,0.9)] ${disabled ? 'opacity-40 cursor-not-allowed' : 'active:scale-[0.98] cursor-pointer hover:bg-[#1a0805] transition-colors'}`}
+      className={`flex-1 flex flex-col justify-center gap-2 p-3 bg-gradient-to-br from-[#291107] to-[#1c0a04] border-t-[3px] border-[#0a0402] border-b-2 border-[#381a10] rounded-lg shadow-[inset_0_4px_8px_rgba(0,0,0,0.8)] ${disabled ? 'opacity-40 cursor-not-allowed' : 'active:scale-[0.98] cursor-pointer hover:from-[#36160a] hover:to-[#220d05] transition-colors'}`}
     >
       <div className="flex items-center gap-3">
         {/* Switch casing */}
