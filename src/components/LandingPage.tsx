@@ -141,9 +141,8 @@ export default function LandingPage() {
             }}
           >
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: isEntering ? 0 : 1, y: 0 }}
-              transition={{ delay: fromBooth ? 0.12 : 0.50, duration: 0.50, ease: 'easeOut' }}
+              animate={{ opacity: isEntering ? 0 : 1 }}
+              transition={{ duration: TRANSITION_MS / 1000, ease: 'easeIn' }}
             >
               <DailyNoteJar />
             </motion.div>
