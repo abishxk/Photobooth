@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Camera, ArrowLeft, Eye, Clock, Timer, Calendar, Layers } from 'lucide-react';
 import { useSession } from '../context/SessionProvider';
 import type { ColorMode, IntervalSeconds, StripStyle } from '../types';
 import woodenbgImg from '../assets/woodenbg.png';
@@ -42,7 +41,6 @@ export default function SettingsPage() {
             whileTap={{ scale: 0.93 }}
             aria-label="Exit booth"
           >
-            <ArrowLeft size={18} strokeWidth={3} />
             EXIT BOOTH
           </motion.button>
         </div>
@@ -68,7 +66,7 @@ export default function SettingsPage() {
             <Screw className="bottom-2 right-2" />
 
             {/* Color Mode */}
-            <MechanicalRow icon={<Eye size={16} />} label="TONE">
+            <MechanicalRow label="TONE">
               <div className="flex gap-2">
                 <MechanicalChip
                   id="mono-btn"
@@ -87,7 +85,7 @@ export default function SettingsPage() {
             <Divider />
 
             {/* Interval */}
-            <MechanicalRow icon={<Clock size={16} />} label="DELAY">
+            <MechanicalRow label="DELAY">
               <div className="flex gap-2">
                 {INTERVALS.map(sec => (
                   <MechanicalChip
@@ -105,7 +103,7 @@ export default function SettingsPage() {
             <Divider />
 
             {/* Strip Style */}
-            <MechanicalRow icon={<Layers size={16} />} label="STRIP">
+            <MechanicalRow label="STRIP">
               <div className="flex gap-2">
                 {STRIP_STYLES.map(({ value, label, sub }) => (
                   <MechanicalChip
@@ -127,7 +125,6 @@ export default function SettingsPage() {
             <div className="flex flex-col sm:flex-row gap-3">
               <MechanicalToggle
                 id="countdown-toggle"
-                icon={<Timer size={14} />}
                 label="COUNTDOWN"
                 checked={settings.showCountdown}
                 onToggle={() => updateSettings({ showCountdown: !settings.showCountdown })}
@@ -135,7 +132,6 @@ export default function SettingsPage() {
 
               <MechanicalToggle
                 id="timestamp-toggle"
-                icon={<Calendar size={14} />}
                 label="DATE STAMP"
                 checked={settings.showTimestamp}
                 disabled={settings.stripStyle === 'film'}
@@ -174,7 +170,6 @@ export default function SettingsPage() {
               {/* Plunger button (Red Bakelite) */}
               <div className="w-full bg-gradient-to-b from-[#c4252a] to-[#7a0f14] rounded-lg shadow-[inset_0_3px_6px_rgba(255,255,255,0.3),0_8px_0px_#3b0408,0_12px_15px_rgba(0,0,0,0.7)] border border-[#5c0b11] transition-all duration-75 group-active:translate-y-[8px] group-active:shadow-[inset_0_3px_6px_rgba(255,255,255,0.3),0_0px_0px_#3b0408,0_4px_5px_rgba(0,0,0,0.8)] flex items-center justify-center py-3 sm:py-5">
                 <div className="flex items-center gap-3 text-[#ffe8a1] font-vintage text-xl sm:text-2xl font-black tracking-widest drop-shadow-[0_3px_5px_rgba(0,0,0,0.9)]">
-                   <Camera className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={2.5} />
                    START
                 </div>
               </div>
@@ -201,11 +196,10 @@ function Divider() {
   return <div className="h-px bg-[#26130b] border-b border-[#050201] mx-1" />;
 }
 
-function MechanicalRow({ icon, label, children }: { icon: React.ReactNode; label: string; children: React.ReactNode; }) {
+function MechanicalRow({ label, children }: { label: string; children: React.ReactNode; }) {
   return (
     <div className="flex items-center gap-4">
       <div className="flex items-center gap-1.5 min-w-[70px] flex-shrink-0">
-        <span className="text-[#8c6b36] drop-shadow-[0_1px_1px_rgba(0,0,0,1)]">{icon}</span>
         <span className="font-vintage text-sm font-black text-[#a37e3d] drop-shadow-[0_1px_1px_rgba(0,0,0,1)] tracking-widest">{label}</span>
       </div>
       <div className="flex-1">{children}</div>
@@ -235,7 +229,7 @@ function MechanicalChip({ id, active, onClick, children, subtitle }: any) {
   );
 }
 
-function MechanicalToggle({ id, icon, label, checked, disabled, onToggle }: any) {
+function MechanicalToggle({ id, label, checked, disabled, onToggle }: any) {
   return (
     <button 
       id={id}
@@ -263,7 +257,6 @@ function MechanicalToggle({ id, icon, label, checked, disabled, onToggle }: any)
           </div>
         </div>
         <div className="flex items-center gap-1.5">
-          <span className="text-[#8c6b36]">{icon}</span>
           <span className="font-vintage text-[11px] font-black text-[#a37e3d] tracking-wider leading-none mt-0.5">{label}</span>
         </div>
       </div>
