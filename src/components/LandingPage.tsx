@@ -59,6 +59,7 @@ export default function LandingPage() {
           --booth-width: 44.25%;
         }
 
+        
         .scene-scaler {
           /* Desktop/Landscape: Anchor to the bottom center (floor fully visible, ceiling cropped) */
           bottom: 0;
