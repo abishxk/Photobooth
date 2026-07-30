@@ -13,7 +13,6 @@ export const isIOS = (): boolean => {
 
 interface GenerateStripOptions {
   photos: string[];
-  colorMode: ColorMode;
   showTimestamp?: boolean;
   stripStyle?: StripStyle;
   roundedEdges?: boolean;
@@ -63,7 +62,6 @@ function drawRoundedRect(
 export async function generateCanvasPhotoStrip(options: GenerateStripOptions): Promise<string> {
   const {
     photos,
-    colorMode,
     showTimestamp = false,
     stripStyle = 'white',
     roundedEdges = true,
@@ -137,11 +135,6 @@ export async function generateCanvasPhotoStrip(options: GenerateStripOptions): P
     if (photoRadius > 0) {
       drawRoundedRect(ctx, px, py, photoWidth, photoHeight, photoRadius);
       ctx.clip();
-    }
-
-    // Apply monochrome grayscale filter if needed
-    if (colorMode === 'monochrome') {
-      ctx.filter = 'grayscale(100%)';
     }
 
     // Draw photo filled within container (cover fit)

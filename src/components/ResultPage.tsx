@@ -38,7 +38,6 @@ export default function ResultPage() {
         if (isIOS()) {
           const dataUrl = await generateCanvasPhotoStrip({
             photos: capturedPhotos,
-            colorMode: settings.colorMode,
             showTimestamp: settings.showTimestamp,
             stripStyle: settings.stripStyle,
             roundedEdges: settings.roundedEdges,
@@ -58,7 +57,6 @@ export default function ResultPage() {
           if (isIOS()) {
             const dataUrl = await generateCanvasPhotoStrip({
               photos: capturedPhotos,
-              colorMode: settings.colorMode,
               showTimestamp: settings.showTimestamp,
               stripStyle: settings.stripStyle,
               roundedEdges: settings.roundedEdges,

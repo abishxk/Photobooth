@@ -3,7 +3,6 @@ import type { StripStyle, ColorMode } from '../types';
 
 interface PhotoStripProps {
   photos: string[];
-  colorMode: ColorMode;
   showTimestamp?: boolean;
   stripStyle?: StripStyle;
   roundedEdges?: boolean;
@@ -18,7 +17,7 @@ interface PhotoStripProps {
  *  'film'  — no background, photos flush together (timestamp hidden)
  */
 const PhotoStrip = forwardRef<HTMLDivElement, PhotoStripProps>(
-  ({ photos, colorMode, showTimestamp = false, stripStyle = 'white', roundedEdges = true }, ref) => {
+  ({ photos, showTimestamp = false, stripStyle = 'white', roundedEdges = true }, ref) => {
     const now = new Date();
     const tz = 'Asia/Kolkata';
     const dateStr = now.toLocaleDateString('en-IN', {
@@ -101,10 +100,6 @@ const PhotoStrip = forwardRef<HTMLDivElement, PhotoStripProps>(
                   height: '100%',
                   objectFit: 'cover',
                   display: 'block',
-                  filter:
-                    colorMode === 'monochrome'
-                      ? 'grayscale(100%)'
-                      : 'none', // retro is already canvas-processed
                 }}
                 crossOrigin="anonymous"
               />

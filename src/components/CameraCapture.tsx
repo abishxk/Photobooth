@@ -70,45 +70,102 @@ export default function CameraCapture() {
         canvas.height = img.naturalHeight;
         const ctx = canvas.getContext('2d', { willReadFrequently: true })!;
         ctx.imageSmoothingEnabled = false;
+        // We draw without any ctx.filter to ensure 100% compatibility across all browsers and devices
         ctx.drawImage(img, 0, 0);
 
         const w = canvas.width;
         const h = canvas.height;
         const imageData = ctx.getImageData(0, 0, w, h);
         const d = imageData.data;
+        
+        // Setup vignette center and max distance
+        const cx = w / 2;
+        const cy = h / 2;
+        const maxDist = Math.sqrt(cx * cx + cy * cy);
 
         for (let y = 0; y < h; y++) {
           for (let x = 0; x < w; x++) {
             const idx = (y * w + x) * 4;
-            const r = d[idx], g = d[idx + 1], b = d[idx + 2];
+            let r = d[idx], g = d[idx + 1], b = d[idx + 2];
+            
+            // Subtle edge falloff (Vignette)
+            const dx = x - cx;
+            const dy = y - cy;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            // Falloff: 1.0 at center, ~0.6 at corners
+            const falloff = 1.0 - (Math.pow(dist / maxDist, 1.8) * 0.4);
+            r *= falloff; g *= falloff; b *= falloff;
 
-            let gray = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+            // Base luminance
+            let lum = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+
+            // Generate fine film grain (stronger in midtones)
+            const grainWeight = 1.0 - Math.abs(lum - 128) / 128;
+            const noise = (Math.random() - 0.5) * 25; // Random noise
+            const finalGrain = noise * grainWeight;
 
             if (settings.colorMode === 'monochrome') {
-              d[idx] = d[idx + 1] = d[idx + 2] = gray;
+              // --- Filmic Black & White ---
+              
+              // Apply an S-curve for punchy film contrast
+              let normLum = lum / 255;
+              let curve = normLum < 0.5 ? 2 * normLum * normLum : 1 - Math.pow(-2 * normLum + 2, 2) / 2;
+              
+              // Warm silver-gelatin toning
+              // Shadows are lifted slightly to a warm dark brown
+              // Highlights are creamy/warm
+              const shadowR = 26, shadowG = 22, shadowB = 20;
+              const highR = 252, highG = 247, highB = 236;
+              
+              let outR = shadowR + (highR - shadowR) * curve;
+              let outG = shadowG + (highG - shadowG) * curve;
+              let outB = shadowB + (highB - shadowB) * curve;
+              
+              // Add grain
+              outR += finalGrain; outG += finalGrain; outB += finalGrain;
+
+              d[idx] = Math.max(0, Math.min(255, outR));
+              d[idx + 1] = Math.max(0, Math.min(255, outG));
+              d[idx + 2] = Math.max(0, Math.min(255, outB));
+              
             } else {
-              const t = gray / 255;
-              const curved =
-                t < 0.5
-                  ? 2.3 * t * t
-                  : 1 - Math.pow(-2 * t + 2, 2) * 0.42;
-              gray = Math.max(0, Math.min(255, curved * 255));
+              // --- Retro Faded Color Film ---
+              
+              // Aggressive desaturation (45%)
+              const desatFactor = 0.45;
+              r = r * (1 - desatFactor) + lum * desatFactor;
+              g = g * (1 - desatFactor) + lum * desatFactor;
+              b = b * (1 - desatFactor) + lum * desatFactor;
 
-              const grain = (Math.random() - 0.5) * 15;
-              gray = Math.max(0, Math.min(255, gray + grain));
+              // Color grading: Lift shadows significantly, push towards cyan
+              r = r * 0.8 + 25; 
+              g = g * 0.8 + 35; 
+              b = b * 0.8 + 45; 
 
-              const tR = Math.min(255, Math.max(0, gray * 1.05 + 6));
-              const tG = Math.min(255, Math.max(0, gray * 0.97));
-              const tB = Math.min(255, Math.max(0, gray * 0.82 - 8));
+              // Warm up the highlights heavily
+              const highlightWeight = lum / 255;
+              r += highlightWeight * 35;
+              g += highlightWeight * 15;
+              b -= highlightWeight * 15;
 
-              const dx = (x / w - 0.5) * 2;
-              const dy = (y / h - 0.5) * 2;
-              const dist2 = dx * dx + dy * dy;
-              const vig = Math.max(0, 1 - dist2 * 0.52);
+              // Apply an S-curve to the RGB channels for faded contrast
+              const applyFadedCurve = (channel: number) => {
+                  let norm = channel / 255;
+                  let c = norm < 0.5 ? 2 * norm * norm : 1 - Math.pow(-2 * norm + 2, 2) / 2;
+                  // Restrict the output range to give it a faded, low-contrast print look (e.g. 20 to 240)
+                  return 20 + (220 * c);
+              };
+              
+              r = applyFadedCurve(r);
+              g = applyFadedCurve(g);
+              b = applyFadedCurve(b);
 
-              d[idx]     = Math.round(tR * vig);
-              d[idx + 1] = Math.round(tG * vig);
-              d[idx + 2] = Math.round(tB * vig);
+              // Add grain
+              r += finalGrain; g += finalGrain; b += finalGrain;
+
+              d[idx]     = Math.max(0, Math.min(255, r));
+              d[idx + 1] = Math.max(0, Math.min(255, g));
+              d[idx + 2] = Math.max(0, Math.min(255, b));
             }
           }
         }
