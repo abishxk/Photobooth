@@ -85,7 +85,7 @@ export default function LandingPage() {
 
             /* 3. BOOTH OVERLAY ADJUSTMENTS */
             /* reset to perfectly match the baked background */
-            --mobile-booth-scale: 0.8; /* adjust here */
+            --mobile-booth-scale: 0.6; /* adjust here */
             --mobile-booth-x: 0%;      /* adjust here */
             --mobile-booth-y: 0%;      /* adjust here */
           }
