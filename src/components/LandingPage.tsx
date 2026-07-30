@@ -64,10 +64,10 @@ export default function LandingPage() {
           }
         }
       `}</style>
-      <div 
+      <div
         className="absolute inset-0 overflow-hidden z-0 pointer-events-none"
       >
-        <div 
+        <div
           className="scene-scaler absolute pointer-events-auto"
           style={{
             // 2192 / 1461 = 1.5003
@@ -80,18 +80,18 @@ export default function LandingPage() {
           }}
         >
           {/* Base baked scene */}
-          <img 
-            src={bgsceneImg} 
-            alt="Room scene" 
+          <img
+            src={bgsceneImg}
+            alt="Room scene"
             className="absolute inset-0 w-full h-full object-cover pointer-events-none select-none"
           />
 
           {/* Interactive Stool Overlay */}
-          <div 
+          <div
             className="absolute z-20"
             style={{
               // Approximate percentage placement
-              left: '20.5%',
+              left: '20.75%',
               top: '64.5%',
               width: '26%',
             }}
@@ -106,7 +106,7 @@ export default function LandingPage() {
           </div>
 
           {/* Interactive Booth Overlay */}
-          <div 
+          <div
             className="absolute z-10"
             style={{
               left: '30.5%',
@@ -133,7 +133,7 @@ export default function LandingPage() {
               <PhotoBooth showLive={false} />
             </motion.button>
           </div>
-          
+
           {/* Tap to enter CTA over the booth */}
           <motion.div
             className="absolute z-30 pointer-events-none select-none w-full flex justify-center top-[82%] md:top-[90%]"
@@ -145,7 +145,7 @@ export default function LandingPage() {
             <motion.div animate={{ y: [0, -5, 0] }} transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
               <div className="flex flex-col items-center gap-1">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
-                  <path d="M10 16 L10 4 M4 10 L10 4 L16 10" stroke="#d4a853" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M10 16 L10 4 M4 10 L10 4 L16 10" stroke="#d4a853" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
                 <p className="font-vintage text-2xl font-bold text-[#d4a853] drop-shadow-md">
                   Tap to enter
