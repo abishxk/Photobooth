@@ -73,7 +73,7 @@ export default function LandingPage() {
              Tweaking these variables changes the interactive overlays ONLY. */
           :root {
             /* 1. SCENE ZOOM (Zoom the entire room in/out) */
-            --mobile-scene-scale: 1.0; /* Decrease this to make everything smaller on mobile */
+            --mobile-scene-scale: 0.8; /* Decrease this to make everything smaller on mobile */
             --mobile-scene-x: -47.75%; /* Move the entire room left/right */
             --mobile-scene-y: -50%;    /* Move the entire room up/down */
 
@@ -85,7 +85,7 @@ export default function LandingPage() {
 
             /* 3. BOOTH OVERLAY ADJUSTMENTS */
             /* reset to perfectly match the baked background */
-            --mobile-booth-scale: 0.30 /* adjust here */
+            --mobile-booth-scale: 0.1/* adjust here */
             --mobile-booth-x: 0%;      /* adjust here */
             --mobile-booth-y: 0%;      /* adjust here */
           }
