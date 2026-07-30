@@ -91,9 +91,9 @@ export default function LandingPage() {
             className="absolute z-20"
             style={{
               // Approximate percentage placement
-              left: '21.5%',
+              left: '21%',
               top: '64.5%',
-              width: '25%',
+              width: '26%',
             }}
           >
             <motion.div
