@@ -130,8 +130,8 @@ export default function CameraCapture() {
     const video = webcamRef.current?.video;
     if (!video || video.readyState < 2) return null;
 
-    const outW = 720;
-    const outH = 960;
+    const outW = 1440;
+    const outH = 1920;
 
     const vw = video.videoWidth;
     const vh = video.videoHeight;
@@ -352,8 +352,8 @@ export default function CameraCapture() {
                 ref={webcamRef}
                 audio={false}
                 videoConstraints={{
-                  width:  { ideal: 1080 },
-                  height: { ideal: 1080 },
+                  width:  { ideal: 1920 },
+                  height: { ideal: 1920 },
                   facingMode: 'user',
                 }}
                 mirrored={false}
