@@ -140,7 +140,6 @@ export default function ResultPage() {
         <PhotoStrip
           ref={stripRef}
           photos={capturedPhotos}
-          colorMode={settings.colorMode}
           showTimestamp={settings.showTimestamp}
           stripStyle={settings.stripStyle}
           roundedEdges={settings.roundedEdges}

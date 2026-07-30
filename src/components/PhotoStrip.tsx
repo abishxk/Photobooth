@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import type { StripStyle, ColorMode } from '../types';
+import type { StripStyle } from '../types';
 
 interface PhotoStripProps {
   photos: string[];

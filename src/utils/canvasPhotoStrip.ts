@@ -1,4 +1,4 @@
-import type { ColorMode, StripStyle } from '../types';
+import type { StripStyle } from '../types';
 
 /**
  * Detects if the current user agent / device is running iOS or iPadOS.
